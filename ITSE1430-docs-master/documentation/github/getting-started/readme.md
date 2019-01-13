@@ -10,34 +10,38 @@ Git supports using the command line, the web interface or Visual Studio for inte
 
 *Note: Git works on files, not folders. If you have empty folders then they are not committed. If you have a folder with no files in it then it will be ignored.*
 
+*Note: Unless otherwise stated all UI work is done from `Team Explorer`. If you do not see `Team Explorer` then go to the `View` menu and click on it.*
+
 ## Cloning a Repository
 
 *Note: Cloning a repository is only necessary the first time a new repository is used on a machine or if the local repository folder is deleted. Thereafter cloning is not necessary.*
 
 In order to work with a repository locally you need to clone it. Cloning a repository will set up the structure needed by git and will download the repository to your machine. This will generally only need to be done once per repository per machine. If you ever wipe out the directory structure you will need to repeat this process.
 
-1. Open Visual Studio and go to Team Explorer.
-2. Click on `Projects \ Manage Connections`. 
-3. You should see a `Local Git Repositories` list with options to `New` \ `Add` \ `Clone` repositories.
+1. Click on the `Manage Connections` button in the `Team Explorer` toolbar. It is the "plug" icon.
+1. You should see a `Local Git Repositories` list with options to `New` \ `Add` \ `Clone` repositories.
 
 ![Local Repos](manage-connection.png)
 
-4. At this point you may be prompted to sign into Git.
-5. Click the `Clone` option and enter the URL to the repository you are cloning and the local path you will be storing it in. Each repository must be in its own folder path. 
+1. At this point you may be prompted to sign into Git.
+1. If the repository appears under `Local Git Repositories` then it is already cloned and you do not need to do it again.
+1. If the repository appears under `GitHub` then you can select it and then click `Clone` to clone it locally.
+1. Otherwise click the `Clone` option under `Local Git Repositories`.
+   1. Enter the URL to the repository you are cloning (e.g. https://github.com/myaccount/myrepo). *Note: Generally it is best to copy this from the browser address bar while on the root of the repository.*
+   1. The local path will be updated to include the repository name. If the local path is not correct then you can adjust it in the `Tools \ Options` in Visual studio.
+   1. If the local path does not match the repository name then it likely already exists and does not need to be cloned again.
+   1. Click `Clone` to clone the repository.
 
 ![CLone Repo](clone-repo.png)
-
-6. Clicking `Clone` will download the repository.
 
 ## Opening a Repository
 
 When opening Visual Studio back up you will need to open the repository containing your code.
 
-1. Open Visual Studio and go to Team Explorer.
-2. Click on `Projects \ Manage Connections`. 
-3. You should see a `Local Git Repositories` list with options to `New` \ `Add` \ `Clone` repositories.
-4. The repositories you have already cloned will appear. 
-5. Double click the desired repository to open it.
+1. Click on `Manage Connections`. 
+1. You should see a `Local Git Repositories` list with options to `New` \ `Add` \ `Clone` repositories.
+1. The repositories you have already cloned will appear. 
+1. Double click the desired repository to open it.
 
 Visual Studio will now be connected to the repository. To save you some time Visual Studio will return to the home page for Team Explorer. At the bottom of the page is a list of the solutions you have in the repository. You can either double click the desired solution (if it already exists) or create a new solution. 
 
@@ -97,6 +101,19 @@ In general errors will occur when pushing if they are going to occur. That is be
 
 The first step in diagnosing the issue is looking in the `Team Explorer` window at the error that is displayed. It will often explain the exact issue. The other place to look is in the ```Output``` window of Visual Studio under the ```Source Control - Git``` category.
 
+## Undoing Changes
+
+Sometimes you make changes that you want to revert. It is important to note that you need to undo changes before you have committed them. Once changes are committed (or pushed) it becomes more difficult to undo them.
+
+1. To undo several changes.
+   1. Go to the `Changes` tab in `Team Explorer`.
+   1. For each change you want to undo select the file (or the entire folder) and select `Undo`.
+   1. If the change was an addition then select `Delete`. Alternatively you can also go to the file system and simply remove the file/folder that you added.
+   1. Some times you have to undo changes and then delete them.
+1. To undo changes to a single file (modifications only). 
+   1. Right click the file in `Solution Explorer`.
+   1. Select the `Undo` option to undo the changes.
+
 ### Authentication
 
 When you connect to Git you must have permissions to perform the action you are requesting. Reads are almost always available to everyone and will work but pushing changes requires write access. If you receive an access denied or 403 error then this means your user account is incorrect. To correct this, log back in.
@@ -110,7 +127,7 @@ When you connect to Git you must have permissions to perform the action you are 
 
 If you try to push changes to Git and one of the files that has changed was modified elsewhere and you didn't pull the changes first then you will get a merge conflict. In most cases you will need to manually merge the changes. 
 
-1. Pull the changes from Git.
-2. Use the merge option to merge the changes.
-3. Commit the merge changes.
-4. Try pushing again.
+1. Pull the changes from GitHub.
+1. For each conflict either accept the curent/local version, accept the incoming/server version or merge the changes manually.
+1. Commit the merge changes.
+1. Try pushing again.
