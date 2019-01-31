@@ -48,6 +48,12 @@ namespace HelloWorld
             Console.WriteLine(message);
             Console.Write("Hello World!");
             Console.WriteLine(name);
+
+            struct server
+            {
+            string _Myname;
+            int 
+            };
         }
 
         private static void NewGame ()
@@ -101,7 +107,7 @@ namespace HelloWorld
             //5. Interpolation
             //Console.WriteLine("Completed? " + completed);
             //Console.WriteLine("Completed? {0}" + completed);
-            Console.WriteLine($"Completed: + {completed}");
+            Console.WriteLine($"Completed: {completed}");
 
             // Convert to a string 
             string strPrice = price.ToString("C");
@@ -111,7 +117,7 @@ namespace HelloWorld
 
             //Is string empty
             string input = "";
-            int length = input.Length;
+            //int length = input.Length;
             bool isEmpty;
 
             // these all do the same thing
@@ -177,7 +183,7 @@ namespace HelloWorld
                 case "n": return false;
 
                 default: Console.WriteLine("Invalid choice");
-                
+                break;
             }
 
             // TODO Add Validation
@@ -203,6 +209,33 @@ namespace HelloWorld
             };
 
             return 0;
+        }
+
+        private static void PlayWithArrays ()
+        {
+            // initialized and set as is. this can be refrenced
+            //int size = 100;
+            int[] prices = new int[100];
+            string[] ingredients = {"pepperoni","black olives","mushrooms","bell peppers","steak"};
+            for (var index = 0; index < prices.Length; ++index)
+            {
+                prices[index] = index + 1;
+            };
+
+            DisplayArray(prices);
+
+            var input = "field1, field2, field3; field4 ,, field5";
+            var fields = input.Split(',', ';');
+        }
+
+        private static void DisplayArray( int[] values/*, int count*/ )
+        {
+            //focuses on the enumeration 
+            foreach (var item in values)
+            {
+                //Console.WriteLine(values[index]);
+                Console.WriteLine(item);
+            };
         }
 
         private static string name;
