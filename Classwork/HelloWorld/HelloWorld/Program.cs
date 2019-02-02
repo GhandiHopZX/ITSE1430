@@ -48,13 +48,14 @@ namespace HelloWorld
             Console.WriteLine(message);
             Console.Write("Hello World!");
             Console.WriteLine(name);
+        }
 
             struct server
             {
             string _Myname;
-            int 
+            int ub;
             };
-        }
+        
 
         private static void NewGame ()
         {
