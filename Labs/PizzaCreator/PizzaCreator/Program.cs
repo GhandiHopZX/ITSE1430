@@ -8,7 +8,6 @@ namespace PizzaCreator
 {
     class Program
     {
-
         // This is an order name.
         public string orderI;
         // this is the balance for said order.
@@ -22,30 +21,116 @@ namespace PizzaCreator
        
         static void Main( string[] args )
         {
-            PizzaMan();
+            MainMenu();
         }
 
         static void MainMenu()
         {
-            Console.WriteLine("MAIN MENU");
+            string menuDisplay = 
+
+                { "MAIN MENU\n\n",
+                "1. New Order\n",
+                "2. Modify Order\n",
+                "3. Display Order\n",
+                "4. Quit"};
+            
+
         }
 
         static void Orders()
         {
+            // number holder
             int x = 0;
 
+            // Ordering criteria
+
+            // size holder
+            string userSize= "";
+
+            // size type
+            string pizza_size = {"Small ($5),\n ","Medium ($6.25),\n ",
+            "Large ($8.75)"};
+
+            // meat type 
+            string meat_Type = {"($0.75)each\n Bacon,\n ","Ham, ",
+            "Pepperoni, ","Sausage"};
+
+            // meat holder
+            string usermeat = "";
+
+            // veg type 
+            string veg_Type = {"($0.50)each\n Black Olives,", "\n Mushrooms,",
+            "\n, Onions,", "\n Peppers"};
+
+            // veg holder 
+            string userveg = "";
+
+            // Sause type 
+            string sause_Type = {"Traditional($0),\n",
+            "Garlic($1),\n", "Oregano($1)\n"};
+
+            // sause holder 
+            string userveg = "";
+
+            // Cheese type 
+            string veg_Type = {"Regular ($0)", "Extra ($1.25)"};
+
+            // Cheese holder 
+            string usercheese = "";
+
+            // delivery type 
+            string delivery_Type = {"Take Out ($0)", "Delivery ($2.50)"};
+
+            // veg holder 
+            string userveg = "";
+
             // what size is the Pizza
+
+            Console.WriteLine("What size of a Pizza would you like?");
+            Console.WriteLine(pizza_size);
             
-            //think
+            // taking the size of the pizza
+
+            userSize = Console.ReadLine();
+            
             // what Meats
+            // what meats do you want to have?
+            Console.WriteLine("What meats would you like?");
+            Console.WriteLine(meat_Type);
+            
+            usermeat = Console.ReadLine();
 
             // what vegetables
 
+            Console.WriteLine("What vegetables would you like?");
+            Console.WriteLine(veg_Type);
+            
+            userveg = Console.ReadLine();
+
             // what Sause amount
+
+            Console.WriteLine("What sause would you like?");
+            Console.WriteLine(sause_Type);
+            
+            usersause = Console.ReadLine();
 
             // what cheese amount
 
-            // what is it delvery or DiGiorno
+            Console.WriteLine("What kind of cheese(s) would you like?");
+            Console.WriteLine(cheese_Type);
+            
+            usercheese = Console.ReadLine();
+
+            // Delivery or takout>?
+
+            Console.WriteLine("Delivery or Take Out?");
+            Console.WriteLine(delivery_Type);
+            
+            userdelivery = Console.ReadLine();
+
+            // Passing values and math stuff
+
+            
 
         }
 
@@ -94,4 +179,5 @@ namespace PizzaCreator
 
 class PID
 {
+
 }
