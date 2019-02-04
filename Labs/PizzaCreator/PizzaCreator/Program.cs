@@ -33,8 +33,33 @@ namespace PizzaCreator
                 "2. Modify Order\n",
                 "3. Display Order\n",
                 "4. Quit"};
-            
 
+            string mainInput = "";
+
+            // Formating
+            menuDisplay.PadLeft(10);
+
+             switch (mainInput)
+                {
+                    case "1":
+                    case "one":
+
+                    case "2":
+                    case "two":
+
+                    case "3":
+                    case "three":
+
+                    case "4":
+                    case "four":
+
+                    default:
+
+                    Console.WriteLine("Invalid input.");
+
+                    break;
+
+                }
         }
 
         static void Orders()
@@ -129,9 +154,27 @@ namespace PizzaCreator
             userdelivery = Console.ReadLine();
 
             // Passing values and math stuff
-
             
+                switch (userSize)
+                {
+                    case "large":
+                    case "Large":
+                    case "L":
 
+
+                    case "medium":
+
+                    case "3":
+
+                    case "4":
+
+                    default:
+
+                    Console.WriteLine("Invalid input.");
+
+                    break;
+
+                }
         }
 
         static void PizzaMan()
@@ -175,9 +218,25 @@ namespace PizzaCreator
 
         }
     }
+
+    class PID
+    {
+        private decimal order_price = 0.00;
+
+        public Order(ref string size, ref string meats, ref string veg, 
+            ref string sauce, ref string cheese, ref string delivery)
+        {
+            // Type
+            switch (PID("Large"))
+                {
+                    
+                }
+
+            // Pricing
+
+            // Quantity
+
+        }
+    }
 }
 
-class PID
-{
-
-}
