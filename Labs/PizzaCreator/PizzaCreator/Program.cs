@@ -58,6 +58,20 @@ namespace PizzaCreator
                 }
         }
 
+        static void Pizza( ref string size,
+            ref string meats,
+            ref string vegies,
+            ref string sauce,
+            ref string cheese,
+            ref string delivery )
+        {
+            //work on the quantity ref next bleeeeeehhhh...
+            //Pizza orders.
+            //Each object has a set of properties.
+            //like every other unique pizza.
+
+        }
+
         static void Orders()
         {
             // number holder
@@ -66,8 +80,8 @@ namespace PizzaCreator
             // Ordering criteria
 
             // size holder
-            string userSize= "";
-
+            string userSize = "";
+            
             // size type
             string[] pizza_size = {"Small ($5),\n ","Medium ($6.25),\n ",
             "Large ($8.75)"};
@@ -94,84 +108,152 @@ namespace PizzaCreator
             string usersause = "";
 
             // Cheese type 
-            string[] cheese_Type = {"Regular ($0)", "Extra ($1.25)"};
+            string[] cheese_Type = { "Regular ($0)", "Extra ($1.25)" };
 
             // Cheese holder 
             string usercheese = "";
 
             // delivery type 
-            string[] delivery_Type = {"Take Out ($0)", "Delivery ($2.50)"};
+            string[] delivery_Type = { "Take Out ($0)", "Delivery ($2.50)" };
 
             // delivery holder 
             string userdelivery = "";
 
-            // what size is the Pizza
-
-            Console.WriteLine("What size of a Pizza would you like?");
-            Console.WriteLine(pizza_size);
-            
-            // taking the size of the pizza
-
-            userSize = Console.ReadLine();
-            
             // what Meats
             // what meats do you want to have?
             Console.WriteLine("What meats would you like?");
             Console.WriteLine(meat_Type);
-            
+
             usermeat = Console.ReadLine();
 
             // what vegetables
 
             Console.WriteLine("What vegetables would you like?");
             Console.WriteLine(veg_Type);
-            
+
             userveg = Console.ReadLine();
 
             // what Sause amount
 
             Console.WriteLine("What sause would you like?");
             Console.WriteLine(sause_Type);
-            
+
             usersause = Console.ReadLine();
 
             // what cheese amount
 
             Console.WriteLine("What kind of cheese(s) would you like?");
             Console.WriteLine(cheese_Type);
-            
+
             usercheese = Console.ReadLine();
 
             // Delivery or takout>?
 
             Console.WriteLine("Delivery or Take Out?");
             Console.WriteLine(delivery_Type);
-            
+
             userdelivery = Console.ReadLine();
 
             // Passing values and math stuff
-            
-            // Computing the size
+            // The user must make a selection therefore the user is busy
+        { 
+            bool userbusy = true;
+
+            do
+            {
+                // what size is the Pizza
+
+                Console.WriteLine("What size of a Pizza would you like?");
+                Console.WriteLine(pizza_size);
+                // taking the size of the pizza
+
+                userSize = Console.ReadLine();
+
+                // Computing the size
                 switch (userSize)
                 {
                     case "large":
                     case "Large":
-                    case "L":
+                    case "lar":
+                    case "l":
                     userSize = "Large";
+                    userbusy = false;
+                    break;
 
                     case "medium":
+                    case "Medium":
+                    case "med":
+                    case "m":
+                    userSize = "Medium";
+                    userbusy = false;
+                    break;
 
-                    case "3":
-
-                    case "4":
+                    case "small":
+                    case "Small":
+                    case "sml":
+                    case "s":
+                    userSize = "Small";
+                    userbusy = false;
+                    break;
 
                     default:
 
                     Console.WriteLine("Invalid input.");
+                    break;
+                }
+            } while (userbusy == true);
 
+        } // Pizza Size
+
+        {
+            // user is busy again
+            bool popout1 = true;
+
+            do
+            {
+                // taking the meats of the pizza
+
+                userSize = Console.ReadLine();
+
+                // Computing the size
+                switch (userSize)
+                {
+                    case "Bacon":
+                    case "bacon":
+                    case "bac":
+                    case "b":
+                    usermeat = "Bacon";
+                    popout1 = false;
                     break;
 
+                    case "medium":
+                    case "Medium":
+                    case "med":
+                    case "m":
+                    userSize = "Medium";
+                    popout1 = false;
+                    break;
+
+                    case "small":
+                    case "Small":
+                    case "sml":
+                    case "s":
+                    userSize = "Small";
+                    popout1 = false;
+                    break;
+
+                    default:
+
+                    Console.WriteLine("Invalid input.");
+                    break;
                 }
+            } while (popout1 == true);
+
+        } // Neat Meats being eaten
+
+            Pizza(ref userSize, ref usermeat
+                , ref userveg, ref usersause,
+                ref usercheese, ref userdelivery);
         }
 
         static void PizzaMan()
@@ -205,28 +287,26 @@ namespace PizzaCreator
 
 
         }
-
-        public void Pizza()
-        {
-
-            //Pizza orders.
-            //Each object has a set of properties.
-            //like every other unique pizza.
-
-        }
     }
 
     class PID
     {
-        private decimal order_price = 0.00;
+        private decimal order_price = 0.00M;
 
-        public Order(ref string size, ref string meats, ref string veg, 
-            ref string sauce, ref string cheese, ref string delivery)
+        public void Order(ref string size, 
+            ref string meats, 
+            ref string veg, 
+            ref string sauce, 
+            ref string cheese, 
+            ref string delivery)
         {
+            
             // Type
-            switch (PID(Orders.userSize))
+            switch (size)
             {
-                case "Large": 
+                case "tempfix":
+
+                break;
                 
             }
 
@@ -235,7 +315,8 @@ namespace PizzaCreator
             // Quantity
 
             // Order Object instantiation.
-
+            
+            return;
         }
     }
 }
