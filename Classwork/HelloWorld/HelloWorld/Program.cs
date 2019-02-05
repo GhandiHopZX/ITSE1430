@@ -178,6 +178,7 @@ namespace HelloWorld
             switch (result)
             {
                 case "Y":
+                case "why":
                 case "y": return true;
                 
                 case "N":

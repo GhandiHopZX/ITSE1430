@@ -28,11 +28,7 @@ namespace PizzaCreator
         {
             string menuDisplay = 
 
-                { "MAIN MENU\n\n",
-                "1. New Order\n",
-                "2. Modify Order\n",
-                "3. Display Order\n",
-                "4. Quit"};
+                "MAIN MENU\n\n1. New Order\n 2. Modify Order\n 3. Display Order\n 4. Quit";
 
             string mainInput = "";
 
@@ -73,41 +69,41 @@ namespace PizzaCreator
             string userSize= "";
 
             // size type
-            string pizza_size = {"Small ($5),\n ","Medium ($6.25),\n ",
+            string[] pizza_size = {"Small ($5),\n ","Medium ($6.25),\n ",
             "Large ($8.75)"};
 
             // meat type 
-            string meat_Type = {"($0.75)each\n Bacon,\n ","Ham, ",
+            string[] meat_Type = {"($0.75)each\n Bacon,\n ","Ham, ",
             "Pepperoni, ","Sausage"};
 
             // meat holder
             string usermeat = "";
 
             // veg type 
-            string veg_Type = {"($0.50)each\n Black Olives,", "\n Mushrooms,",
+            string[] veg_Type = {"($0.50)each\n Black Olives,", "\n Mushrooms,",
             "\n, Onions,", "\n Peppers"};
 
             // veg holder 
             string userveg = "";
 
             // Sause type 
-            string sause_Type = {"Traditional($0),\n",
+            string[] sause_Type = {"Traditional($0),\n",
             "Garlic($1),\n", "Oregano($1)\n"};
 
             // sause holder 
-            string userveg = "";
+            string usersause = "";
 
             // Cheese type 
-            string veg_Type = {"Regular ($0)", "Extra ($1.25)"};
+            string[] cheese_Type = {"Regular ($0)", "Extra ($1.25)"};
 
             // Cheese holder 
             string usercheese = "";
 
             // delivery type 
-            string delivery_Type = {"Take Out ($0)", "Delivery ($2.50)"};
+            string[] delivery_Type = {"Take Out ($0)", "Delivery ($2.50)"};
 
-            // veg holder 
-            string userveg = "";
+            // delivery holder 
+            string userdelivery = "";
 
             // what size is the Pizza
 
@@ -155,12 +151,13 @@ namespace PizzaCreator
 
             // Passing values and math stuff
             
+            // Computing the size
                 switch (userSize)
                 {
                     case "large":
                     case "Large":
                     case "L":
-
+                    userSize = "Large";
 
                     case "medium":
 
@@ -227,14 +224,17 @@ namespace PizzaCreator
             ref string sauce, ref string cheese, ref string delivery)
         {
             // Type
-            switch (PID("Large"))
-                {
-                    
-                }
+            switch (PID(Orders.userSize))
+            {
+                case "Large": 
+                
+            }
 
             // Pricing
 
             // Quantity
+
+            // Order Object instantiation.
 
         }
     }
