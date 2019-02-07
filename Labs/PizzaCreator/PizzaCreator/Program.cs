@@ -79,14 +79,17 @@ namespace PizzaCreator
             } while (userpopM == true);
         }
 
-        static void Pizza( ref string size,
+        static void Pizza
+            ( 
+            ref string size,
             ref string meats,
             ref int amountm,
             ref int amountv,
             ref string vegies,
             ref string sauce,
             ref string cheese,
-            ref string delivery )
+            ref string delivery 
+            )
         {
             //work on the quantity ref next bleeeeeehhhh...
             //Pizza orders.
@@ -332,14 +335,21 @@ namespace PizzaCreator
                     Console.WriteLine("Invalid input.");
                     break;
                 }
+
             } while (popout2 == true);
 
         } // vegeies being taken
 
-            Pizza(ref userSize, ref usermeat,
-                ref amountmeats, ref amountvegies
-                , ref userveg, ref usersause,
-                ref usercheese, ref userdelivery);
+            Pizza(
+                ref userSize, 
+                ref usermeat,
+                ref amountmeats,
+                ref amountvegies, 
+                ref userveg,
+                ref usersause,
+                ref usercheese, 
+                ref userdelivery
+                );
 
         }
 
