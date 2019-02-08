@@ -8,17 +8,17 @@ namespace PizzaCreator
 {
     class Program
     {
-        // This is an order name.
-        public string orderI;
+        // This is an order name and
         // this is the balance for said order.
-        public decimal _displayBalance { get; set; }
-
-        // This is the balance.
-        private void Balance(ref decimal balance)
+        // There's only one order so just pass these values and execute
+        public void CartPrice(ref string orderN, ref decimal orderT)
         {
-          _displayBalance = balance;
+            orderN = "";
+            orderT = 0.00M;
+
+            Console.WriteLine("Cart Price: " + orderT);
         }
-       
+
         static void Main( string[] args )
         {
             MainMenu();
@@ -26,6 +26,10 @@ namespace PizzaCreator
 
         static void MainMenu()
         {
+            // int DisplayTotal = (){ };
+
+
+
             string menuDisplay = 
 
                 "MAIN MENU\n\n 1. New Order\n 2. Modify Order\n 3. Display Order\n 4. Quit";
@@ -50,23 +54,30 @@ namespace PizzaCreator
                 {
                     case "1":
                     case "one":
+                    Orders();
                     userpopM = false;
 
                     break;
 
                     case "2":
                     case "two":
+                    //DisplayOrders();
                     userpopM = false;
+
                     break;
 
                     case "3":
                     case "three":
+                    //Modify();
                     userpopM = false;
+
                     break;
 
+                    //Exits by default
                     case "4":
                     case "four":
                     userpopM = false;
+                    
                     break;
 
                     default:
@@ -96,7 +107,7 @@ namespace PizzaCreator
             //Each object has a set of properties.
             //like every other unique pizza.
 
-        }
+        }//Pizza values
 
         static void Orders()
         {
@@ -124,7 +135,6 @@ namespace PizzaCreator
             // veg type 
             string[] veg_Type = {"($0.50)each\n Black Olives,", "\n Mushrooms,",
             "\n, Onions,", "\n Peppers"};
-            
 
             // veg holder 
             string userveg = "";
@@ -144,34 +154,34 @@ namespace PizzaCreator
             // Cheese holder 
             string usercheese = "";
 
-            // delivery type 
+            // Delivery type 
             string[] delivery_Type = { "Take Out ($0)", "Delivery ($2.50)" };
 
-            // delivery holder 
+            // Delivery holder 
             string userdelivery = "";
 
-            // what Meats
+            // What Meats
             // what meats do you want to have?
             Console.WriteLine("What meats would you like?");
             Console.WriteLine(meat_Type);
 
             usermeat = Console.ReadLine();
 
-            // what vegetables
+            // What vegetables
 
             Console.WriteLine("What vegetables would you like?");
             Console.WriteLine(veg_Type);
 
             userveg = Console.ReadLine();
 
-            // what Sause amount
+            // What Sause amount
 
             Console.WriteLine("What sause would you like?");
             Console.WriteLine(sause_Type);
 
             usersause = Console.ReadLine();
 
-            // what cheese amount
+            // What cheese amount
 
             Console.WriteLine("What kind of cheese(s) would you like?");
             Console.WriteLine(cheese_Type);
@@ -185,11 +195,14 @@ namespace PizzaCreator
 
             userdelivery = Console.ReadLine();
 
+
+
+
             // Passing values and math stuff
             // The user must make a selection therefore the user is busy
 
-        { 
-            bool userbusy = true;
+            {
+                bool userbusy = true;
 
             do
             {
@@ -235,7 +248,7 @@ namespace PizzaCreator
                 }
             } while (userbusy == true);
 
-        } // Pizza Size
+        } 
 
         {
             // user is busy again
@@ -254,6 +267,7 @@ namespace PizzaCreator
                     case "bacon":
                     case "bac":
                     case "b":
+                    
                     usermeat = "Bacon";
                     popout1 = false;
                     break;
@@ -276,7 +290,7 @@ namespace PizzaCreator
                     case "Sausage":
                     case "sausage":
                     case "s":
-                    usermeat = "";
+                    usermeat = "Sausage";
                     popout1 = false;
                     break;
 

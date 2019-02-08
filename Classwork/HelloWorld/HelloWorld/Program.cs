@@ -217,7 +217,7 @@ namespace HelloWorld
         {
             // initialized and set as is. this can be refrenced
             //int size = 100;
-            int[] prices = new int[100];
+            int[] prices = new int[5];
             string[] ingredients = {"pepperoni","black olives","mushrooms","bell peppers","steak"};
             for (var index = 0; index < prices.Length; ++index)
             {
