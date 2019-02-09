@@ -35,23 +35,20 @@ namespace PizzaCreator
                 newTotal = 0.00M;
             }
 
-            Console.WriteLine("Cart Price: $" + newTotal);
+            Console.WriteLine("{0:N2}"," Cart Price: $" + newTotal + "\n");
             return 0;
-        }
-
-        public void DisplayTotal(decimal NTotal)
-        {
-            Console.WriteLine("Cart Price: $" + NTotal);
         }
 
         static void Main( string[] args )
         {
-            pricecheck(_total);
             MainMenu();
         }
 
         static void MainMenu()
         {
+            pricecheck(0.00M);
+
+            // General menu
             string menuDisplay = 
 
                 "MAIN MENU\n\n 1. New Order\n 2. Modify Order\n 3. Display Order\n 4. Quit";
@@ -114,7 +111,7 @@ namespace PizzaCreator
 
         static void DisplayOrders()
         {
-            
+            pricecheck(0.00M);
         }
 
         static void Pizza
@@ -138,8 +135,9 @@ namespace PizzaCreator
 
         static void Orders()
         {
+
             // the total added
-            decimal newTotal = 0.00M;
+            decimal newTotal = 0.00M; 
 
             // Displaying CartPrice
             pricecheck(newTotal);
@@ -156,8 +154,7 @@ namespace PizzaCreator
             string pizza_size = "Small ($5),\n Medium ($6.25),\n Large ($8.75)";
 
             // meat type 
-            string[] meat_Type = {"($0.75)each\n Bacon,\n ","Ham, ",
-            "Pepperoni, ","Sausage"};
+            string meat_Type = "($0.75)each\n Bacon,\n Ham, Pepperoni, Sausage";
 
             // meat holder 
             string usermeat = "";
@@ -165,8 +162,7 @@ namespace PizzaCreator
             int amountmeats = 0;
 
             // veg type 
-            string[] veg_Type = {"($0.50)each\n Black Olives,", "\n Mushrooms,",
-            "\n, Onions,", "\n Peppers"};
+            string veg_Type = "($0.50)each\n Black Olives, \n Mushrooms, \n, Onions \n Peppers";
 
             // veg holder 
             string userveg = "";
@@ -174,20 +170,19 @@ namespace PizzaCreator
             int amountvegies = 0;
 
             // Sause type 
-            string[] sause_Type = {"Traditional($0),\n",
-            "Garlic($1),\n", "Oregano($1)\n"};
+            string sause_Type = "Traditional($0),\n Garlic($1),\n Oregano($1)\n";
 
             // sause holder 
             string usersause = "";
 
             // Cheese type 
-            string[] cheese_Type = { "Regular ($0)", "Extra ($1.25)" };
+            string cheese_Type = "Regular ($0), Extra ($1.25)" ;
 
             // Cheese holder 
             string usercheese = "";
 
             // Delivery type 
-            string[] delivery_Type = { "Take Out ($0)", "Delivery ($2.50)" };
+            string delivery_Type ="Take Out ($0), Delivery ($2.50)";
 
             // Delivery holder 
             string userdelivery = "";
@@ -217,7 +212,6 @@ namespace PizzaCreator
 
             {
                 bool userbusy = true;
-
             do
             {
                 // what size is the Pizza
@@ -376,6 +370,139 @@ namespace PizzaCreator
 
         } // vegeies being taken
 
+        {
+            // user is busy again
+            bool popout4 = true;
+
+            do
+            {
+                // What Sause type
+
+                Console.WriteLine("What type of sause would you like?");
+                Console.WriteLine(sause_Type);
+
+                usersause = Console.ReadLine();
+
+                // Computing the size
+                switch (usersause)
+                {
+                    case "Traditional":
+                    case "Trad":
+                    case "tr":
+                    case "t":
+                    usersause = "Traditional";
+                    popout4 = false;
+                    break;
+
+                    case "Garlic":
+                    case "garlic":
+                    case "g":
+                    usersause = "Garlic";
+                    popout4 = false;
+                    break;
+
+                    case "Oregano":
+                    case "oregano":
+                    case "o":
+                    usersause = "Oregano";
+                    popout4 = false;
+                    break;
+
+                        default:
+                    Console.WriteLine("Invalid input.");
+                    break;
+                }
+
+            } while (popout4 == true);
+
+        } // sause being taken
+
+            {
+            // user is busy again
+             bool popout3 = true;
+
+            do
+            {
+                    // What Cheese type
+
+                Console.WriteLine("Extra cheese or Regular amount?");
+                Console.WriteLine(cheese_Type);
+
+                usercheese = Console.ReadLine();
+
+                // Computing the size
+                switch (usercheese)
+                {
+                    case "Regular":
+                    case "regular":
+                    case "R":
+                    case "r":
+                    usercheese = "Regular";
+                    popout3 = false;
+                    break;
+
+                    case "Extra":
+                    case "Ex":
+                    case "e":
+                    usercheese = "Extra";
+                    popout3 = false;
+                    break;
+
+                    default:
+                    Console.WriteLine("Invalid input.");
+                    break;
+                }
+
+            } while (popout3 == true);
+
+        } // Cheese being taken
+
+        {
+            // user is busy again
+            bool popout5 = true;
+
+            do
+            {
+                // Delivery or Takout
+
+                Console.WriteLine("Takeout or Delivery?");
+                Console.WriteLine(delivery_Type);
+
+                userdelivery = Console.ReadLine();
+
+                // Computing the size
+                switch (userdelivery)
+                {
+                    case "Takeout":
+                    case "Take Out":
+                    case "TakeOut":
+                    case "to":
+                    userdelivery = "Take Out";
+                    popout5 = false;
+                    break;
+
+                    case "Delivery":
+                    case "delivery":
+                    case "d":
+                    userdelivery = "Delivery";
+                    popout5 = false;
+                    break;
+
+                    default:
+                    Console.WriteLine("Invalid input.");
+                    break;
+                }
+
+            } while (popout5 == true);
+
+        } // Delivery?
+
+            //all the stuff being ordered are totaled here.
+            // newTotal += 
+
+
+            //This is the Pizza method call for 
+            //passing values to this outside method
             Pizza(
                 ref userSize, 
                 ref usermeat,
