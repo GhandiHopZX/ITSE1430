@@ -8,28 +8,50 @@ namespace PizzaCreator
 {
     class Program
     {
-        // This is an order name and
+      
         // this is the balance for said order.
         // There's only one order so just pass these values and execute
-        public void CartPrice(ref string orderN, ref decimal orderT)
-        {
-            orderN = "";
-            orderT = 0.00M;
 
-            Console.WriteLine("Cart Price: " + orderT);
+        static decimal _total;
+        
+        public decimal Total
+        {
+            get 
+                {
+                return pricecheck(_total);
+                }
+        }
+
+        static decimal pricecheck( decimal OK_added )
+        {
+            decimal newTotal = 0.00M;
+
+            if (OK_added > 0.00m)
+            {
+                newTotal += OK_added;
+            } 
+            else
+            {
+                newTotal = 0.00M;
+            }
+
+            Console.WriteLine("Cart Price: $" + newTotal);
+            return 0;
+        }
+
+        public void DisplayTotal(decimal NTotal)
+        {
+            Console.WriteLine("Cart Price: $" + NTotal);
         }
 
         static void Main( string[] args )
         {
+            pricecheck(_total);
             MainMenu();
         }
 
         static void MainMenu()
         {
-            // int DisplayTotal = (){ };
-
-
-
             string menuDisplay = 
 
                 "MAIN MENU\n\n 1. New Order\n 2. Modify Order\n 3. Display Order\n 4. Quit";
@@ -90,6 +112,11 @@ namespace PizzaCreator
             } while (userpopM == true);
         }
 
+        static void DisplayOrders()
+        {
+            
+        }
+
         static void Pizza
             ( 
             ref string size,
@@ -111,6 +138,12 @@ namespace PizzaCreator
 
         static void Orders()
         {
+            // the total added
+            decimal newTotal = 0.00M;
+
+            // Displaying CartPrice
+            pricecheck(newTotal);
+
             // number holder
             int x = 0;
 
@@ -120,8 +153,7 @@ namespace PizzaCreator
             string userSize = "";
             
             // size type
-            string[] pizza_size = {"Small ($5),\n ","Medium ($6.25),\n ",
-            "Large ($8.75)"};
+            string pizza_size = "Small ($5),\n Medium ($6.25),\n Large ($8.75)";
 
             // meat type 
             string[] meat_Type = {"($0.75)each\n Bacon,\n ","Ham, ",
@@ -159,21 +191,7 @@ namespace PizzaCreator
 
             // Delivery holder 
             string userdelivery = "";
-
-            // What Meats
-            // what meats do you want to have?
-            Console.WriteLine("What meats would you like?");
-            Console.WriteLine(meat_Type);
-
-            usermeat = Console.ReadLine();
-
-            // What vegetables
-
-            Console.WriteLine("What vegetables would you like?");
-            Console.WriteLine(veg_Type);
-
-            userveg = Console.ReadLine();
-
+            
             // What Sause amount
 
             Console.WriteLine("What sause would you like?");
@@ -194,10 +212,6 @@ namespace PizzaCreator
             Console.WriteLine(delivery_Type);
 
             userdelivery = Console.ReadLine();
-
-
-
-
             // Passing values and math stuff
             // The user must make a selection therefore the user is busy
 
@@ -257,8 +271,13 @@ namespace PizzaCreator
             do
             {
                 // taking the meats of the pizza
-
-                usermeat = Console.ReadLine();
+                
+            // What Meats
+            // what meats do you want to have?
+            Console.WriteLine("What meats would you like?");
+            
+            usermeat = Console.ReadLine();
+            Console.WriteLine(meat_Type);
 
                 // Computing the amout of meats 0 or more
                 switch (usermeat)
@@ -308,9 +327,12 @@ namespace PizzaCreator
 
             do
             {
-                // taking the vegies of the pizza
+                // What vegetables
 
-                userveg = Console.ReadLine();
+            Console.WriteLine("What vegetables would you like?");
+            Console.WriteLine(veg_Type);
+
+            userveg = Console.ReadLine();
 
                 // Computing the size
                 switch (userveg)
@@ -367,7 +389,7 @@ namespace PizzaCreator
 
         }
 
-        static void PizzaMan()
+        public void PizzaMan()
         {
             do
             {
@@ -402,7 +424,7 @@ namespace PizzaCreator
 
     class PID
     {
-        private decimal order_price = 0.00M;
+        private decimal _order_price = 0.00M;
 
         public void Order(ref string size, 
             ref string meats, 
