@@ -12,13 +12,13 @@ namespace PizzaCreator
         // this is the balance for said order.
         // There's only one order so just pass these values and execute
 
-        static decimal _total;
+        static decimal s_total;
         
         public decimal Total
         {
             get 
                 {
-                return pricecheck(_total);
+                return pricecheck(s_total);
                 }
         }
 
@@ -46,7 +46,9 @@ namespace PizzaCreator
 
         static void MainMenu()
         {
-            pricecheck(0.00M);
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+            pricecheck(s_total);
 
             // General menu
             string menuDisplay = 
@@ -109,10 +111,6 @@ namespace PizzaCreator
             } while (userpopM == true);
         }
 
-        static void DisplayOrders()
-        {
-            pricecheck(0.00M);
-        }
 
         static void Pizza
             ( 
@@ -123,9 +121,11 @@ namespace PizzaCreator
             ref string vegies,
             ref string sauce,
             ref string cheese,
-            ref string delivery 
+            ref string delivery,
+            ref decimal subtotal
             )
         {
+        
             //work on the quantity ref next bleeeeeehhhh...
             //Pizza orders.
             //Each object has a set of properties.
@@ -142,8 +142,28 @@ namespace PizzaCreator
             // Displaying CartPrice
             pricecheck(newTotal);
 
-            // number holder
-            int x = 0;
+            // number holders
+            int numVeggies = 0;
+
+            int numMeats = 0;
+
+            // booleans for each item
+            bool BC,
+                MyMushrooms,
+                MyOnions,
+                MyPeppers,
+                MyBC,
+                MyOregano, 
+                MyGarlic,
+                MyTraditional,
+                MyRegular,
+                MyExtra,
+                MyTakeOut,
+                MyDelivery,
+                MyBacon,
+                MyPepperoni,
+                MySausage,
+                MyHam;
 
             // Ordering criteria
 
@@ -261,57 +281,195 @@ namespace PizzaCreator
         {
             // user is busy again
             bool popout1 = true;
+            
+            string skip = "";
 
             do
             {
-                // taking the meats of the pizza
-                
+            // taking the meats of the pizza
             // What Meats
             // what meats do you want to have?
             Console.WriteLine("What meats would you like?");
-            
+            Console.WriteLine("Or do you not care for any?: type 'Skip'");
+
             usermeat = Console.ReadLine();
             Console.WriteLine(meat_Type);
 
                 // Computing the amout of meats 0 or more
                 switch (usermeat)
                 {
-                    case "Bacon":
-                    case "bacon":
-                    case "bac":
-                    case "b":
+                case "Bacon":
+                case "bacon":
+                case "bac":
+                case "b":
+                MyBacon = true;
                     
-                    usermeat = "Bacon";
-                    popout1 = false;
-                    break;
+                usermeat = "Bacon";
+                Console.WriteLine("What other Meats?");
+                Console.WriteLine("Or are You done?: Y/N?");
+                Console.WriteLine(meat_Type);
+                skip = Console.ReadLine();
+                    switch (skip)
+                    {
+                        case "y":
+                        case "Y":
+                        case "Yes":
+                        case "YES":
+
+                        popout1 = true;
+
+                        break;
+
+                        case "n":
+                        case "N":
+                        case "No":
+                        case "NO":
+
+                        popout1 = false;
+
+                        break;
+
+                        default:
+
+                        Console.WriteLine("Invalid Option");
+
+                        break;
+                    }
+
+                        break;
 
                     case "Ham":
                     case "ham":
                     case "h":
+                    MyHam = true;
+
                     usermeat = "Ham";
-                    popout1 = false;
-                    break;
+                    Console.WriteLine("What other Meats?");
+                    Console.WriteLine("Or are You done?: Y/N?");
+                    Console.WriteLine(meat_Type);
+                    skip = Console.ReadLine();
+                    switch (skip)
+                    {
+                        case "y":
+                        case "Y":
+                        case "Yes":
+                        case "YES":
+
+                        popout1 = true;
+
+                        break;
+
+                        case "n":
+                        case "N":
+                        case "No":
+                        case "NO":
+
+                        popout1 = false;
+
+                        break;
+
+                        default:
+
+                        Console.WriteLine("Invalid Option");
+
+                        break;
+                        }
+
+                        break;
 
                     case "Pepperoni":
                     case "pepperoni":
                     case "pep":
                     case "p":
+                    MyPepperoni = true;
+
                     usermeat = "Pepperoni";
-                    popout1 = false;
-                    break;
+                    Console.WriteLine("What other Meats?");
+                    Console.WriteLine("Or are You done?: Y/N?");
+                    Console.WriteLine(meat_Type);
+
+                    skip = Console.ReadLine();
+                    switch (skip)
+                    {
+                        case "y":
+                        case "Y":
+                        case "Yes":
+                        case "YES":
+
+                        popout1 = true;
+
+                        break;
+
+                        case "n":
+                        case "N":
+                        case "No":
+                        case "NO":
+
+                        popout1 = false;
+
+                        break;
+
+                        default:
+
+                        Console.WriteLine("Invalid Option");
+
+                        break;
+                    }
+
+                        break;
 
                     case "Sausage":
                     case "sausage":
                     case "s":
+                    MySausage = true;
+
                     usermeat = "Sausage";
+                    Console.WriteLine("What other Meats?");
+                    Console.WriteLine("Or are You done?: Y/N?");
+                    Console.WriteLine(meat_Type);
+
+                    skip = Console.ReadLine();
+                    switch (skip)
+                    {
+                        case "y":
+                        case "Y":
+                        case "Yes":
+                        case "YES":
+
+                        popout1 = true;
+
+                        break;
+
+                        case "n":
+                        case "N":
+                        case "No":
+                        case "NO":
+
+                        popout1 = false;
+
+                        break;
+
+                        default:
+
+                        Console.WriteLine("Invalid Option");
+                        break;
+                    }
+
+                        break;
+
+                    case "skip":
+                    case "Skip":
                     popout1 = false;
+
                     break;
 
                     default:
                     Console.WriteLine("Invalid input.");
                     break;
                 }
-            } while (popout1 == true);
+                    // go back to the top
+
+                } while (popout1 == true);
 
         } // Neat Meats being eat(taken)
 
@@ -319,11 +477,14 @@ namespace PizzaCreator
             // user is busy again
             bool popout2 = true;
 
+            string skip2 = "";
+
             do
             {
                 // What vegetables
 
             Console.WriteLine("What vegetables would you like?");
+            Console.WriteLine("Or do you want to skip this step?: Y or N?");
             Console.WriteLine(veg_Type);
 
             userveg = Console.ReadLine();
@@ -336,14 +497,46 @@ namespace PizzaCreator
                     case "BlackOlives":
                     case "bo":
                     userveg = "Black Olives";
-                    popout2 = false;
+                    Console.WriteLine("What other Meats?");
+                    Console.WriteLine("Or are You done?: Y/N?");
+                    Console.WriteLine(meat_Type);
+                    skip2 = Console.ReadLine();
+                    switch (skip2)
+                        {
+                            case "y":
+                            case "Y":
+                            case "Yes":
+                            case "YES":
+
+                            popout2 = true;
+
+                            break;
+
+                            case "n":
+                            case "N":
+                            case "No":
+                            case "NO":
+
+                            popout2 = false;
+
+                            break;
+
+                            default:
+
+                            Console.WriteLine("Invalid Option");
+
+                            break;
+                        }
+                        MyBC = true;
+                        
                     break;
 
                     case "Mushrooms":
                     case "shrooms":
                     case "m":
                     userveg = "Mushrooms";
-                    popout2 = false;
+                    MyMushrooms = true;
+                        
                     break;
 
                     case "Onions":
@@ -351,13 +544,20 @@ namespace PizzaCreator
                     case "oni":
                     case "o":
                     userveg = "Onions";
-                    popout2 = false;
+                    MyOnions = true;
+                        
                     break;
 
                     case "Peppers":
                     case "peppers":
                     case "p":
                     userveg = "Peppers";
+                    MyPeppers = true;
+                        
+                    break;
+
+                    case "skip":
+                    case "Skip":
                     popout2 = false;
                     break;
 
@@ -392,12 +592,16 @@ namespace PizzaCreator
                     case "t":
                     usersause = "Traditional";
                     popout4 = false;
+
+                    MyTraditional = true;
                     break;
 
                     case "Garlic":
                     case "garlic":
                     case "g":
                     usersause = "Garlic";
+
+                    MyGarlic = true;
                     popout4 = false;
                     break;
 
@@ -405,10 +609,12 @@ namespace PizzaCreator
                     case "oregano":
                     case "o":
                     usersause = "Oregano";
+
+                    MyOregano = true;
                     popout4 = false;
                     break;
 
-                        default:
+                    default:
                     Console.WriteLine("Invalid input.");
                     break;
                 }
@@ -419,11 +625,11 @@ namespace PizzaCreator
 
             {
             // user is busy again
-             bool popout3 = true;
+            bool popout3 = true;
 
             do
             {
-                    // What Cheese type
+                // What Cheese type
 
                 Console.WriteLine("Extra cheese or Regular amount?");
                 Console.WriteLine(cheese_Type);
@@ -477,6 +683,8 @@ namespace PizzaCreator
                     case "Take Out":
                     case "TakeOut":
                     case "to":
+
+                    MyTakeOut = true;
                     userdelivery = "Take Out";
                     popout5 = false;
                     break;
@@ -484,6 +692,8 @@ namespace PizzaCreator
                     case "Delivery":
                     case "delivery":
                     case "d":
+
+                    MyDelivery = true;
                     userdelivery = "Delivery";
                     popout5 = false;
                     break;
@@ -493,27 +703,319 @@ namespace PizzaCreator
                     break;
                 }
 
+                    
             } while (popout5 == true);
 
         } // Delivery?
 
+         Pizza
+           (
+           ref userSize,
+           ref usermeat,
+           ref amountmeats,
+           ref amountvegies,
+           ref userveg,
+           ref usersause,
+           ref usercheese,
+           ref userdelivery,
+           ref newTotal
+           );
+        }
+
+        static void Tally
+           (
+           bool  Ham,
+           bool Bacon, 
+           bool Pepperoni, 
+           bool Sausage,
+           bool  Small,
+           bool  Medium,
+           bool  Large,
+           bool  BlackOlives,
+           bool  Mushrooms,
+           bool  Onions,
+           bool  Peppers,
+           bool  Traditional,
+           bool  Garlic,
+           bool  Oregano,
+           bool  Regular,
+           bool  Extra,
+           bool  TakeOut,
+           bool  Delivery,
+           decimal totaling,
+           int numMeats,
+           int numVeggies
+           )
+        {
+            //Counting the totals
+
+            {
+                //all veggies and meats added
+                if (Ham == true)
+                {
+                    //check the number of meats
+                    if (numMeats > 1)
+                    {
+                        totaling += 0.75M;
+                    } else
+                    {
+                        totaling += 0;
+                    }
+                }
+
+                if (Bacon == true)
+                {
+                    //check the number of meats
+                    if (numMeats > 1)
+                    {
+                        totaling += 0.75M;
+                    } else
+                    {
+                        totaling += 0;
+                    }
+                }
+
+                if (Pepperoni == true)
+                {
+                    //check the number of meats
+                    if (numMeats > 1)
+                    {
+                        totaling += 0.75M;
+                    } else
+                    {
+                        totaling += 0;
+                    }
+                }
+
+                if (Sausage == true)
+                {
+                    //check the number of meats
+                    if (numMeats > 1)
+                    {
+                        totaling += 0.75M;
+                    } else
+                    {
+                        totaling += 0;
+                    }
+                }
+            } //meat buisnes
+
+            {
+                if (BlackOlives == true)
+                {
+                    //check the number of veggies
+                    if (numVeggies > 1)
+                    {
+                        totaling += 0.50M;
+                    } else
+                    {
+                        totaling += 0;
+                    }
+                }
+
+                if (Mushrooms == true)
+                {
+                    //check the number of veggies
+                    if (numVeggies > 1)
+                    {
+                        totaling += 0.50M;
+                    } else
+                    {
+                        totaling += 0;
+                    }
+                }
+
+                if (Onions == true)
+                {
+                    //check the number of veggies
+                    if (numVeggies > 1)
+                    {
+                       totaling += 0.50M;
+                    } else
+                    {
+                       totaling += 0;
+                    }
+                }
+
+                if (Peppers == true)
+                {
+                    //check the number of veggies
+                    if (numVeggies > 1)
+                    {
+                        totaling += 0.50M;
+                    } else
+                    {
+                        totaling += 0;
+                    }
+                }
+            }// veggies
+
             //all the stuff being ordered are totaled here.
-            // newTotal += 
-
-
             //This is the Pizza method call for 
             //passing values to this outside method
-            Pizza(
-                ref userSize, 
-                ref usermeat,
-                ref amountmeats,
-                ref amountvegies, 
-                ref userveg,
-                ref usersause,
-                ref usercheese, 
-                ref userdelivery
-                );
 
+            //this function here would work but it wouldn't be that neat.
+            // pricecheck(totaling);
+
+            //this is the Function that will sort out everything
+            DisplayOrders
+            ( 
+                Ham,
+             Bacon,
+            Pepperoni,
+             Sausage,
+             Small,
+             Medium,
+             Large,
+             BlackOlives,
+             Mushrooms,
+             Onions,
+             Peppers,
+             Traditional,
+             Garlic,
+             Oregano,
+             Regular,
+             Extra,
+             TakeOut,
+             Delivery,
+            totaling,
+            numMeats,
+            numVeggies
+            );
+
+        }
+
+        static void DisplayOrders
+           ( 
+           bool Ham,
+           bool Bacon,
+           bool Pepperoni,
+           bool Sausage,
+           bool Small,
+           bool Medium,
+           bool Large,
+           bool BlackOlives,
+           bool Mushrooms,
+           bool Onions,
+           bool Peppers,
+           bool Traditional,
+           bool Garlic,
+           bool Oregano,
+           bool Regular,
+           bool Extra,
+           bool TakeOut,
+           bool Delivery,
+           decimal totaling,
+           int numMeats,
+           int numVeggies 
+           )
+        {
+            // displaying all orders
+            Console.WriteLine("OK\n Your Total Is:\n\n");
+
+            // size
+            Console.WriteLine("Sizes");
+            if (Small == true)
+            {
+                Console.WriteLine("\tSmall\t\t $5.00\n");
+            }
+            if (Medium == true)
+            {
+                Console.WriteLine("\tMedium\t\t $6.25\n");
+            }
+            if (Large == true)
+            {
+                Console.WriteLine("\tLarge\t\t $8.75\n");
+            }
+            Console.WriteLine("\n");
+
+            // delivery_type
+            if (Delivery == true)
+            {
+                Console.WriteLine("Delivery\n");
+            }
+
+            if (TakeOut == true)
+            {
+                Console.WriteLine("Take Out\n");
+            }
+            Console.WriteLine("\n");
+
+            //vegetables
+            if (Onions == true)
+            {
+                Console.WriteLine("\tOnions\t\t $0.50\n");
+            }
+
+            if (Mushrooms == true)
+            {
+                Console.WriteLine("\tMushrooms\t\t $0.50\n");
+            }
+
+            if (Peppers == true)
+            {
+                Console.WriteLine("\tPeppers\t\t $0.50\n");
+            }
+
+            if (BlackOlives == true)
+            {
+                Console.WriteLine("\tBlackOlives\t\t $0.50\n");
+            }
+            Console.WriteLine("\n");
+
+            //meats
+            if (Bacon == true)
+            {
+                Console.WriteLine("\tBacon\t\t $0.75\n");
+            }
+
+            if (Ham == true)
+            {
+                Console.WriteLine("\tHam\t\t $0.75\n");
+            }
+
+            if (Pepperoni == true)
+            {
+                Console.WriteLine("\tPepperoni\t\t $0.75\n");
+            }
+
+            if (Sausage == true)
+            {
+                Console.WriteLine("\tSausage\t\t $0.75\n");
+            }
+            Console.WriteLine("\n");
+
+            //cheese
+            if (Regular == true)
+            {
+                Console.WriteLine("\tRegular\t\t $0.00\n");
+            }
+
+            if (Extra == true)
+            {
+                Console.WriteLine("\tExtra\t\t $1.25\n");
+            }
+
+            //sause
+            if (Oregano == true)
+            {
+                Console.WriteLine("\tOregano \t\t $1.00\n");
+            }
+
+            if (Garlic == true)
+            {
+                Console.WriteLine("\tGarlic \t\t $1.00\n");
+            }
+
+            if (Traditional == true)
+            {
+                Console.WriteLine("\tTraditional \t\t $0.00\n");
+            }
+
+            Console.WriteLine("-----------------------\n");
+            Console.WriteLine("Total\t\t " + totaling);
+
+            pricecheck(totaling);
         }
 
         public void PizzaMan()
