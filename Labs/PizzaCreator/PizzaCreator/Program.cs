@@ -14,6 +14,31 @@ namespace PizzaCreator
 
         static decimal s_total;
 
+        // here is the 
+       static bool Ham = false;
+       static bool Bacon = false;
+        static bool Pepperoni = false;
+        static bool Sausage = false;
+        static bool Small = false;
+        static bool Medium = false;
+        static bool Large = false;
+        static bool BlackOlives = false;
+        static bool Mushrooms = false;
+        static bool Onions = false;
+        static bool Peppers = false;
+        static bool Traditional = false;
+        static bool Garlic = false;
+        static bool Oregano = false;
+        static bool Regular = false;
+        static bool Extra = false;
+        static bool TakeOut = false;
+        static bool Delivery = false;
+        static decimal totaling = 0.00M;
+        static int numMeats = 0;
+        static int numVeggies = 0;
+        static bool OrderSet = false;
+
+        // Order to string 
         static string Ordersol;
         
         public decimal Total
@@ -668,7 +693,31 @@ namespace PizzaCreator
                     case "2":
                     case "two":
                     CLS();
-                    //Modify();
+                    Modify
+                        (
+                        ref Ham,
+                        ref Bacon,
+                        ref Pepperoni,
+                        ref Sausage,
+                        ref Small,
+                        ref Medium,
+                        ref Large,
+                        ref BlackOlives,
+                        ref Mushrooms,
+                        ref Onions,
+                        ref Peppers,
+                        ref Traditional,
+                        ref Garlic,
+                        ref Oregano,
+                        ref Regular,
+                        ref Extra,
+                        ref TakeOut,
+                        ref Delivery,
+                        ref totaling,
+                        ref numMeats,
+                        ref numVeggies,
+                        ref OrderSet
+                        );
                     userpopM = false;
 
                     break;
@@ -676,17 +725,31 @@ namespace PizzaCreator
                     case "3":
                     case "three":
                     CLS();
-                    string s0 = "";
-                    bool b0 = String.IsNullOrEmpty(s0);
-                    if (b0 == true)
-                    {
-                        Console.WriteLine("No order exists..");
-                        Console.WriteLine("Would you Like to start a new order..?");
-                        PizzaMan();
-                    }
-
-                    else
-                    { Console.WriteLine(Ordersol); }
+                    DisplayOrders2
+                        (
+                        ref Ham,
+                        ref Bacon,
+                        ref Pepperoni,
+                        ref Sausage,
+                        ref Small,
+                        ref Medium,
+                        ref Large,
+                        ref BlackOlives,
+                        ref Mushrooms,
+                        ref Onions,
+                        ref Peppers,
+                        ref Traditional,
+                        ref Garlic,
+                        ref Oregano,
+                        ref Regular,
+                        ref Extra,
+                        ref TakeOut,
+                        ref Delivery,
+                        ref totaling,
+                        ref numMeats,
+                        ref numVeggies,
+                        ref OrderSet
+                        );
                     userpopM = false;
 
                     break;
@@ -709,8 +772,37 @@ namespace PizzaCreator
             } while (userpopM == true);
         }
 
+        public static void Modify
+            (
+            ref bool Ham,
+            ref bool Bacon,
+            ref bool Pepperoni,
+            ref bool Sausage,
+            ref bool Small,
+            ref bool Medium,
+            ref bool Large,
+            ref bool BlackOlives,
+            ref bool Mushrooms,
+            ref bool Onions,
+            ref bool Peppers,
+            ref bool Traditional,
+            ref bool Garlic,
+            ref bool Oregano,
+            ref bool Regular,
+            ref bool Extra,
+            ref bool TakeOut,
+            ref bool Delivery,
+            ref decimal totaling,
+            ref int numMeats,
+            ref int numVeggies,
+            ref bool OrderSet
+            )
+        {
+
+        }
+
         public static void Tally
-           (
+          (
           ref bool Ham,
           ref bool Bacon,
           ref bool Pepperoni,
@@ -733,8 +825,7 @@ namespace PizzaCreator
           ref int numMeats,
           ref int numVeggies,
           ref bool OrderSet
-
-           ) // Tab is here
+          ) // Tab is here
         {
             //all the stuff being ordered are totaled here.
             //Counting the totals
@@ -879,166 +970,6 @@ namespace PizzaCreator
             ref numVeggies,
             ref OrderSet
             );
-
-        }
-
-        public static void DisplayOrders
-           (
-           ref bool Ham,
-           ref bool Bacon,
-           ref bool Pepperoni,
-           ref bool Sausage,
-           ref bool Small,
-           ref bool Medium,
-           ref bool Large,
-           ref bool BlackOlives,
-           ref bool Mushrooms,
-           ref bool Onions,
-           ref bool Peppers,
-           ref bool Traditional,
-           ref bool Garlic,
-           ref bool Oregano,
-           ref bool Regular,
-           ref bool Extra,
-           ref bool TakeOut,
-           ref bool Delivery,
-           ref decimal totaling,
-           ref int numMeats,
-           ref int numVeggies,
-           ref bool OrderSet
-           )
-        {
-            if (OrderSet == true)
-            {
-                // displaying all orders
-                Console.WriteLine("OK\n Your Total Is:\n\n");
-
-                {
-                    // size
-                    Console.WriteLine("Sizes");
-                    if (Small == true)
-                    {
-                        Console.WriteLine("\tSmall\t\t $5.00\n");
-                    }
-                    if (Medium == true)
-                    {
-                        Console.WriteLine("\tMedium\t\t $6.25\n");
-                    }
-                    if (Large == true)
-                    {
-                        Console.WriteLine("\tLarge\t\t $8.75\n");
-                    }
-                    Console.WriteLine("\n");
-                } // Sizes
-
-                {
-                    // delivery_type
-                    if (Delivery == true)
-                    {
-                        Console.WriteLine("Delivery\n");
-                    }
-
-                    if (TakeOut == true)
-                    {
-                        Console.WriteLine("Take Out\n");
-                    }
-                    Console.WriteLine("\n");
-                } // Delivery
-
-                {
-                    //vegetables
-                    if (Onions == true)
-                    {
-                        Console.WriteLine("\tOnions\t\t $0.50\n");
-                    }
-
-                    if (Mushrooms == true)
-                    {
-                        Console.WriteLine("\tMushrooms\t\t $0.50\n");
-                    }
-
-                    if (Peppers == true)
-                    {
-                        Console.WriteLine("\tPeppers\t\t $0.50\n");
-                    }
-
-                    if (BlackOlives == true)
-                    {
-                        Console.WriteLine("\tBlackOlives\t\t $0.50\n");
-                    }
-                    Console.WriteLine("\n");
-                } // Veggies
-
-                {
-                    //meats
-                    if (Bacon == true)
-                    {
-                        Console.WriteLine("\tBacon\t\t $0.75\n");
-                    }
-
-                    if (Ham == true)
-                    {
-                        Console.WriteLine("\tHam\t\t $0.75\n");
-                    }
-
-                    if (Pepperoni == true)
-                    {
-                        Console.WriteLine("\tPepperoni\t\t $0.75\n");
-                    }
-
-                    if (Sausage == true)
-                    {
-                        Console.WriteLine("\tSausage\t\t $0.75\n");
-                    }
-                    Console.WriteLine("\n");
-                } // meats
-
-                {
-                    //cheese
-                    if (Regular == true)
-                    {
-                        Console.WriteLine("\tRegular\t\t $0.00\n");
-                    }
-
-                    if (Extra == true)
-                    {
-                        Console.WriteLine("\tExtra\t\t $1.25\n");
-                    }
-                } // chesee
-
-                {
-                    //sause
-                    if (Oregano == true)
-                    {
-                        Console.WriteLine("\n\tOregano \t\t $1.00\n");
-                    }
-
-                    if (Garlic == true)
-                    {
-                        Console.WriteLine("\n\tGarlic \t\t $1.00\n");
-                    }
-
-                    if (Traditional == true)
-                    {
-                        Console.WriteLine("\n\tTraditional \t\t $0.00\n");
-                    }
-                    Console.WriteLine("\n");
-                } // sause
-
-                Console.WriteLine("-----------------------\n");
-                Console.WriteLine("Total\t\t " + pricecheck(totaling));
-            } else
-            {
-                Console.WriteLine("No Order Exists...");
-                Console.WriteLine("Would you like to start a new one?");
-
-                // Clearing the Console
-                CLS();
-
-                PizzaMan();
-            }
-
-            MainMenu();
         }
 
         public static void CLS()
@@ -1069,7 +1000,8 @@ namespace PizzaCreator
             ref decimal totaling,
             ref int numMeats,
             ref int numVeggies,
-            ref bool OrderSet )
+            ref bool OrderSet 
+            )
         {
             if (OrderSet == true)
             {
@@ -1194,21 +1126,18 @@ namespace PizzaCreator
 
                 Console.WriteLine("-----------------------\n");
                 Console.WriteLine("Total\t\t " + pricecheck(totaling));
-            } 
-
+            }
+            
             else
             {
                 Console.WriteLine("No Order Exists...");
                 Console.WriteLine("Would you like to start a new one?");
 
-                // Clearing the Console
-                CLS();
-
                 PizzaMan();
             }
 
             string orderWritten = DisplayOrders2
-                (
+            (
             ref Ham,
             ref Bacon,
             ref Pepperoni,
