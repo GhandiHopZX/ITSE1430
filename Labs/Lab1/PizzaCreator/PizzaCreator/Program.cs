@@ -39,10 +39,8 @@ namespace PizzaCreator
         static bool Extra = false;
         static bool TakeOut = false;
         static bool Delivery = false;
-        static decimal totaling = 0.00M;
-        static int numMeats = 0;
-        static int numVeggies = 0;
         static bool OrderSet = false;
+        static decimal totalling = 0.00M;
 
         // Order check for the Modify function.
         static bool orderModifiedOnce = false;
@@ -50,12 +48,12 @@ namespace PizzaCreator
         // Order to string 
         static string Ordersol;
         
-        public decimal Total
-        {
-            get {
-                return pricecheck(s_total);
-            }
-        }
+      //  public decimal Total
+       // {
+        //    get {
+        //        return pricecheck(s_total);
+        //    }
+      //  }
 
         static decimal pricecheck( decimal OK_added )
         {
@@ -70,7 +68,7 @@ namespace PizzaCreator
             }
 
             Console.WriteLine("{0:N2}", " Cart Price: $" + newTotal + "\n");
-            return 0;
+            return newTotal;
         }
 
         static void Main( string[] args )
@@ -138,9 +136,6 @@ namespace PizzaCreator
                         ref Extra,
                         ref TakeOut,
                         ref Delivery,
-                        ref totaling,
-                        ref numMeats,
-                        ref numVeggies,
                         ref OrderSet
                         );
                     userpopM = false;
@@ -170,9 +165,6 @@ namespace PizzaCreator
                         ref Extra,
                         ref TakeOut,
                         ref Delivery,
-                        ref totaling,
-                        ref numMeats,
-                        ref numVeggies,
                         ref OrderSet
                         );
                     userpopM = false;
@@ -199,13 +191,32 @@ namespace PizzaCreator
 
         public static void Orders()
         {
-            // the total set
-            decimal newTotal = 0.00M;
+            // Prompting the user if the order has been set
+            if (OrderSet == true)
+            {
+                Console.WriteLine("Do you want to Start over?");
 
-            // number holders
-            int numVeggies = 0;
+                string prompt = Console.ReadLine();
+                //bool popper = false;
+                switch (prompt)
+                {
+                    case "yes":
+                    case "Yes":
+                    case "y":
+                    totalling = 0.00M;
+                    break;
 
-            int numMeats = 0;
+                    case "no":
+                    case "No":
+                    case "n":
+                    MainMenu();
+                    break;
+
+                    default:
+
+                    break;
+                }
+            } 
 
             // booleans for each item
             bool MyMushrooms = false;
@@ -229,7 +240,7 @@ namespace PizzaCreator
             bool MyOrderSet = false;
 
             // Displaying CartPrice
-            pricecheck(newTotal);
+            pricecheck(totalling);
 
             // Ordering criteria
 
@@ -1016,13 +1027,9 @@ namespace PizzaCreator
             ref MyExtra,
             ref MyTakeOut,
             ref MyDelivery,
-            ref newTotal,
-            ref numMeats,
-            ref numVeggies,
             ref MyOrderSet
             );
-
-            Pause();
+            
             MainMenu();
 
         }
@@ -1047,9 +1054,6 @@ namespace PizzaCreator
             ref bool Extra,
             ref bool TakeOut,
             ref bool Delivery,
-            ref decimal totaling,
-            ref int numMeats,
-            ref int numVeggies,
             ref bool OrderSet
             )
         {
@@ -1185,7 +1189,7 @@ namespace PizzaCreator
             } // sause
 
             Console.WriteLine("-----------------------\n");
-            Console.WriteLine("Total\t\t " + pricecheck(totaling));
+            Console.WriteLine("Total\t\t " + pricecheck(totalling));
 
             // Here is where you confirm what your order looks like...
             Console.WriteLine("Order Ok?: Yes/No");
@@ -1223,9 +1227,6 @@ namespace PizzaCreator
                 ref Extra,
                 ref  TakeOut,
                 ref  Delivery,
-                ref  totaling,
-                ref  numMeats,
-                ref numVeggies,
                 ref  OrderSet
                 );
                 break;
@@ -1254,9 +1255,6 @@ namespace PizzaCreator
         ref bool Extra,
         ref bool TakeOut,
         ref bool Delivery,
-        ref decimal totaling,
-        ref int numMeats,
-        ref int numVeggies,
         ref bool OrderSet
         )
         {
@@ -2055,14 +2053,10 @@ namespace PizzaCreator
                  ref Extra,
                  ref TakeOut,
                 ref Delivery,
-                ref totaling,
-                ref numMeats,
-                ref numVeggies,
                 ref OrderSet
                 );
             orderModifiedOnce = true;
             CLS();
-            Pause();
 
             DisplayOrders2
                 (
@@ -2084,9 +2078,6 @@ namespace PizzaCreator
                  ref Extra,
                  ref TakeOut,
                 ref Delivery,
-                ref totaling,
-                ref numMeats,
-                ref numVeggies,
                 ref OrderSet
                 );
 
@@ -2112,9 +2103,6 @@ namespace PizzaCreator
           ref bool Extra,
           ref bool TakeOut,
           ref bool Delivery,
-          ref decimal totaling,
-          ref int numMeats,
-          ref int numVeggies,
           ref bool OrderSet
           ) // Tab is here
         {
@@ -2125,17 +2113,17 @@ namespace PizzaCreator
                 // sizes
                 if (Small == true)
                 {
-                    totaling += 5.00M;
+                    totalling += 5.00M;
                 }
 
                 if (Medium == true)
                 {
-                    totaling += 6.25M;
+                    totalling += 6.25M;
                 }
 
                 if (Large == true)
                 {
-                    totaling += 8.75M;
+                    totalling += 8.75M;
                 }
 
             }// size buisness
@@ -2143,17 +2131,17 @@ namespace PizzaCreator
             {
                 if (Traditional == true)
                 {
-                    totaling += 0.00M;
+                    totalling += 0.00M;
                 }
 
                 if (Garlic == true)
                 {
-                    totaling += 1.00M;
+                    totalling += 1.00M;
                 }
 
                 if (Oregano == true)
                 {
-                    totaling += 1.00M;
+                    totalling += 1.00M;
                 }
 
             }// Sause
@@ -2161,12 +2149,12 @@ namespace PizzaCreator
             {
                 if (Regular == true)
                 {
-                    totaling += 0.00M;
+                    totalling += 0.00M;
                 }
 
                 if (Extra == true)
                 {
-                    totaling += 1.25M;
+                    totalling += 1.25M;
                 }
             }// Cheese
 
@@ -2174,44 +2162,44 @@ namespace PizzaCreator
                 //meats added
                 if (Ham == true)
                 {
-                    totaling += 0.75M;
+                    totalling += 0.75M;
                 }
 
                 if (Bacon == true)
                 {
-                    totaling += 0.75M;
+                    totalling += 0.75M;
                 }
 
                 if (Pepperoni == true)
                 {
-                    totaling += 0.75M;
+                    totalling += 0.75M;
                 }
 
                 if (Sausage == true)
                 {
-                    totaling += 0.75M;
+                    totalling += 0.75M;
                 }
             }// meat buisness
 
             {
                 if (BlackOlives == true)
                 {
-                    totaling += 0.50M;
+                    totalling += 0.50M;
                 }
 
                 if (Mushrooms == true)
                 {
-                    totaling += 0.50M;
+                    totalling += 0.50M;
                 }
 
                 if (Onions == true)
                 {
-                    totaling += 0.50M;
+                    totalling += 0.50M;
                 }
 
                 if (Peppers == true)
                 {
-                    totaling += 0.50M;
+                    totalling += 0.50M;
                 }
 
             }// veggies
@@ -2219,12 +2207,12 @@ namespace PizzaCreator
             {
                 if (TakeOut == true)
                 {
-                    totaling += 0.00M;
+                    totalling += 0.00M;
                 }
 
                 if (Delivery == true)
                 {
-                    totaling += 2.50M;
+                    totalling += 2.50M;
                 }
             }// Delivery
 
@@ -2256,9 +2244,6 @@ namespace PizzaCreator
             ref Extra,
             ref TakeOut,
             ref Delivery,
-            ref totaling,
-            ref numMeats,
-            ref numVeggies,
             ref OrderSet
             );
         }
@@ -2288,9 +2273,6 @@ namespace PizzaCreator
             ref bool Extra,
             ref bool TakeOut,
             ref bool Delivery,
-            ref decimal totaling,
-            ref int numMeats,
-            ref int numVeggies,
             ref bool OrderSet 
             )
         {
@@ -2416,7 +2398,7 @@ namespace PizzaCreator
                 } // sause
 
                 Console.WriteLine("-----------------------\n");
-                Console.WriteLine("Total\t\t " + pricecheck(totaling));
+                Console.WriteLine("Total\t\t " + pricecheck(totalling));
 
                 // Here is where you confirm what your order looks like...
                 Console.WriteLine("Order Ok?");
@@ -2454,9 +2436,6 @@ namespace PizzaCreator
             ref Extra,
             ref TakeOut,
             ref Delivery,
-            ref totaling,
-            ref numMeats,
-            ref numVeggies,
             ref OrderSet
             );
             
