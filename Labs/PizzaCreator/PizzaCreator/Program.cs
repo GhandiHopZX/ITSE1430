@@ -18,7 +18,7 @@ namespace PizzaCreator
         {
             get 
                 {
-                return pricecheck(s_total);
+                    return pricecheck(s_total);
                 }
         }
 
@@ -111,32 +111,9 @@ namespace PizzaCreator
             } while (userpopM == true);
         }
 
-
-        static void Pizza
-            ( 
-            ref string size,
-            ref string meats,
-            ref int amountm,
-            ref int amountv,
-            ref string vegies,
-            ref string sauce,
-            ref string cheese,
-            ref string delivery,
-            ref decimal subtotal
-            )
-        {
-        
-            //work on the quantity ref next bleeeeeehhhh...
-            //Pizza orders.
-            //Each object has a set of properties.
-            //like every other unique pizza.
-
-        }//Pizza values
-
         static void Orders()
         {
-
-            // the total added
+            // the total set
             decimal newTotal = 0.00M; 
 
             // Displaying CartPrice
@@ -148,23 +125,26 @@ namespace PizzaCreator
             int numMeats = 0;
 
             // booleans for each item
-            bool BC,
-                MyMushrooms,
-                MyOnions,
-                MyPeppers,
-                MyBC,
-                MyOregano, 
-                MyGarlic,
-                MyTraditional,
-                MyRegular,
-                MyExtra,
-                MyTakeOut,
-                MyDelivery,
-                MyBacon,
-                MyPepperoni,
-                MySausage,
-                MyHam;
-
+              bool MyMushrooms = false;
+              bool MyOnions = false;
+              bool MyPeppers = false;
+              bool MyBC = false;
+              bool MyOregano = false; 
+              bool MyGarlic = false;
+              bool MyTraditional = false;
+              bool MyRegular = false;
+              bool MyExtra = false;
+              bool MyTakeOut = false;
+              bool MyDelivery = false;
+              bool MyBacon = false;
+              bool MyPepperoni = false;
+              bool MySausage = false;
+              bool MyHam = false;
+              bool MySmall = false;
+              bool MyMedium = false;
+              bool MyLarge = false;
+              bool MyOrderSet = false;
+ 
             // Ordering criteria
 
             // size holder
@@ -202,7 +182,7 @@ namespace PizzaCreator
             string usercheese = "";
 
             // Delivery type 
-            string delivery_Type ="Take Out ($0), Delivery ($2.50)";
+            string delivery_Type = "Take Out ($0), Delivery ($2.50)";
 
             // Delivery holder 
             string userdelivery = "";
@@ -276,9 +256,9 @@ namespace PizzaCreator
                 }
             } while (userbusy == true);
 
-        } 
+        } // size
 
-        {
+            {
             // user is busy again
             bool popout1 = true;
             
@@ -473,7 +453,7 @@ namespace PizzaCreator
 
         } // Neat Meats being eat(taken)
 
-        {
+            {
             // user is busy again
             bool popout2 = true;
 
@@ -568,9 +548,9 @@ namespace PizzaCreator
 
             } while (popout2 == true);
 
-        } // vegeies being taken
+        } // veggeies being taken
 
-        {
+            {
             // user is busy again
             bool popout4 = true;
 
@@ -663,7 +643,7 @@ namespace PizzaCreator
 
         } // Cheese being taken
 
-        {
+            {
             // user is busy again
             bool popout5 = true;
 
@@ -708,314 +688,359 @@ namespace PizzaCreator
 
         } // Delivery?
 
-         Pizza
-           (
-           ref userSize,
-           ref usermeat,
-           ref amountmeats,
-           ref amountvegies,
-           ref userveg,
-           ref usersause,
-           ref usercheese,
-           ref userdelivery,
-           ref newTotal
-           );
+            Tally(
+                  ref MyHam,
+                  ref MyBacon,
+                  ref MyPepperoni,
+                  ref MySausage,
+                  ref MySmall,
+                  ref MyMedium,
+                  ref MyLarge,
+                  ref MyBC,
+                  ref MyMushrooms,
+                  ref MyOnions,
+                  ref MyPeppers,
+                  ref MyTraditional,
+                  ref MyGarlic,
+                  ref MyOregano,
+                  ref MyRegular,
+                  ref MyExtra,
+                  ref MyTakeOut,
+                  ref MyDelivery,
+                  ref newTotal,
+                  ref numMeats,
+                  ref numVeggies,
+                  ref MyOrderSet
+                );
+        
         }
 
         static void Tally
            (
-           bool  Ham,
-           bool Bacon, 
-           bool Pepperoni, 
-           bool Sausage,
-           bool  Small,
-           bool  Medium,
-           bool  Large,
-           bool  BlackOlives,
-           bool  Mushrooms,
-           bool  Onions,
-           bool  Peppers,
-           bool  Traditional,
-           bool  Garlic,
-           bool  Oregano,
-           bool  Regular,
-           bool  Extra,
-           bool  TakeOut,
-           bool  Delivery,
-           decimal totaling,
-           int numMeats,
-           int numVeggies
-           )
+          ref bool Ham,
+          ref bool Bacon,
+          ref bool Pepperoni,
+          ref bool Sausage,
+          ref bool Small,
+          ref bool Medium,
+          ref bool Large,
+          ref bool BlackOlives,
+          ref bool Mushrooms,
+          ref bool Onions,
+          ref bool Peppers,
+          ref bool Traditional,
+          ref bool Garlic,
+          ref bool Oregano,
+          ref bool Regular,
+          ref bool Extra,
+          ref bool TakeOut,
+          ref bool Delivery,
+          ref decimal totaling,
+          ref int numMeats,
+          ref int numVeggies,
+          ref bool OrderSet
+
+           ) // Tab is here
         {
             //Counting the totals
 
+            { 
+                // sizes
+                if (Small == true)
+                {
+                    totaling += 5.00M;
+                }
+
+                if (Medium == true)
+                {
+                    totaling += 6.25M;
+                }
+
+                if (Large == true)
+                {
+                    totaling += 8.75M;
+                }
+
+            }// size buisness
+
             {
-                //all veggies and meats added
+                if (Traditional == true)
+                {
+                    totaling += 0.00M;
+                }
+
+                if (Garlic == true)
+                {
+                    totaling += 1.00M;
+                }
+
+                if (Oregano == true)
+                {
+                    totaling += 1.00M;
+                }
+
+            }// Sause
+
+            {
+                if (Regular == true)
+                {
+                    totaling += 0.00M;
+                }
+
+                if (Extra == true)
+                {
+                    totaling += 1.25M;
+                }
+            }// Cheese
+
+            {
+                //meats added
                 if (Ham == true)
                 {
-                    //check the number of meats
-                    if (numMeats > 1)
-                    {
-                        totaling += 0.75M;
-                    } else
-                    {
-                        totaling += 0;
-                    }
+                    totaling += 0.75M;
                 }
 
                 if (Bacon == true)
                 {
-                    //check the number of meats
-                    if (numMeats > 1)
-                    {
-                        totaling += 0.75M;
-                    } else
-                    {
-                        totaling += 0;
-                    }
+                    totaling += 0.75M;
                 }
 
                 if (Pepperoni == true)
                 {
-                    //check the number of meats
-                    if (numMeats > 1)
-                    {
-                        totaling += 0.75M;
-                    } else
-                    {
-                        totaling += 0;
-                    }
+                    totaling += 0.75M;
                 }
 
                 if (Sausage == true)
                 {
-                    //check the number of meats
-                    if (numMeats > 1)
-                    {
-                        totaling += 0.75M;
-                    } else
-                    {
-                        totaling += 0;
-                    }
+                    totaling += 0.75M;
                 }
-            } //meat buisnes
+            }// meat buisness
 
             {
                 if (BlackOlives == true)
                 {
-                    //check the number of veggies
-                    if (numVeggies > 1)
-                    {
-                        totaling += 0.50M;
-                    } else
-                    {
-                        totaling += 0;
-                    }
+                    totaling += 0.50M;
                 }
 
                 if (Mushrooms == true)
                 {
-                    //check the number of veggies
-                    if (numVeggies > 1)
-                    {
-                        totaling += 0.50M;
-                    } else
-                    {
-                        totaling += 0;
-                    }
+                    totaling += 0.50M;
                 }
 
                 if (Onions == true)
                 {
-                    //check the number of veggies
-                    if (numVeggies > 1)
-                    {
-                       totaling += 0.50M;
-                    } else
-                    {
-                       totaling += 0;
-                    }
+                    totaling += 0.50M;
                 }
 
                 if (Peppers == true)
                 {
-                    //check the number of veggies
-                    if (numVeggies > 1)
-                    {
-                        totaling += 0.50M;
-                    } else
-                    {
-                        totaling += 0;
-                    }
+                    totaling += 0.50M;
                 }
+
             }// veggies
+
+            {
+                if (TakeOut == true)
+                {
+                    totaling += 0.00M;
+                }
+
+                if (Delivery == true)
+                {
+                    totaling += 2.50M;
+                }
+            }// Delivery
 
             //all the stuff being ordered are totaled here.
             //This is the Pizza method call for 
             //passing values to this outside method
 
-            //this function here would work but it wouldn't be that neat.
+            // this function here would work but it wouldn't be that neat.
             // pricecheck(totaling);
 
-            //this is the Function that will sort out everything
+            // this is the Function that will sort out everything
+            OrderSet = true;
+
             DisplayOrders
             ( 
-                Ham,
-             Bacon,
-            Pepperoni,
-             Sausage,
-             Small,
-             Medium,
-             Large,
-             BlackOlives,
-             Mushrooms,
-             Onions,
-             Peppers,
-             Traditional,
-             Garlic,
-             Oregano,
-             Regular,
-             Extra,
-             TakeOut,
-             Delivery,
-            totaling,
-            numMeats,
-            numVeggies
+            ref Ham,
+            ref Bacon,
+            ref Pepperoni,
+            ref Sausage,
+            ref Small,
+            ref Medium,
+            ref Large,
+            ref BlackOlives,
+            ref Mushrooms,
+            ref Onions,
+            ref Peppers,
+            ref Traditional,
+            ref Garlic,
+            ref Oregano,
+            ref Regular,
+            ref Extra,
+            ref TakeOut,
+            ref Delivery,
+            ref totaling,
+            ref numMeats,
+            ref numVeggies,
+            ref OrderSet
             );
 
         }
 
         static void DisplayOrders
            ( 
-           bool Ham,
-           bool Bacon,
-           bool Pepperoni,
-           bool Sausage,
-           bool Small,
-           bool Medium,
-           bool Large,
-           bool BlackOlives,
-           bool Mushrooms,
-           bool Onions,
-           bool Peppers,
-           bool Traditional,
-           bool Garlic,
-           bool Oregano,
-           bool Regular,
-           bool Extra,
-           bool TakeOut,
-           bool Delivery,
-           decimal totaling,
-           int numMeats,
-           int numVeggies 
+           ref bool Ham,
+           ref bool Bacon,
+           ref bool Pepperoni,
+           ref bool Sausage,
+           ref bool Small,
+           ref bool Medium,
+           ref bool Large,
+           ref bool BlackOlives,
+           ref bool Mushrooms,
+           ref bool Onions,
+           ref bool Peppers,
+           ref bool Traditional,
+           ref bool Garlic,
+           ref bool Oregano,
+           ref bool Regular,
+           ref bool Extra,
+           ref bool TakeOut,
+           ref bool Delivery,
+           ref decimal totaling,
+           ref int numMeats,
+           ref int numVeggies, 
+           ref bool OrderSet 
            )
         {
-            // displaying all orders
-            Console.WriteLine("OK\n Your Total Is:\n\n");
-
-            // size
-            Console.WriteLine("Sizes");
-            if (Small == true)
+            if (OrderSet == true)
             {
-                Console.WriteLine("\tSmall\t\t $5.00\n");
-            }
-            if (Medium == true)
-            {
-                Console.WriteLine("\tMedium\t\t $6.25\n");
-            }
-            if (Large == true)
-            {
-                Console.WriteLine("\tLarge\t\t $8.75\n");
-            }
-            Console.WriteLine("\n");
+                // displaying all orders
+                Console.WriteLine("OK\n Your Total Is:\n\n");
 
-            // delivery_type
-            if (Delivery == true)
+                {
+                    // size
+                    Console.WriteLine("Sizes");
+                    if (Small == true)
+                    {
+                        Console.WriteLine("\tSmall\t\t $5.00\n");
+                    }
+                    if (Medium == true)
+                    {
+                        Console.WriteLine("\tMedium\t\t $6.25\n");
+                    }
+                    if (Large == true)
+                    {
+                        Console.WriteLine("\tLarge\t\t $8.75\n");
+                    }
+                    Console.WriteLine("\n");
+                } // Sizes
+
+                {
+                    // delivery_type
+                    if (Delivery == true)
+                    {
+                        Console.WriteLine("Delivery\n");
+                    }
+
+                    if (TakeOut == true)
+                    {
+                        Console.WriteLine("Take Out\n");
+                    }
+                    Console.WriteLine("\n");
+                } // Delivery
+
+                {
+                    //vegetables
+                    if (Onions == true)
+                    {
+                        Console.WriteLine("\tOnions\t\t $0.50\n");
+                    }
+
+                    if (Mushrooms == true)
+                    {
+                        Console.WriteLine("\tMushrooms\t\t $0.50\n");
+                    }
+
+                    if (Peppers == true)
+                    {
+                        Console.WriteLine("\tPeppers\t\t $0.50\n");
+                    }
+
+                    if (BlackOlives == true)
+                    {
+                        Console.WriteLine("\tBlackOlives\t\t $0.50\n");
+                    }
+                    Console.WriteLine("\n");
+                } // Veggies
+
+                {
+                    //meats
+                    if (Bacon == true)
+                    {
+                        Console.WriteLine("\tBacon\t\t $0.75\n");
+                    }
+
+                    if (Ham == true)
+                    {
+                        Console.WriteLine("\tHam\t\t $0.75\n");
+                    }
+
+                    if (Pepperoni == true)
+                    {
+                        Console.WriteLine("\tPepperoni\t\t $0.75\n");
+                    }
+
+                    if (Sausage == true)
+                    {
+                        Console.WriteLine("\tSausage\t\t $0.75\n");
+                    }
+                    Console.WriteLine("\n");
+                } // meats
+
+                {
+                    //cheese
+                    if (Regular == true)
+                    {
+                        Console.WriteLine("\tRegular\t\t $0.00\n");
+                    }
+
+                    if (Extra == true)
+                    {
+                        Console.WriteLine("\tExtra\t\t $1.25\n");
+                    }
+                } // chesee
+
+                {
+                    //sause
+                    if (Oregano == true)
+                    {
+                        Console.WriteLine("\n\tOregano \t\t $1.00\n");
+                    }
+
+                    if (Garlic == true)
+                    {
+                        Console.WriteLine("\n\tGarlic \t\t $1.00\n");
+                    }
+
+                    if (Traditional == true)
+                    {
+                        Console.WriteLine("\n\tTraditional \t\t $0.00\n");
+                    }
+                    Console.WriteLine("\n");
+                } // sause
+
+                Console.WriteLine("-----------------------\n");
+                Console.WriteLine("Total\t\t " + pricecheck(totaling));
+            } else
             {
-                Console.WriteLine("Delivery\n");
+                Console.WriteLine("No Order Exists...");
+                Console.WriteLine("Would you like to start a new one?");
             }
 
-            if (TakeOut == true)
-            {
-                Console.WriteLine("Take Out\n");
-            }
-            Console.WriteLine("\n");
-
-            //vegetables
-            if (Onions == true)
-            {
-                Console.WriteLine("\tOnions\t\t $0.50\n");
-            }
-
-            if (Mushrooms == true)
-            {
-                Console.WriteLine("\tMushrooms\t\t $0.50\n");
-            }
-
-            if (Peppers == true)
-            {
-                Console.WriteLine("\tPeppers\t\t $0.50\n");
-            }
-
-            if (BlackOlives == true)
-            {
-                Console.WriteLine("\tBlackOlives\t\t $0.50\n");
-            }
-            Console.WriteLine("\n");
-
-            //meats
-            if (Bacon == true)
-            {
-                Console.WriteLine("\tBacon\t\t $0.75\n");
-            }
-
-            if (Ham == true)
-            {
-                Console.WriteLine("\tHam\t\t $0.75\n");
-            }
-
-            if (Pepperoni == true)
-            {
-                Console.WriteLine("\tPepperoni\t\t $0.75\n");
-            }
-
-            if (Sausage == true)
-            {
-                Console.WriteLine("\tSausage\t\t $0.75\n");
-            }
-            Console.WriteLine("\n");
-
-            //cheese
-            if (Regular == true)
-            {
-                Console.WriteLine("\tRegular\t\t $0.00\n");
-            }
-
-            if (Extra == true)
-            {
-                Console.WriteLine("\tExtra\t\t $1.25\n");
-            }
-
-            //sause
-            if (Oregano == true)
-            {
-                Console.WriteLine("\tOregano \t\t $1.00\n");
-            }
-
-            if (Garlic == true)
-            {
-                Console.WriteLine("\tGarlic \t\t $1.00\n");
-            }
-
-            if (Traditional == true)
-            {
-                Console.WriteLine("\tTraditional \t\t $0.00\n");
-            }
-
-            Console.WriteLine("-----------------------\n");
-            Console.WriteLine("Total\t\t " + totaling);
-
-            pricecheck(totaling);
+            MainMenu();
         }
 
         public void PizzaMan()
