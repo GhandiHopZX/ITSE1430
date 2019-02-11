@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Solomon Pattee
+ * 2/11/2019
+ * ITSE 1430 Introduction to C# Programming
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -231,10 +238,10 @@ namespace PizzaCreator
             string userSize = "";
 
             // size type
-            string pizza_size = "Small ($5),\n Medium ($6.25),\n Large ($8.75)";
+            string pizza_size = " Small ($5),\n Medium ($6.25),\n Large ($8.75)";
 
             // meat type 
-            string meat_Type = "($0.75)each\n Bacon,\n Ham, Pepperoni, Sausage";
+            string meat_Type = " ($0.75)each\n Bacon,\n Ham, Pepperoni, Sausage";
 
             // meat holder 
             string usermeat = "";
@@ -242,7 +249,7 @@ namespace PizzaCreator
             int amountmeats = 0;
 
             // veg type 
-            string veg_Type = "($0.50)each\n Black Olives, \n Mushrooms, \n, Onions \n Peppers";
+            string veg_Type = " ($0.50)each\n Black Olives, \n Mushrooms, \n, Onions \n Peppers";
 
             // veg holder 
             string userveg = "";
@@ -250,19 +257,19 @@ namespace PizzaCreator
             int amountvegies = 0;
 
             // Sause type 
-            string sause_Type = "Traditional($0),\n Garlic($1),\n Oregano($1)\n";
+            string sause_Type = " Traditional($0),\n Garlic($1),\n Oregano($1)\n";
 
             // sause holder 
             string usersause = "";
 
             // Cheese type 
-            string cheese_Type = "Regular ($0), Extra ($1.25)";
+            string cheese_Type = " Regular ($0), Extra ($1.25)";
 
             // Cheese holder 
             string usercheese = "";
 
             // Delivery type 
-            string delivery_Type = "Take Out ($0), Delivery ($2.50)";
+            string delivery_Type = " Take Out ($0), Delivery ($2.50)";
 
             // Delivery holder 
             string userdelivery = "";
