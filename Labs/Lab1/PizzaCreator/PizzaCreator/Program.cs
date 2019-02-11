@@ -4,7 +4,6 @@
  * ITSE 1430 Introduction to C# Programming
  */
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +20,9 @@ namespace PizzaCreator
 
         static decimal s_total;
 
-        // here is the 
-       static bool Ham = false;
-       static bool Bacon = false;
+        // here is the list of ingredients and dish orders to pull from
+        static bool Ham = false;
+        static bool Bacon = false;
         static bool Pepperoni = false;
         static bool Sausage = false;
         static bool Small = false;
@@ -245,16 +244,12 @@ namespace PizzaCreator
 
             // meat holder 
             string usermeat = "";
-            // amout of meats
-            int amountmeats = 0;
 
             // veg type 
             string veg_Type = " ($0.50)each\n Black Olives, \n Mushrooms, \n, Onions \n Peppers";
 
             // veg holder 
             string userveg = "";
-            // amount of veggies
-            int amountvegies = 0;
 
             // Sause type 
             string sause_Type = " Traditional($0),\n Garlic($1),\n Oregano($1)\n";
@@ -288,7 +283,7 @@ namespace PizzaCreator
                     // taking the size of the pizza
 
                     userSize = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (userSize)
                     {
@@ -296,6 +291,8 @@ namespace PizzaCreator
                         case "Large":
                         case "lar":
                         case "l":
+                        MyLarge = true;
+                        Console.WriteLine("\n");
                         userSize = "Large";
                         userbusy = false;
                         break;
@@ -304,6 +301,8 @@ namespace PizzaCreator
                         case "Medium":
                         case "med":
                         case "m":
+                        MyMedium = true;
+                        Console.WriteLine("\n");
                         userSize = "Medium";
                         userbusy = false;
                         break;
@@ -312,6 +311,8 @@ namespace PizzaCreator
                         case "Small":
                         case "sml":
                         case "s":
+                        MySmall = true;
+                        Console.WriteLine("\n");
                         userSize = "Small";
                         userbusy = false;
                         break;
@@ -338,9 +339,10 @@ namespace PizzaCreator
                     // what meats do you want to have?
                     Console.WriteLine("What meats would you like?");
                     Console.WriteLine("Or do you not care for any?: type 'Skip'");
+                    Console.WriteLine(meat_Type);
 
                     usermeat = Console.ReadLine();
-                    Console.WriteLine(meat_Type);
+                    Console.WriteLine("\n");
 
                     // Computing the amout of meats 0 or more
                     switch (usermeat)
@@ -350,36 +352,56 @@ namespace PizzaCreator
                         case "bac":
                         case "b":
                         MyBacon = true;
-
+                        Console.WriteLine("\n");
                         usermeat = "Bacon";
                         Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
+                        Console.WriteLine("Or are You done?: type skip if done");
                         Console.WriteLine(meat_Type);
                         skip = Console.ReadLine();
                         switch (skip)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout1 = true;
-
-                            break;
-
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Skip":
+                            case "skip":
+                            case "s":
 
                             popout1 = false;
+                            Console.WriteLine("\n");
+                            break;
 
+                            case "Bacon":
+                            case "bacon":
+                            case "bac":
+                            case "b":
+                            MyBacon = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Ham":
+                            case "ham":
+                            case "h":
+                            MyHam = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Pepperoni":
+                            case "pepperoni":
+                            case "pep":
+                            case "p":
+                            MyPepperoni = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Sausage":
+                            case "sausage":
+                            case "sus":
+                            MySausage = true;
+                            Console.WriteLine("\n");
                             break;
 
                             default:
 
                             Console.WriteLine("Invalid Option");
-
+                            Console.WriteLine("\n");
                             break;
                         }
 
@@ -389,36 +411,56 @@ namespace PizzaCreator
                         case "ham":
                         case "h":
                         MyHam = true;
-
+                        Console.WriteLine("\n");
                         usermeat = "Ham";
                         Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
+                        Console.WriteLine("Or are You done?: type skip if done");
                         Console.WriteLine(meat_Type);
                         skip = Console.ReadLine();
                         switch (skip)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout1 = true;
-
-                            break;
-
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Skip":
+                            case "skip":
+                            case "s":
 
                             popout1 = false;
+                            Console.WriteLine("\n");
+                            break;
 
+                            case "Bacon":
+                            case "bacon":
+                            case "bac":
+                            case "b":
+                            MyBacon = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Ham":
+                            case "ham":
+                            case "h":
+                            MyHam = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Pepperoni":
+                            case "pepperoni":
+                            case "pep":
+                            case "p":
+                            MyPepperoni = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Sausage":
+                            case "sausage":
+                            case "sus":
+                            MySausage = true;
+                            Console.WriteLine("\n");
                             break;
 
                             default:
 
                             Console.WriteLine("Invalid Option");
-
+                            Console.WriteLine("\n");
                             break;
                         }
 
@@ -429,37 +471,57 @@ namespace PizzaCreator
                         case "pep":
                         case "p":
                         MyPepperoni = true;
-
+                        Console.WriteLine("\n");
                         usermeat = "Pepperoni";
                         Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
+                        Console.WriteLine("Or are You done?: type skip if done");
                         Console.WriteLine(meat_Type);
 
                         skip = Console.ReadLine();
                         switch (skip)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout1 = true;
-
-                            break;
-
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Skip":
+                            case "skip":
+                            case "s":
 
                             popout1 = false;
+                            Console.WriteLine("\n");
+                            break;
 
+                            case "Bacon":
+                            case "bacon":
+                            case "bac":
+                            case "b":
+                            MyBacon = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Ham":
+                            case "ham":
+                            case "h":
+                            MyHam = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Pepperoni":
+                            case "pepperoni":
+                            case "pep":
+                            case "p":
+                            MyPepperoni = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Sausage":
+                            case "sausage":
+                            case "sus":
+                            MySausage = true;
+                            Console.WriteLine("\n");
                             break;
 
                             default:
 
                             Console.WriteLine("Invalid Option");
-
+                            Console.WriteLine("\n");
                             break;
                         }
 
@@ -467,38 +529,59 @@ namespace PizzaCreator
 
                         case "Sausage":
                         case "sausage":
-                        case "s":
+                        case "sus":
                         MySausage = true;
-
+                        Console.WriteLine("\n");
                         usermeat = "Sausage";
                         Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
+                        Console.WriteLine("Or are You done?: type skip if done");
                         Console.WriteLine(meat_Type);
 
                         skip = Console.ReadLine();
                         switch (skip)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout1 = true;
+                            case "Skip":
+                            case "skip":
+                            case "s":
+                            Console.WriteLine("\n");
+                            popout1 = false;
 
                             break;
 
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Bacon":
+                            case "bacon":
+                            case "bac":
+                            case "b":
+                            Console.WriteLine("\n");
+                            MyBacon = true;
+                            break;
 
-                            popout1 = false;
+                            case "Ham":
+                            case "ham":
+                            case "h":
+                            Console.WriteLine("\n");
+                            MyHam = true;
+                            break;
 
+                            case "Pepperoni":
+                            case "pepperoni":
+                            case "pep":
+                            case "p":
+                            Console.WriteLine("\n");
+                            MyPepperoni = true;
+                            break;
+
+                            case "Sausage":
+                            case "sausage":
+                            case "sus":
+                            Console.WriteLine("\n");
+                            MySausage = true;
                             break;
 
                             default:
 
                             Console.WriteLine("Invalid Option");
+                            Console.WriteLine("\n");
                             break;
                         }
 
@@ -506,12 +589,14 @@ namespace PizzaCreator
 
                         case "skip":
                         case "Skip":
+                        Console.WriteLine("\n");
                         popout1 = false;
 
                         break;
 
                         default:
                         Console.WriteLine("Invalid input.");
+                        Console.WriteLine("\n");
                         break;
                     }
                     // go back to the top
@@ -531,11 +616,11 @@ namespace PizzaCreator
                     // What vegetables
 
                     Console.WriteLine("What vegetables would you like?");
-                    Console.WriteLine("Or do you want to skip this step?: Y or N?");
+                    Console.WriteLine("Or are You done?: type skip if done");
                     Console.WriteLine(veg_Type);
 
                     userveg = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (userveg)
                     {
@@ -543,27 +628,41 @@ namespace PizzaCreator
                         case "blackolives":
                         case "BlackOlives":
                         case "bo":
+                        Console.WriteLine("\n");
                         userveg = "Black Olives";
-                        Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
-                        Console.WriteLine(meat_Type);
+                        Console.WriteLine("What other Veggies?");
+                        Console.WriteLine("Or are You done?: Type 'Skip'");
+                        Console.WriteLine(veg_Type);
                         skip2 = Console.ReadLine();
                         switch (skip2)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout2 = true;
-
+                            case "Black Olives":
+                            case "blackolives":
+                            case "BlackOlives":
+                            case "bo":
+                            Console.WriteLine("\n");
+                            MyBC = true;
                             break;
 
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Mushrooms":
+                            case "shrooms":
+                            case "m":
+                            Console.WriteLine("\n");
+                            MyMushrooms = true;
+                            break;
 
+                            case "Onions":
+                            case "onions":
+                            case "oni":
+                            case "o":
+                            Console.WriteLine("\n");
+                            MyOnions = true;
+                            break;
+
+                            case "Skip":
+                            case "skip":
+                            case "s":
+                            Console.WriteLine("\n");
                             popout2 = false;
 
                             break;
@@ -571,7 +670,7 @@ namespace PizzaCreator
                             default:
 
                             Console.WriteLine("Invalid Option");
-
+                            Console.WriteLine("\n");
                             break;
                         }
                         MyBC = true;
@@ -582,8 +681,52 @@ namespace PizzaCreator
                         case "shrooms":
                         case "m":
                         userveg = "Mushrooms";
-                        MyMushrooms = true;
+                        Console.WriteLine("\n");
+                        Console.WriteLine("What other Veggies?");
+                        Console.WriteLine("Or are You done?: Type 'Skip'");
+                        Console.WriteLine(veg_Type);
+                        skip2 = Console.ReadLine();
+                        switch (skip2)
+                        {
+                            case "Black Olives":
+                            case "blackolives":
+                            case "BlackOlives":
+                            case "bo":
+                            MyBC = true;
+                            Console.WriteLine("\n");
+                            break;
 
+                            case "Mushrooms":
+                            case "shrooms":
+                            case "m":
+                            MyMushrooms = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Onions":
+                            case "onions":
+                            case "oni":
+                            case "o":
+                            MyOnions = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Skip":
+                            case "skip":
+                            case "s":
+
+                            popout2 = false;
+                            Console.WriteLine("\n");
+                            break;
+
+                            default:
+
+                            Console.WriteLine("Invalid Option");
+                            Console.WriteLine("\n");
+                            break;
+                        }
+                        MyMushrooms = true;
+                        Console.WriteLine("\n");
                         break;
 
                         case "Onions":
@@ -591,6 +734,50 @@ namespace PizzaCreator
                         case "oni":
                         case "o":
                         userveg = "Onions";
+                        Console.WriteLine("\n");
+                        Console.WriteLine("What other Veggies?");
+                        Console.WriteLine("Or are You done?: Type 'Skip'");
+                        Console.WriteLine(veg_Type);
+                        skip2 = Console.ReadLine();
+                        switch (skip2)
+                        {
+                            case "Black Olives":
+                            case "blackolives":
+                            case "BlackOlives":
+                            case "bo":
+                            Console.WriteLine("\n");
+                            MyBC = true;
+                            break;
+
+                            case "Mushrooms":
+                            case "shrooms":
+                            case "m":
+                            Console.WriteLine("\n");
+                            MyMushrooms = true;
+                            break;
+
+                            case "Onions":
+                            case "onions":
+                            case "oni":
+                            case "o":
+                            Console.WriteLine("\n");
+                            MyOnions = true;
+                            break;
+
+                            case "Skip":
+                            case "skip":
+                            case "s":
+                            Console.WriteLine("\n");
+                            popout2 = false;
+
+                            break;
+
+                            default:
+
+                            Console.WriteLine("Invalid Option");
+                            Console.WriteLine("\n");
+                            break;
+                        }
                         MyOnions = true;
 
                         break;
@@ -599,17 +786,62 @@ namespace PizzaCreator
                         case "peppers":
                         case "p":
                         userveg = "Peppers";
+                        Console.WriteLine("What other Veggies?");
+                        Console.WriteLine("Or are You done?: Type 'Skip'");
+                        Console.WriteLine(veg_Type);
+                        skip2 = Console.ReadLine();
+                        switch (skip2)
+                        {
+                            case "Black Olives":
+                            case "blackolives":
+                            case "BlackOlives":
+                            case "bo":
+                            Console.WriteLine("\n");
+                            MyBC = true;
+                            break;
+
+                            case "Mushrooms":
+                            case "shrooms":
+                            case "m":
+                            Console.WriteLine("\n");
+                            MyMushrooms = true;
+                            break;
+
+                            case "Onions":
+                            case "onions":
+                            case "oni":
+                            case "o":
+                            Console.WriteLine("\n");
+                            MyOnions = true;
+                            break;
+
+                            case "Skip":
+                            case "skip":
+                            case "s":
+                            Console.WriteLine("\n");
+                            popout2 = false;
+
+                            break;
+
+                            default:
+
+                            Console.WriteLine("Invalid Option");
+                            Console.WriteLine("\n");
+                            break;
+                        }
                         MyPeppers = true;
 
                         break;
 
                         case "skip":
                         case "Skip":
+                        Console.WriteLine("\n");
                         popout2 = false;
                         break;
 
                         default:
                         Console.WriteLine("Invalid input.");
+                        Console.WriteLine("\n");
                         break;
                     }
 
@@ -629,25 +861,25 @@ namespace PizzaCreator
                     Console.WriteLine(sause_Type);
 
                     usersause = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (usersause)
                     {
                         case "Traditional":
-                        case "Trad":
+                        case "traditional":
                         case "tr":
                         case "t":
+                        Console.WriteLine("\n");
                         usersause = "Traditional";
-                        popout4 = false;
-
                         MyTraditional = true;
+                        popout4 = false;
                         break;
 
                         case "Garlic":
                         case "garlic":
                         case "g":
+                        Console.WriteLine("\n");
                         usersause = "Garlic";
-
                         MyGarlic = true;
                         popout4 = false;
                         break;
@@ -655,14 +887,15 @@ namespace PizzaCreator
                         case "Oregano":
                         case "oregano":
                         case "o":
+                        Console.WriteLine("\n");
                         usersause = "Oregano";
-
                         MyOregano = true;
                         popout4 = false;
                         break;
 
                         default:
                         Console.WriteLine("Invalid input.");
+                        Console.WriteLine("\n");
                         break;
                     }
 
@@ -682,7 +915,7 @@ namespace PizzaCreator
                     Console.WriteLine(cheese_Type);
 
                     usercheese = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (usercheese)
                     {
@@ -690,19 +923,25 @@ namespace PizzaCreator
                         case "regular":
                         case "R":
                         case "r":
+                        MyRegular = true;
+                        Console.WriteLine("\n");
                         usercheese = "Regular";
                         popout3 = false;
                         break;
 
                         case "Extra":
+                        case "extra":
                         case "Ex":
                         case "e":
+                        MyExtra = true;
+                        Console.WriteLine("\n");
                         usercheese = "Extra";
                         popout3 = false;
                         break;
 
                         default:
                         Console.WriteLine("Invalid input.");
+                        Console.WriteLine("\n");
                         break;
                     }
 
@@ -722,15 +961,16 @@ namespace PizzaCreator
                     Console.WriteLine(delivery_Type);
 
                     userdelivery = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (userdelivery)
                     {
                         case "Takeout":
                         case "Take Out":
                         case "TakeOut":
+                        case "takeout":
                         case "to":
-
+                        Console.WriteLine("\n");
                         MyTakeOut = true;
                         userdelivery = "Take Out";
                         popout5 = false;
@@ -739,13 +979,14 @@ namespace PizzaCreator
                         case "Delivery":
                         case "delivery":
                         case "d":
-
+                        Console.WriteLine("\n");
                         MyDelivery = true;
                         userdelivery = "Delivery";
                         popout5 = false;
                         break;
 
                         default:
+                        Console.WriteLine("\n");
                         Console.WriteLine("Invalid input.");
                         break;
                     }
@@ -781,9 +1022,11 @@ namespace PizzaCreator
             ref MyOrderSet
             );
 
+            Pause();
+            MainMenu();
+
         }
-
-
+        
         public static void Modify
             (
             ref bool Ham,
@@ -821,15 +1064,13 @@ namespace PizzaCreator
         } 
         else
         {
-            
-
             // Booleans needed for change creating the list
             // displaying all orders
             Console.WriteLine("Here is your previous order..");
 
             {
                 // size
-                Console.WriteLine("Sizes");
+                Console.WriteLine("Sizes\n");
                 if (Small == true)
                 {
                     Console.WriteLine("\tSmall\t\t $5.00\n");
@@ -949,19 +1190,19 @@ namespace PizzaCreator
             // Here is where you confirm what your order looks like...
             Console.WriteLine("Order Ok?: Yes/No");
 
-            Pause();
-
             // Reading in the user's input for modifications...
             string input_man = Console.ReadLine();
             switch (input_man)
             {
                 case "Yes":
                 case "yes":
+                CLS();
                 MainMenu();
                 break;
                 
                 case "No":
                 case "no":
+                CLS();
                 Orders2
                 (
                 ref Ham,
@@ -979,8 +1220,8 @@ namespace PizzaCreator
                 ref Garlic,
                 ref  Oregano,
                 ref Regular,
-                 ref Extra,
-                 ref  TakeOut,
+                ref Extra,
+                ref  TakeOut,
                 ref  Delivery,
                 ref  totaling,
                 ref  numMeats,
@@ -1041,16 +1282,12 @@ namespace PizzaCreator
 
             // meat holder 
             string usermeat = "";
-            // amout of meats
-            int amountmeats = 0;
 
             // veg type 
             string veg_Type = "($0.50)each\n Black Olives, \n Mushrooms, \n, Onions \n Peppers";
 
             // veg holder 
             string userveg = "";
-            // amount of veggies
-            int amountvegies = 0;
 
             // Sause type 
             string sause_Type = "Traditional($0),\n Garlic($1),\n Oregano($1)\n";
@@ -1072,7 +1309,6 @@ namespace PizzaCreator
 
             // Passing values and math stuff
             // The user must make a selection therefore the user is busy
-
             {
                 bool userbusy = true;
                 do
@@ -1084,7 +1320,7 @@ namespace PizzaCreator
                     // taking the size of the pizza
 
                     userSize = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (userSize)
                     {
@@ -1092,6 +1328,8 @@ namespace PizzaCreator
                         case "Large":
                         case "lar":
                         case "l":
+                        Large = true;
+                        Console.WriteLine("\n");
                         userSize = "Large";
                         userbusy = false;
                         break;
@@ -1100,6 +1338,8 @@ namespace PizzaCreator
                         case "Medium":
                         case "med":
                         case "m":
+                        Medium = true;
+                        Console.WriteLine("\n");
                         userSize = "Medium";
                         userbusy = false;
                         break;
@@ -1108,6 +1348,8 @@ namespace PizzaCreator
                         case "Small":
                         case "sml":
                         case "s":
+                        Small = true;
+                        Console.WriteLine("\n");
                         userSize = "Small";
                         userbusy = false;
                         break;
@@ -1134,9 +1376,10 @@ namespace PizzaCreator
                     // what meats do you want to have?
                     Console.WriteLine("What meats would you like?");
                     Console.WriteLine("Or do you not care for any?: type 'Skip'");
+                    Console.WriteLine(meat_Type);
 
                     usermeat = Console.ReadLine();
-                    Console.WriteLine(meat_Type);
+                    Console.WriteLine("\n");
 
                     // Computing the amout of meats 0 or more
                     switch (usermeat)
@@ -1146,36 +1389,56 @@ namespace PizzaCreator
                         case "bac":
                         case "b":
                         Bacon = true;
-
+                        Console.WriteLine("\n");
                         usermeat = "Bacon";
                         Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
+                        Console.WriteLine("Or are You done?: type skip if done");
                         Console.WriteLine(meat_Type);
                         skip = Console.ReadLine();
                         switch (skip)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout1 = true;
-
-                            break;
-
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Skip":
+                            case "skip":
+                            case "s":
 
                             popout1 = false;
+                            Console.WriteLine("\n");
+                            break;
 
+                            case "Bacon":
+                            case "bacon":
+                            case "bac":
+                            case "b":
+                            Bacon = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Ham":
+                            case "ham":
+                            case "h":
+                            Ham = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Pepperoni":
+                            case "pepperoni":
+                            case "pep":
+                            case "p":
+                            Pepperoni = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Sausage":
+                            case "sausage":
+                            case "sus":
+                            Sausage = true;
+                            Console.WriteLine("\n");
                             break;
 
                             default:
 
                             Console.WriteLine("Invalid Option");
-
+                            Console.WriteLine("\n");
                             break;
                         }
 
@@ -1185,36 +1448,56 @@ namespace PizzaCreator
                         case "ham":
                         case "h":
                         Ham = true;
-
+                        Console.WriteLine("\n");
                         usermeat = "Ham";
                         Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
+                        Console.WriteLine("Or are You done?: type skip if done");
                         Console.WriteLine(meat_Type);
                         skip = Console.ReadLine();
                         switch (skip)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout1 = true;
-
-                            break;
-
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Skip":
+                            case "skip":
+                            case "s":
 
                             popout1 = false;
+                            Console.WriteLine("\n");
+                            break;
 
+                            case "Bacon":
+                            case "bacon":
+                            case "bac":
+                            case "b":
+                            Bacon = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Ham":
+                            case "ham":
+                            case "h":
+                            Ham = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Pepperoni":
+                            case "pepperoni":
+                            case "pep":
+                            case "p":
+                            Pepperoni = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Sausage":
+                            case "sausage":
+                            case "sus":
+                            Sausage = true;
+                            Console.WriteLine("\n");
                             break;
 
                             default:
 
                             Console.WriteLine("Invalid Option");
-
+                            Console.WriteLine("\n");
                             break;
                         }
 
@@ -1225,37 +1508,57 @@ namespace PizzaCreator
                         case "pep":
                         case "p":
                         Pepperoni = true;
-
+                        Console.WriteLine("\n");
                         usermeat = "Pepperoni";
                         Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
+                        Console.WriteLine("Or are You done?: type skip if done");
                         Console.WriteLine(meat_Type);
 
                         skip = Console.ReadLine();
                         switch (skip)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout1 = true;
-
-                            break;
-
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Skip":
+                            case "skip":
+                            case "s":
 
                             popout1 = false;
+                            Console.WriteLine("\n");
+                            break;
 
+                            case "Bacon":
+                            case "bacon":
+                            case "bac":
+                            case "b":
+                            Bacon = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Ham":
+                            case "ham":
+                            case "h":
+                            Ham = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Pepperoni":
+                            case "pepperoni":
+                            case "pep":
+                            case "p":
+                            Pepperoni = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Sausage":
+                            case "sausage":
+                            case "sus":
+                            Sausage = true;
+                            Console.WriteLine("\n");
                             break;
 
                             default:
 
                             Console.WriteLine("Invalid Option");
-
+                            Console.WriteLine("\n");
                             break;
                         }
 
@@ -1263,38 +1566,59 @@ namespace PizzaCreator
 
                         case "Sausage":
                         case "sausage":
-                        case "s":
+                        case "sus":
                         Sausage = true;
-
+                        Console.WriteLine("\n");
                         usermeat = "Sausage";
                         Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
+                        Console.WriteLine("Or are You done?: type skip if done");
                         Console.WriteLine(meat_Type);
 
                         skip = Console.ReadLine();
                         switch (skip)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout1 = true;
+                            case "Skip":
+                            case "skip":
+                            case "s":
+                            Console.WriteLine("\n");
+                            popout1 = false;
 
                             break;
 
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Bacon":
+                            case "bacon":
+                            case "bac":
+                            case "b":
+                            Console.WriteLine("\n");
+                            Bacon = true;
+                            break;
 
-                            popout1 = false;
+                            case "Ham":
+                            case "ham":
+                            case "h":
+                            Console.WriteLine("\n");
+                            Ham = true;
+                            break;
 
+                            case "Pepperoni":
+                            case "pepperoni":
+                            case "pep":
+                            case "p":
+                            Console.WriteLine("\n");
+                            Pepperoni = true;
+                            break;
+
+                            case "Sausage":
+                            case "sausage":
+                            case "sus":
+                            Console.WriteLine("\n");
+                            Sausage = true;
                             break;
 
                             default:
 
                             Console.WriteLine("Invalid Option");
+                            Console.WriteLine("\n");
                             break;
                         }
 
@@ -1302,12 +1626,14 @@ namespace PizzaCreator
 
                         case "skip":
                         case "Skip":
+                        Console.WriteLine("\n");
                         popout1 = false;
 
                         break;
 
                         default:
                         Console.WriteLine("Invalid input.");
+                        Console.WriteLine("\n");
                         break;
                     }
                     // go back to the top
@@ -1327,11 +1653,11 @@ namespace PizzaCreator
                     // What vegetables
 
                     Console.WriteLine("What vegetables would you like?");
-                    Console.WriteLine("Or do you want to skip this step?: Y or N?");
+                    Console.WriteLine("Or are You done?: type skip if done");
                     Console.WriteLine(veg_Type);
 
                     userveg = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (userveg)
                     {
@@ -1339,27 +1665,41 @@ namespace PizzaCreator
                         case "blackolives":
                         case "BlackOlives":
                         case "bo":
+                        Console.WriteLine("\n");
                         userveg = "Black Olives";
-                        Console.WriteLine("What other Meats?");
-                        Console.WriteLine("Or are You done?: Y/N?");
-                        Console.WriteLine(meat_Type);
+                        Console.WriteLine("What other Veggies?");
+                        Console.WriteLine("Or are You done?: Type 'Skip'");
+                        Console.WriteLine(veg_Type);
                         skip2 = Console.ReadLine();
                         switch (skip2)
                         {
-                            case "y":
-                            case "Y":
-                            case "Yes":
-                            case "YES":
-
-                            popout2 = true;
-
+                            case "Black Olives":
+                            case "blackolives":
+                            case "BlackOlives":
+                            case "bo":
+                            Console.WriteLine("\n");
+                            BlackOlives = true;
                             break;
 
-                            case "n":
-                            case "N":
-                            case "No":
-                            case "NO":
+                            case "Mushrooms":
+                            case "shrooms":
+                            case "m":
+                            Console.WriteLine("\n");
+                            Mushrooms = true;
+                            break;
 
+                            case "Onions":
+                            case "onions":
+                            case "oni":
+                            case "o":
+                            Console.WriteLine("\n");
+                            Onions = true;
+                            break;
+
+                            case "Skip":
+                            case "skip":
+                            case "s":
+                            Console.WriteLine("\n");
                             popout2 = false;
 
                             break;
@@ -1367,7 +1707,7 @@ namespace PizzaCreator
                             default:
 
                             Console.WriteLine("Invalid Option");
-
+                            Console.WriteLine("\n");
                             break;
                         }
                         BlackOlives = true;
@@ -1378,8 +1718,52 @@ namespace PizzaCreator
                         case "shrooms":
                         case "m":
                         userveg = "Mushrooms";
-                        Mushrooms = true;
+                        Console.WriteLine("\n");
+                        Console.WriteLine("What other Veggies?");
+                        Console.WriteLine("Or are You done?: Type 'Skip'");
+                        Console.WriteLine(veg_Type);
+                        skip2 = Console.ReadLine();
+                        switch (skip2)
+                        {
+                            case "Black Olives":
+                            case "blackolives":
+                            case "BlackOlives":
+                            case "bo":
+                            BlackOlives = true;
+                            Console.WriteLine("\n");
+                            break;
 
+                            case "Mushrooms":
+                            case "shrooms":
+                            case "m":
+                            Mushrooms = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Onions":
+                            case "onions":
+                            case "oni":
+                            case "o":
+                            Onions = true;
+                            Console.WriteLine("\n");
+                            break;
+
+                            case "Skip":
+                            case "skip":
+                            case "s":
+
+                            popout2 = false;
+                            Console.WriteLine("\n");
+                            break;
+
+                            default:
+
+                            Console.WriteLine("Invalid Option");
+                            Console.WriteLine("\n");
+                            break;
+                        }
+                        Mushrooms = true;
+                        Console.WriteLine("\n");
                         break;
 
                         case "Onions":
@@ -1387,6 +1771,50 @@ namespace PizzaCreator
                         case "oni":
                         case "o":
                         userveg = "Onions";
+                        Console.WriteLine("\n");
+                        Console.WriteLine("What other Veggies?");
+                        Console.WriteLine("Or are You done?: Type 'Skip'");
+                        Console.WriteLine(veg_Type);
+                        skip2 = Console.ReadLine();
+                        switch (skip2)
+                        {
+                            case "Black Olives":
+                            case "blackolives":
+                            case "BlackOlives":
+                            case "bo":
+                            Console.WriteLine("\n");
+                            BlackOlives = true;
+                            break;
+
+                            case "Mushrooms":
+                            case "shrooms":
+                            case "m":
+                            Console.WriteLine("\n");
+                            Mushrooms = true;
+                            break;
+
+                            case "Onions":
+                            case "onions":
+                            case "oni":
+                            case "o":
+                            Console.WriteLine("\n");
+                            Onions = true;
+                            break;
+
+                            case "Skip":
+                            case "skip":
+                            case "s":
+                            Console.WriteLine("\n");
+                            popout2 = false;
+
+                            break;
+
+                            default:
+
+                            Console.WriteLine("Invalid Option");
+                            Console.WriteLine("\n");
+                            break;
+                        }
                         Onions = true;
 
                         break;
@@ -1395,17 +1823,62 @@ namespace PizzaCreator
                         case "peppers":
                         case "p":
                         userveg = "Peppers";
+                        Console.WriteLine("What other Veggies?");
+                        Console.WriteLine("Or are You done?: Type 'Skip'");
+                        Console.WriteLine(veg_Type);
+                        skip2 = Console.ReadLine();
+                        switch (skip2)
+                        {
+                            case "Black Olives":
+                            case "blackolives":
+                            case "BlackOlives":
+                            case "bo":
+                            Console.WriteLine("\n");
+                            BlackOlives = true;
+                            break;
+
+                            case "Mushrooms":
+                            case "shrooms":
+                            case "m":
+                            Console.WriteLine("\n");
+                            Mushrooms = true;
+                            break;
+
+                            case "Onions":
+                            case "onions":
+                            case "oni":
+                            case "o":
+                            Console.WriteLine("\n");
+                            Onions = true;
+                            break;
+
+                            case "Skip":
+                            case "skip":
+                            case "s":
+                            Console.WriteLine("\n");
+                            popout2 = false;
+
+                            break;
+
+                            default:
+
+                            Console.WriteLine("Invalid Option");
+                            Console.WriteLine("\n");
+                            break;
+                        }
                         Peppers = true;
 
                         break;
 
                         case "skip":
                         case "Skip":
+                        Console.WriteLine("\n");
                         popout2 = false;
                         break;
 
                         default:
                         Console.WriteLine("Invalid input.");
+                        Console.WriteLine("\n");
                         break;
                     }
 
@@ -1425,25 +1898,25 @@ namespace PizzaCreator
                     Console.WriteLine(sause_Type);
 
                     usersause = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (usersause)
                     {
                         case "Traditional":
-                        case "Trad":
+                        case "traditional":
                         case "tr":
                         case "t":
+                        Console.WriteLine("\n");
                         usersause = "Traditional";
-                        popout4 = false;
-
                         Traditional = true;
+                        popout4 = false;
                         break;
 
                         case "Garlic":
                         case "garlic":
                         case "g":
+                        Console.WriteLine("\n");
                         usersause = "Garlic";
-
                         Garlic = true;
                         popout4 = false;
                         break;
@@ -1451,14 +1924,15 @@ namespace PizzaCreator
                         case "Oregano":
                         case "oregano":
                         case "o":
+                        Console.WriteLine("\n");
                         usersause = "Oregano";
-
                         Oregano = true;
                         popout4 = false;
                         break;
 
                         default:
                         Console.WriteLine("Invalid input.");
+                        Console.WriteLine("\n");
                         break;
                     }
 
@@ -1478,7 +1952,7 @@ namespace PizzaCreator
                     Console.WriteLine(cheese_Type);
 
                     usercheese = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (usercheese)
                     {
@@ -1486,19 +1960,25 @@ namespace PizzaCreator
                         case "regular":
                         case "R":
                         case "r":
+                        Regular = true;
+                        Console.WriteLine("\n");
                         usercheese = "Regular";
                         popout3 = false;
                         break;
 
                         case "Extra":
+                        case "extra":
                         case "Ex":
                         case "e":
+                        Extra = true;
+                        Console.WriteLine("\n");
                         usercheese = "Extra";
                         popout3 = false;
                         break;
 
                         default:
                         Console.WriteLine("Invalid input.");
+                        Console.WriteLine("\n");
                         break;
                     }
 
@@ -1518,15 +1998,16 @@ namespace PizzaCreator
                     Console.WriteLine(delivery_Type);
 
                     userdelivery = Console.ReadLine();
-
+                    Console.WriteLine("\n");
                     // Computing the size
                     switch (userdelivery)
                     {
                         case "Takeout":
                         case "Take Out":
                         case "TakeOut":
+                        case "takeout":
                         case "to":
-
+                        Console.WriteLine("\n");
                         TakeOut = true;
                         userdelivery = "Take Out";
                         popout5 = false;
@@ -1535,13 +2016,14 @@ namespace PizzaCreator
                         case "Delivery":
                         case "delivery":
                         case "d":
-
+                        Console.WriteLine("\n");
                         Delivery = true;
                         userdelivery = "Delivery";
                         popout5 = false;
                         break;
 
                         default:
+                        Console.WriteLine("\n");
                         Console.WriteLine("Invalid input.");
                         break;
                     }
@@ -1549,7 +2031,7 @@ namespace PizzaCreator
 
                 } while (popout5 == true);
 
-            }
+            } // Delivery?
             // Displaying CartPrice
             pricecheck(totalZMod);
 
@@ -1578,6 +2060,36 @@ namespace PizzaCreator
                 ref numVeggies,
                 ref OrderSet
                 );
+            orderModifiedOnce = true;
+            CLS();
+            Pause();
+
+            DisplayOrders2
+                (
+                ref Ham,
+                ref Bacon,
+                ref Pepperoni,
+                ref Sausage,
+                ref Small,
+                ref Medium,
+                ref Large,
+                ref BlackOlives,
+                ref Mushrooms,
+                ref Onions,
+                ref Peppers,
+                ref Traditional,
+                ref Garlic,
+                ref Oregano,
+                ref Regular,
+                 ref Extra,
+                 ref TakeOut,
+                ref Delivery,
+                ref totaling,
+                ref numMeats,
+                ref numVeggies,
+                ref OrderSet
+                );
+
         }
 
           public static void Tally
@@ -1785,11 +2297,11 @@ namespace PizzaCreator
             if (OrderSet == true)
             {
                 // displaying all orders
-                Console.WriteLine("Here is your previous order..");
+                Console.WriteLine("Here is your latest order..");
 
                 {
                     // size
-                    Console.WriteLine("Sizes");
+                    Console.WriteLine("Sizes\n");
                     if (Small == true)
                     {
                         Console.WriteLine("\tSmall\t\t $5.00\n");
@@ -1995,10 +2507,8 @@ namespace PizzaCreator
 
         public static void Pause()
         {
-            while (Console.ReadKey().Key != ConsoleKey.Enter)
-            {
-                // stops the program so you can see your order
-            }
+            string Enter = Console.ReadLine();
+            MainMenu();
         }
     }
 }
