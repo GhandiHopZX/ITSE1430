@@ -14,12 +14,6 @@ namespace PizzaCreator
 {
     class Program
     {
-
-        // this is the balance for said order.
-        // There's only one order so just pass these values and execute
-
-        static decimal s_total;
-
         // here is the list of ingredients and dish orders to pull from
         static bool Ham = false;
         static bool Bacon = false;
@@ -40,6 +34,9 @@ namespace PizzaCreator
         static bool TakeOut = false;
         static bool Delivery = false;
         static bool OrderSet = false;
+
+        // this is the balance for said order.
+        // There's only one order so just pass these values and execute
         static decimal totalling = 0.00M;
 
         // Order check for the Modify function.
@@ -48,16 +45,9 @@ namespace PizzaCreator
         // Order to string 
         static string Ordersol;
         
-      //  public decimal Total
-       // {
-        //    get {
-        //        return pricecheck(s_total);
-        //    }
-      //  }
-
-        static decimal pricecheck( decimal OK_added )
+        static decimal Pricecheck( decimal OK_added )
         {
-            decimal newTotal = 0.00M;
+            var newTotal = 0.00M;
 
             if (OK_added > 0.00m)
             {
@@ -71,29 +61,26 @@ namespace PizzaCreator
             return newTotal;
         }
 
-        static void Main( string[] args )
-        {
-            MainMenu();
-        }
-        
+        static void Main( string[] args ) => MainMenu();
+
         static void MainMenu()
         {
             Console.BackgroundColor = ConsoleColor.DarkGreen;
 
-            pricecheck(s_total);
+            Pricecheck(totalling);
 
             // General menu
-            string menuDisplay =
+            var menuDisplay =
 
                 "MAIN MENU\n\n 1. New Order\n 2. Modify Order\n 3. Display Order\n 4. Quit";
 
-            string mainInput = "";
+            var mainInput = "";
 
             // Formating
             menuDisplay.PadLeft(10);
 
             // User is busy
-            bool userpopM = true;
+            var userpopM = true;
 
             // Display
             Console.WriteLine(menuDisplay);
@@ -192,18 +179,20 @@ namespace PizzaCreator
         public static void Orders()
         {
             // Prompting the user if the order has been set
-            if (OrderSet == true)
+            if (totalling > 0.00M)
             {
                 Console.WriteLine("Do you want to Start over?");
 
-                string prompt = Console.ReadLine();
+                var prompt = Console.ReadLine();
                 //bool popper = false;
                 switch (prompt)
                 {
                     case "yes":
                     case "Yes":
                     case "y":
-                    totalling = 0.00M;
+                    var ZeroOut = 0.00M;
+                    var kanjiOut = ZeroOut * totalling;
+                    Pricecheck(kanjiOut);
                     break;
 
                     case "no":
@@ -219,72 +208,72 @@ namespace PizzaCreator
             } 
 
             // booleans for each item
-            bool MyMushrooms = false;
-            bool MyOnions = false;
-            bool MyPeppers = false;
-            bool MyBC = false;
-            bool MyOregano = false;
-            bool MyGarlic = false;
-            bool MyTraditional = false;
-            bool MyRegular = false;
-            bool MyExtra = false;
-            bool MyTakeOut = false;
-            bool MyDelivery = false;
-            bool MyBacon = false;
-            bool MyPepperoni = false;
-            bool MySausage = false;
-            bool MyHam = false;
-            bool MySmall = false;
-            bool MyMedium = false;
-            bool MyLarge = false;
-            bool MyOrderSet = false;
+            var MyMushrooms = false;
+            var MyOnions = false;
+            var MyPeppers = false;
+            var MyBC = false;
+            var MyOregano = false;
+            var MyGarlic = false;
+            var MyTraditional = false;
+            var MyRegular = false;
+            var MyExtra = false;
+            var MyTakeOut = false;
+            var MyDelivery = false;
+            var MyBacon = false;
+            var MyPepperoni = false;
+            var MySausage = false;
+            var MyHam = false;
+            var MySmall = false;
+            var MyMedium = false;
+            var MyLarge = false;
+            var MyOrderSet = false;
 
             // Displaying CartPrice
-            pricecheck(totalling);
+            Pricecheck(totalling);
 
             // Ordering criteria
 
             // size holder
-            string userSize = "";
+            var userSize = "";
 
             // size type
-            string pizza_size = " Small ($5),\n Medium ($6.25),\n Large ($8.75)";
+            var pizza_size = " Small ($5),\n Medium ($6.25),\n Large ($8.75)";
 
             // meat type 
-            string meat_Type = " ($0.75)each\n Bacon,\n Ham, Pepperoni, Sausage";
+            var meat_Type = " ($0.75)each\n Bacon,\n Ham, Pepperoni, Sausage";
 
             // meat holder 
-            string usermeat = "";
+            var usermeat = "";
 
             // veg type 
-            string veg_Type = " ($0.50)each\n Black Olives, \n Mushrooms, \n, Onions \n Peppers";
+            var veg_Type = " ($0.50)each\n Black Olives, \n Mushrooms, \n, Onions \n Peppers";
 
             // veg holder 
-            string userveg = "";
+            var userveg = "";
 
             // Sause type 
-            string sause_Type = " Traditional($0),\n Garlic($1),\n Oregano($1)\n";
+            var sause_Type = " Traditional($0),\n Garlic($1),\n Oregano($1)\n";
 
             // sause holder 
-            string usersause = "";
+            var usersause = "";
 
             // Cheese type 
-            string cheese_Type = " Regular ($0), Extra ($1.25)";
+            var cheese_Type = " Regular ($0), Extra ($1.25)";
 
             // Cheese holder 
-            string usercheese = "";
+            var usercheese = "";
 
             // Delivery type 
-            string delivery_Type = " Take Out ($0), Delivery ($2.50)";
+            var delivery_Type = " Take Out ($0), Delivery ($2.50)";
 
             // Delivery holder 
-            string userdelivery = "";
+            var userdelivery = "";
 
             // Passing values and math stuff
             // The user must make a selection therefore the user is busy
 
             {
-                bool userbusy = true;
+                var userbusy = true;
                 do
                 {
                     // what size is the Pizza
@@ -339,9 +328,9 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout1 = true;
+                var popout1 = true;
 
-                string skip = "";
+                var skip = "";
 
                 do
                 {
@@ -584,7 +573,7 @@ namespace PizzaCreator
 
                             case "Sausage":
                             case "sausage":
-                            case "sus":
+                            case "saus":
                             Console.WriteLine("\n");
                             MySausage = true;
                             break;
@@ -618,9 +607,9 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout2 = true;
+                var popout2 = true;
 
-                string skip2 = "";
+                var skip2 = "";
 
                 do
                 {
@@ -862,7 +851,7 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout4 = true;
+                var popout4 = true;
 
                 do
                 {
@@ -916,7 +905,7 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout3 = true;
+                var popout3 = true;
 
                 do
                 {
@@ -962,7 +951,7 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout5 = true;
+                var popout5 = true;
 
                 do
                 {
@@ -984,6 +973,8 @@ namespace PizzaCreator
                         Console.WriteLine("\n");
                         MyTakeOut = true;
                         userdelivery = "Take Out";
+                        //setting the order
+                        MyOrderSet = true;
                         popout5 = false;
                         break;
 
@@ -993,6 +984,8 @@ namespace PizzaCreator
                         Console.WriteLine("\n");
                         MyDelivery = true;
                         userdelivery = "Delivery";
+                        //setting the order
+                        MyOrderSet = true;
                         popout5 = false;
                         break;
 
@@ -1002,11 +995,12 @@ namespace PizzaCreator
                         break;
                     }
 
+                    
 
                 } while (popout5 == true);
 
             } // Delivery?
-
+            
             Tally
             (
             ref MyHam,
@@ -1060,7 +1054,7 @@ namespace PizzaCreator
             // Check if the order has been modified
         orderModifiedOnce = false;
 
-        if (OrderSet == false)
+        if (totalling > 0.00M)
         {
             Console.WriteLine("No order has been set...");
             Console.WriteLine("Error...");
@@ -1189,13 +1183,13 @@ namespace PizzaCreator
             } // sause
 
             Console.WriteLine("-----------------------\n");
-            Console.WriteLine("Total\t\t " + pricecheck(totalling));
+            Console.WriteLine("Total\t\t " + Pricecheck(totalling));
 
             // Here is where you confirm what your order looks like...
             Console.WriteLine("Order Ok?: Yes/No");
 
             // Reading in the user's input for modifications...
-            string input_man = Console.ReadLine();
+            var input_man = Console.ReadLine();
             switch (input_man)
             {
                 case "Yes":
@@ -1262,53 +1256,53 @@ namespace PizzaCreator
             orderModifiedOnce = true;
 
             // Total
-            decimal totalZMod = 0.00M;
+            var totalZMod = 0.00M;
 
             // Displaying CartPrice unchanged
-            pricecheck(s_total);
+            Pricecheck(totalling);
 
             // Ordering criteria
 
             // size holder
-            string userSize = "";
+            var userSize = "";
 
             // size type
-            string pizza_size = "Small ($5),\n Medium ($6.25),\n Large ($8.75)";
+            var pizza_size = "Small ($5),\n Medium ($6.25),\n Large ($8.75)";
 
             // meat type 
-            string meat_Type = "($0.75)each\n Bacon,\n Ham, Pepperoni, Sausage";
+            var meat_Type = "($0.75)each\n Bacon,\n Ham, Pepperoni, Sausage";
 
             // meat holder 
-            string usermeat = "";
+            var usermeat = "";
 
             // veg type 
-            string veg_Type = "($0.50)each\n Black Olives, \n Mushrooms, \n, Onions \n Peppers";
+            var veg_Type = "($0.50)each\n Black Olives, \n Mushrooms, \n, Onions \n Peppers";
 
             // veg holder 
-            string userveg = "";
+            var userveg = "";
 
             // Sause type 
-            string sause_Type = "Traditional($0),\n Garlic($1),\n Oregano($1)\n";
+            var sause_Type = "Traditional($0),\n Garlic($1),\n Oregano($1)\n";
 
             // sause holder 
-            string usersause = "";
+            var usersause = "";
 
             // Cheese type 
-            string cheese_Type = "Regular ($0), Extra ($1.25)";
+            var cheese_Type = "Regular ($0), Extra ($1.25)";
 
             // Cheese holder 
-            string usercheese = "";
+            var usercheese = "";
 
             // Delivery type 
-            string delivery_Type = "Take Out ($0), Delivery ($2.50)";
+            var delivery_Type = "Take Out ($0), Delivery ($2.50)";
 
             // Delivery holder 
-            string userdelivery = "";
+            var userdelivery = "";
 
             // Passing values and math stuff
             // The user must make a selection therefore the user is busy
             {
-                bool userbusy = true;
+                var userbusy = true;
                 do
                 {
                     // what size is the Pizza
@@ -1363,9 +1357,9 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout1 = true;
+                var popout1 = true;
 
-                string skip = "";
+                var skip = "";
 
                 do
                 {
@@ -1642,9 +1636,9 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout2 = true;
+                var popout2 = true;
 
-                string skip2 = "";
+                var skip2 = "";
 
                 do
                 {
@@ -1886,7 +1880,7 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout4 = true;
+                var popout4 = true;
 
                 do
                 {
@@ -1940,7 +1934,7 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout3 = true;
+                var popout3 = true;
 
                 do
                 {
@@ -1986,7 +1980,7 @@ namespace PizzaCreator
 
             {
                 // user is busy again
-                bool popout5 = true;
+                var popout5 = true;
 
                 do
                 {
@@ -2031,7 +2025,7 @@ namespace PizzaCreator
 
             } // Delivery?
             // Displaying CartPrice
-            pricecheck(totalZMod);
+            Pricecheck(totalZMod);
 
             Tally
                 (
@@ -2248,10 +2242,7 @@ namespace PizzaCreator
             );
         }
 
-        public static void CLS()
-        {
-            Console.Clear();
-        }
+        public static void CLS() => Console.Clear();
 
         static string DisplayOrders2
             (
@@ -2276,7 +2267,7 @@ namespace PizzaCreator
             ref bool OrderSet 
             )
         {
-            if (OrderSet == true)
+            if (totalling > 0.00M)
             {
                 // displaying all orders
                 Console.WriteLine("Here is your latest order..");
@@ -2398,13 +2389,17 @@ namespace PizzaCreator
                 } // sause
 
                 Console.WriteLine("-----------------------\n");
-                Console.WriteLine("Total\t\t " + pricecheck(totalling));
+                Console.WriteLine("Total\t\t " + Pricecheck(totalling));
 
                 // Here is where you confirm what your order looks like...
-                Console.WriteLine("Order Ok?");
-                string watchFK = Console.ReadLine();
-
-                Pause();
+                Console.WriteLine("Order Ok?: type ok to continue");
+                var watchFK = Console.ReadLine();
+                switch (watchFK)
+                {
+                    case "ok":
+                    MainMenu();
+                break;
+                }
             } 
             
             else
@@ -2415,7 +2410,7 @@ namespace PizzaCreator
                 PizzaMan();
             }
 
-            string orderWritten = DisplayOrders2
+            var orderWritten = DisplayOrders2
 
             (
             ref Ham,
@@ -2452,7 +2447,7 @@ namespace PizzaCreator
             {
                 Console.WriteLine("\n Would you like a Pizza?");
                 Console.WriteLine("\n(Y = Yes, N = No)");
-                string responce = Console.ReadLine().ToUpper();
+                var responce = Console.ReadLine().ToUpper();
                 
                 switch (responce)
                 {
@@ -2486,7 +2481,7 @@ namespace PizzaCreator
 
         public static void Pause()
         {
-            string Enter = Console.ReadLine();
+            var Enter = Console.ReadLine();
             MainMenu();
         }
     }
