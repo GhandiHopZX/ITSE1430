@@ -19,23 +19,33 @@ namespace GameManager.Host.Winforms
             LoadUI();
         }
 
-        void LoadUI ()
+        void LoadUI()
         {
             Game game = new Game();
 
-            game.Name = "MMBN";
-            game.Price = 59.99M; /// M means monetary use this to type prices
+            game.Name = "mmbm";
+            game.Price = 59.99M;
+
+            var name = game.Name;
+            if (name.Length == 0)
+                /* is empty*/
+                ;
+            if (game.Name.Length == 0)
+                /* is empty */
+                ;
 
             //Validate(game)
             game.Validate();
 
-            var x = 10;
-            x.ToString();
+            //var x = 10;
+            //x.ToString();
+
             //var str = game.Publisher;            
             //Decimal.TryParse("45.99", out game.Price);
+
         }
 
-        private void OnFileExit ( object sender, EventArgs e )
+        private void OnFileExit( object sender, EventArgs e )
         {
             //Local variable
             var x = 10;
@@ -43,7 +53,7 @@ namespace GameManager.Host.Winforms
             Close();
         }
 
-        private void OnHelpAbout ( object sender, EventArgs e )
+        private void OnHelpAbout( object sender, EventArgs e )
         {
             MessageBox.Show("Help");
         }
