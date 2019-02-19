@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E09A6CD-62A4-401A-9398-1447C3B204B6}</ProjectGuid>
+    <ProjectGuid>{20D9555F-82BE-46AA-886B-286D02EC7BF9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GameManager.Host.Winforms</RootNamespace>
     <AssemblyName>GameManager.Host.Winforms</AssemblyName>
@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.cs">
+    <Compile Include="AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox1.Designer.cs">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="GameForm.cs">
       <SubType>Form</SubType>
@@ -66,8 +66,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
@@ -98,8 +98,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameMnager\GameManager.csproj">
-      <Project>{f87716e0-7778-4412-a64e-94bd0ac2bd22}</Project>
+    <ProjectReference Include="..\GameManager\GameManager.csproj">
+      <Project>{a2fd1153-8361-4388-8234-0f9463049ae5}</Project>
       <Name>GameManager</Name>
     </ProjectReference>
   </ItemGroup>

@@ -18,10 +18,5 @@ namespace GameManager.Host.Winforms
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
-
-        static void madman(string message, int counter)
-        {
-            
-        }
     }
 }

@@ -26,11 +26,11 @@ namespace GameManager.Host.Winforms
         //Called when the user cancels the add/edit
         private void OnCancel( object sender, EventArgs e )
         {
-            DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.Cancel;             
             Close();
         }
 
-        private decimal ReadDecimal( TextBox control )
+        private decimal ReadDecimal ( TextBox control )
         {
             if (Decimal.TryParse(control.Text, out var value))
                 return value;
@@ -39,24 +39,24 @@ namespace GameManager.Host.Winforms
         }
 
         //Loads UI with game
-        private void LoadData( Game game )
+        private void LoadData ( Game game )
         {
-            en_Name.Text = game.Name;
-            en_Publisher.Text = game.Publisher;
-            en_Price.Text = game.Price.ToString();
+            _txtName.Text = game.Name;
+            _txtPublisher.Text = game.Publisher;
+            _txtPrice.Text = game.Price.ToString();
             _cbOwned.Checked = game.Owned;
             _cbCompleted.Checked = game.Completed;
         }
 
         //Saves UI into new game
-        private Game SaveData()
+        private Game SaveData ()
         {
             var game = new Game();
-            game.Name = en_Name.Text;
-            game.Publisher = en_Publisher.Text;
-            game.Price = ReadDecimal(en_Price);
-            game.Owned = en_Owned.Checked;
-            game.Completed = en_Completed.Checked;
+            game.Name = _txtName.Text;
+            game.Publisher = _txtPublisher.Text;
+            game.Price = ReadDecimal(_txtPrice);
+            game.Owned = _cbOwned.Checked;
+            game.Completed = _cbCompleted.Checked;
 
             return game;
         }
