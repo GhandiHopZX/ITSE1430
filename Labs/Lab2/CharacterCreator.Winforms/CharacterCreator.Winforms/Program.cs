@@ -16,7 +16,7 @@ namespace CharacterCreator.Winforms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Top_window());
+            Application.Run(new Form1());
         }
     }
 }
