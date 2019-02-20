@@ -12,6 +12,14 @@ namespace GameManager
     /// represents a game
     public class Game
     {
+        public string dope
+        {
+            get { return dope = "dopeage" + Name; }
+            set {
+                string m = "";
+                Name += m + dope;
+            }
+        }
         /// <summary>Name of the game.</summary>
         public string Name
         {

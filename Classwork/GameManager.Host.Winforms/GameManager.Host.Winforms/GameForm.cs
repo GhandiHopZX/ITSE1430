@@ -67,5 +67,10 @@ namespace GameManager.Host.Winforms
             if (Game != null)
                 LoadData(Game);
         }
+
+        private void GameForm_MouseMove( object sender, MouseEventArgs e )
+        {
+
+        }
     }
 }
