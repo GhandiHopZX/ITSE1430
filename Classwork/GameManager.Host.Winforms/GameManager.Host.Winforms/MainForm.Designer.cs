@@ -29,22 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.OnGameSelected = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // OnGameSelected
-            // 
-            resources.ApplyResources(this.OnGameSelected, "OnGameSelected");
-            this.OnGameSelected.FormattingEnabled = true;
-            this.OnGameSelected.Name = "OnGameSelected";
-            this.OnGameSelected.SelectedIndexChanged += new System.EventHandler(this.OnGameSelected_SelectedIndexChanged);
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.OnGameSelected);
             this.Name = "MainForm";
-            this.Click += new System.EventHandler(this.MainForm_Click);
             this.ResumeLayout(false);
 
         }
@@ -71,7 +61,6 @@
         private System.Windows.Forms.TextBox en_Price;
         private System.Windows.Forms.Button SaveBox;
         private System.Windows.Forms.Button Cancel;
-        private System.Windows.Forms.ListBox OnGameSelected;
     }
 }
 

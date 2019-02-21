@@ -50,16 +50,6 @@ namespace GameManager.Host.Winforms
             _miGameAdd.Click += OnGameAdd;
 
         }
-
-        private void OnGameSelected_SelectedIndexChanged( object sender, EventArgs e )
-        {
-
-        }
-
-        private void MainForm_Click( object sender, EventArgs e )
-        {
-
-        }
     }
 
     private void OnFileExit( object sender, EventArgs e )
@@ -76,22 +66,6 @@ namespace GameManager.Host.Winforms
             form.ShowDialog();
         }
 
-    private void BindList ()
-    {
-        //Bind games to listbox
-        _listGames.Items.Clear();
-
-        //nameof(Game.Name) == "Name"
-        _listGames.DisplayMember = nameof(Game.Name);
-
-        //_listGames.Items.AddRange(_games);
-        foreach (var game in _games)
-        {
-            if (game != null)
-                _listGames.Items.Add(game);
-        };
-    }
-
         private void OnGameAdd( object sender, EventArgs e )
         {
             //Display UI
@@ -103,43 +77,15 @@ namespace GameManager.Host.Winforms
             if (form.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: add
-            _games[GetNextEmptyGame] = form.Game;
-            BindList();
+            //If OK then "add" to system
+            _game = form.Game;
         }
 
-    private void UpdateGame( Game oldGame, Game newGame )
-    {
-        for (var index = 0; index < _games.Length; ++index)
-        {
-            if (_games[index] == oldGame)
-            {
-                _games[index] = newGame;
-                break;
-            };
-        };
-    }
-
-
-    //HACK: Find first spot in array with no game
-    private int GetNextEmptyGame()
-    {
-        for (var index = 0; index < _games.Length; ++index)
-            if (_games[index] == null)
-                return index;
-
-        return -1;
-    }
-
-    private Game[] _games = new Game[100];
+        private Game _game;
 
         private void OnGameEdit( object sender, EventArgs e )
         {
             var form = new GameForm();
-
-        var game = GetSelectedGame();
-        if (game == null)
-            return;
 
             //Game to edit
             form.Game = _game;
@@ -147,9 +93,7 @@ namespace GameManager.Host.Winforms
             if (form.ShowDialog(this) != DialogResult.OK)
                 return;
 
-        //TODO: Fix to edit, not add
-        UpdateGame(game, form.Game);
-        BindList();
+            _game = form.Game;
         }
 
         private void OnGameDelete( object sender, EventArgs e )
@@ -165,38 +109,13 @@ namespace GameManager.Host.Winforms
                                MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
 
-        //TODO: Delete
-        DeleteGame(selected);
-        BindList();
+            //TODO: Delete
+            _game = null;
         }
 
-    private void DeleteGame( Game game )
-    {
-        for (var index = 0; index < _games.Length; ++index)
+        private Game GetSelectedGame()
         {
-            if (_games[index] == game)
-            {
-                _games[index] = null;
-                break;
-            };
-        };
+            return _game;
+        }
     }
-
-
-    private Game GetSelectedGame()
-    {
-        var game = _listGames.SelectedValue;
-
-        //C-style  cast - don't do his
-        var game = (Game)value;
-
-        //preferred
-        var game = value as Game;
-
-        //Type check
-        var game2 = (value is Game) ? (Game)value : null;
-
-        return game;
-    }
-
 }
