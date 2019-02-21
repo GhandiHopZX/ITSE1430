@@ -29,13 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.OnGameSelected = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
+            // 
+            // OnGameSelected
+            // 
+            resources.ApplyResources(this.OnGameSelected, "OnGameSelected");
+            this.OnGameSelected.FormattingEnabled = true;
+            this.OnGameSelected.Name = "OnGameSelected";
+            this.OnGameSelected.SelectedIndexChanged += new System.EventHandler(this.OnGameSelected_SelectedIndexChanged);
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.OnGameSelected);
             this.Name = "MainForm";
+            this.Click += new System.EventHandler(this.MainForm_Click);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -46,10 +57,10 @@
         private System.Windows.Forms.ToolStripMenuItem _miFileExit;
         private System.Windows.Forms.ToolStripMenuItem gamesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem _miGamesAdd;
-        private System.Windows.Forms.ToolStripMenuItem _miGamesEdit;
+        private System.Windows.Forms.ToolStripMenuItem _miGameAdd;
+        private System.Windows.Forms.ToolStripMenuItem _miGameEdit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem _miGamesDelete;
+        private System.Windows.Forms.ToolStripMenuItem _miGameDelete;
         private System.Windows.Forms.ToolStripMenuItem _miHelpAbout;
         private System.Windows.Forms.Label _enName;
         private System.Windows.Forms.Label _enPublisher;
@@ -61,6 +72,7 @@
         private System.Windows.Forms.TextBox en_Price;
         private System.Windows.Forms.Button SaveBox;
         private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.ListBox OnGameSelected;
     }
 }
 

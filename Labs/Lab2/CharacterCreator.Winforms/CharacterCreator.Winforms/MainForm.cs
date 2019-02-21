@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CharacterCreator.Winforms
 {
-    public partial class Top_window : Form
+    public partial class MainForm : Form
     {
-        public Top_window()
+        public MainForm()
         {
             InitializeComponent();
         }
