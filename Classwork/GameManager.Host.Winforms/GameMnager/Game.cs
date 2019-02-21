@@ -20,32 +20,6 @@ namespace GameManager
                 Name += m + dope;
             }
         }
-
-        //Ctors
-        
-        //Default, no return type
-        // 1) Cannot be called directly
-        // 2) Errors are very bad
-        // 3) Should behave no different than doing it manually
-        public Game ()
-        {
-            //Complex init
-            var x = 1 + 2;
-        }
-
-        //Constructor chaining
-        public Game( string name ) : this(name, 0)
-        {
-            //Name = name;
-        }
-        
-        //As soon as you define a ctor, no default ctor anymore 
-        public Game( string name, decimal price )
-        {
-            Name = name;
-            Price = price;
-        }
-
         /// <summary>Name of the game.</summary>
         public string Name
         {
