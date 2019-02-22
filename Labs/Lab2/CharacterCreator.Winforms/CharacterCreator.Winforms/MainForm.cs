@@ -21,5 +21,10 @@ namespace CharacterCreator.Winforms
         {
 
         }
+
+        private void quitToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            Close();
+        }
     }
 }

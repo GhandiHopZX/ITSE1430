@@ -58,9 +58,8 @@ namespace GameManager.Host.Winforms
             game.Owned = _cbOwned.Checked;
             game.Completed = _cbCompleted.Checked;
 
-            //Demoing ctor 
-
-            var game2 = new Game(_txtName.Text, ReadDecimal(_txt...))
+            //Demoing ctor
+            var game2 = new Game(_txtName.Text, ReadDecimal(_txtPrice));
 
             return game;
         }
@@ -69,8 +68,10 @@ namespace GameManager.Host.Winforms
         //Derived types may override and change it
         protected virtual void CanBeChanged() { }
 
+        //Overriding a virtual member in Form
         protected override void OnLoad( EventArgs e )
         {
+            //this.OnLoad(e);
             base.OnLoad(e);
 
             //Init UI if editing a game

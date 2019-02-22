@@ -29,6 +29,19 @@ namespace GameManager.Host.Winforms
             var name = game.Name;
             if (name.Length == 0)
                 /* is empty*/;
+
+            //Checking for null - long way
+            if (game.Name != null && game.Name.Length == 0)
+                ;
+
+            //Conditional - E ? Et : Ef
+            var length = game.Name != null ? game.Name.Length : 0;
+
+            //Short way - null conditional
+            // game.Name.Length -> int
+            // game.Name?.Length -> int?
+            if ((game.Name?.Length ?? 0) == 0)
+                ;
             if (game.Name.Length == 0)
                 /* is empty */
                 ;
@@ -50,18 +63,7 @@ namespace GameManager.Host.Winforms
             //_miGameAdd.Click += OnGameAdd;
         }
 
-        private void OnGameSelected_SelectedIndexChanged( object sender, EventArgs e )
-        {
-
-        }
-
-        private void MainForm_Click( object sender, EventArgs e )
-        {
-
-        }
-    }
-
-    private void OnFileExit( object sender, EventArgs e )
+        private void OnFileExit ( object sender, EventArgs e )
         {
             //Local variable
             var x = 10;
@@ -75,23 +77,23 @@ namespace GameManager.Host.Winforms
             form.ShowDialog();
         }
 
-    private void BindList ()
-    {
-        //Bind games to listbox
-        _listGames.Items.Clear();
-
-        //nameof(Game.Name) == "Name"
-        _listGames.DisplayMember = nameof(Game.Name);
-
-        //_listGames.Items.AddRange(_games);
-        foreach (var game in _games)
+        private void BindList ()
         {
-            if (game != null)
-                _listGames.Items.Add(game);
-        };
-    }
+            //Bind games to listbox
+            _listGames.Items.Clear();
 
-        private void OnGameAdd( object sender, EventArgs e )
+            //nameof(Game.Name) == "Name"
+            _listGames.DisplayMember = nameof(Game.Name);
+
+            //_listGames.Items.AddRange(_games);
+            foreach (var game in _games)
+            {
+                if (game != null)
+                    _listGames.Items.Add(game);
+            };
+        }
+
+        private void OnGameAdd ( object sender, EventArgs e )
         {
             //Display UI
             var form = new GameForm();
@@ -103,43 +105,30 @@ namespace GameManager.Host.Winforms
             if (form.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO: add
-            _games[GetNextEmptyGame] = form.Game;
+            //TODO: Add
+            _games[GetNextEmptyGame()] = form.Game;
             BindList();
         }
 
-    private void UpdateGame( Game oldGame, Game newGame )
-    {
-        for (var index = 0; index < _games.Length; ++index)
+        //HACK: Find first spot in array with no game
+        private int GetNextEmptyGame ()
         {
-            if (_games[index] == oldGame)
-            {
-                _games[index] = newGame;
-                break;
-            };
-        };
-    }
+            for (var index = 0; index < _games.Length; ++index)
+                if (_games[index] == null)
+                    return index;
 
+            return -1;
+        }
 
-    //HACK: Find first spot in array with no game
-    private int GetNextEmptyGame()
-    {
-        for (var index = 0; index < _games.Length; ++index)
-            if (_games[index] == null)
-                return index;
-
-        return -1;
-    }
-
-    private Game[] _games = new Game[100];
+        private Game[] _games = new Game[100];
 
         private void OnGameEdit( object sender, EventArgs e )
         {
             var form = new GameForm();
 
-        var game = GetSelectedGame();
-        if (game == null)
-            return;
+            var game = GetSelectedGame();
+            if (game == null)
+                return;
 
             //Game to edit
             form.Game = game;
@@ -147,9 +136,9 @@ namespace GameManager.Host.Winforms
             if (form.ShowDialog(this) != DialogResult.OK)
                 return;
 
-        //TODO: Fix to edit, not add
-        UpdateGame(game, form.Game);
-        BindList();
+            //TODO: Fix to edit, not add
+            UpdateGame(game, form.Game);            
+            BindList();
         }
 
         private void UpdateGame ( Game oldGame, Game newGame )
@@ -177,38 +166,42 @@ namespace GameManager.Host.Winforms
                                MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
 
-        //TODO: Delete
-        DeleteGame(selected);
-        BindList();
+            //TODO: Delete
+            DeleteGame(selected);
+            BindList();
         }
 
-    private void DeleteGame( Game game )
-    {
-        for (var index = 0; index < _games.Length; ++index)
+        private void DeleteGame ( Game game )
         {
-            if (_games[index] == game)
+            for (var index = 0; index < _games.Length; ++index)
             {
-                _games[index] = null;
-                break;
+                if (_games[index] == game)
+                {
+                    _games[index] = null;
+                    break;
+                };
             };
-        };
+        }
+
+        private Game GetSelectedGame ()
+        {            
+            var value = _listGames.SelectedItem;
+
+            //C-style cast - don't do this
+            //var game = (Game)value;
+
+            //Preferred - null if not valid
+            var game = value as Game;
+
+            //Type check
+            var game2 = (value is Game) ? (Game)value : null;
+
+            return _listGames.SelectedItem as Game;
+        }
+
+        private void OnGameSelected ( object sender, EventArgs e )
+        {
+
+        }
     }
-
-
-    private Game GetSelectedGame()
-    {
-        var game = _listGames.SelectedValue;
-
-        //C-style  cast - don't do his
-        var game = (Game)value;
-
-        //preferred
-        var game = value as Game;
-
-        //Type check
-        var game2 = (value is Game) ? (Game)value : null;
-
-        return game;
-    }
-
 }
