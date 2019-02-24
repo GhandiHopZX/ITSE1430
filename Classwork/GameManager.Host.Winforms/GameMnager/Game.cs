@@ -68,6 +68,9 @@ namespace GameManager
         //}
         //private decimal _price;
 
+         //calling in another variable class
+        //public void masterCheck( ) { Price = 12.50M;}
+
         /// <summary>
         /// old method 
         /// </summary>
