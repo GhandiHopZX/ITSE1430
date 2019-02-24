@@ -127,6 +127,7 @@ namespace GameManager.Host.Winforms
             var form = new GameForm();
 
             var game = GetSelectedGame();
+
             if (game == null)
                 return;
 

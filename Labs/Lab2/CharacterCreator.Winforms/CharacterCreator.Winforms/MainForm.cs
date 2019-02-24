@@ -22,9 +22,19 @@ namespace CharacterCreator.Winforms
 
         }
 
-        private void quitToolStripMenuItem_Click( object sender, EventArgs e )
+        private void QuitSelected( object sender, EventArgs e )
         {
-            Close();
+
+            if (Quit_SC = true)
+            {
+
+                Close();
+            }
         }
+
+        /// global variables
+        #region
+        static bool Quit_SC;
+        #endregion
     }
 }

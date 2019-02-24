@@ -61,7 +61,7 @@
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             resources.ApplyResources(this.quitToolStripMenuItem, "quitToolStripMenuItem");
-            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.QuitSelected);
             // 
             // addToolStripMenuItem
             // 
