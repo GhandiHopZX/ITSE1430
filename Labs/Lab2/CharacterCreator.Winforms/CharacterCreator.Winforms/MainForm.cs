@@ -25,9 +25,8 @@ namespace CharacterCreator.Winforms
         private void QuitSelected( object sender, EventArgs e )
         {
 
-            if (Quit_SC = true)
+            if (Quit_SC == true)
             {
-
                 Close();
             }
         }
@@ -35,6 +34,23 @@ namespace CharacterCreator.Winforms
         /// global variables
         #region
         static bool Quit_SC;
+        public bool Alt_F4 { set; get; }
         #endregion
+
+
+        // alt F4 check
+        private void MainForm_KeyDown( object sender, KeyEventArgs e )
+        {
+            // buttons n' stuff
+            if (e.Alt && e.KeyCode == Keys.F4)
+            {
+                Alt_F4 = true;
+            }
+
+            if (Alt_F4 == true)
+            { Close(); }
+
+            // 
+        }
     }
 }
