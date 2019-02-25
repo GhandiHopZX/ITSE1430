@@ -34,14 +34,15 @@ namespace CharacterCreator.Winforms
         /// global variables
         #region
         static bool Quit_SC;
-        public bool Alt_F4 { set; get; }
+        public bool Alt_F4 { get; set; }
+        public bool Fkey { get; set; }
         #endregion
 
 
         // alt F4 check
         private void MainForm_KeyDown( object sender, KeyEventArgs e )
         {
-            // buttons n' stuff
+            // buttons n' stuff for quit shortcut
             if (e.Alt && e.KeyCode == Keys.F4)
             {
                 Alt_F4 = true;
@@ -50,7 +51,21 @@ namespace CharacterCreator.Winforms
             if (Alt_F4 == true)
             { Close(); }
 
-            // 
+            // Shortcut for Help menu
+            if (e.KeyCode == Keys.F)
+            {
+                Fkey = true;
+            }
+
+            if (Fkey == true)
+                var windowAbout = new AboutBox1();
+            
+
+        }
+
+        private void aboutToolStripMenuItem1_Click( object sender, EventArgs e )
+        {
+
         }
     }
 }
