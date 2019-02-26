@@ -58,9 +58,9 @@ namespace CharacterCreator.Winforms
             }
 
             if (Fkey == true)
-                var windowAbout = new AboutBox1();
+            { }
+            //var windowAbout = new AboutBox1();
             
-
         }
 
         private void aboutToolStripMenuItem1_Click( object sender, EventArgs e )
