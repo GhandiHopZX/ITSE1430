@@ -6,7 +6,7 @@ namespace GameManager.Host.Winforms
     /// <summary>Allows adding or editing a game.</summary>
     public partial class GameForm : Form
     {
-        public GameForm() //: base()
+        public Game() //: base()
         {
             InitializeComponent();
         }
@@ -49,7 +49,7 @@ namespace GameManager.Host.Winforms
         }
 
         //Saves UI into new game
-        private Game SaveData ()
+        private GameForm SaveData ()
         {
             var game = new Game();
             game.Name = _txtName.Text;
