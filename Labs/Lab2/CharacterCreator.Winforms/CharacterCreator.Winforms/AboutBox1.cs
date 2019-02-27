@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CharacterCreator.Winforms
 {
-    partial class AboutBox1 : Form
+    partial class About : Form
     {
-        public AboutBox1()
+        public About()
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
@@ -95,5 +95,15 @@ namespace CharacterCreator.Winforms
             }
         }
         #endregion
+
+        private void About_MdiChildActivate( object sender, EventArgs e )
+        {
+            
+        }
+
+        private void okButton_Click( object sender, EventArgs e )
+        {
+            Close();
+        }
     }
 }

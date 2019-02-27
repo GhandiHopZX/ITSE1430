@@ -24,11 +24,7 @@ namespace CharacterCreator.Winforms
 
         private void QuitSelected( object sender, EventArgs e )
         {
-
-            if (Quit_SC == true)
-            {
-                Close();
-            }
+            Close();
         }
 
         /// global variables
@@ -65,7 +61,9 @@ namespace CharacterCreator.Winforms
 
         private void aboutToolStripMenuItem1_Click( object sender, EventArgs e )
         {
-
+            var abform = new About();
+            abform.Activate();
+            abform.Show();
         }
     }
 }
