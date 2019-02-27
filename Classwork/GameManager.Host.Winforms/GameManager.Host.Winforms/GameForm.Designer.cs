@@ -43,7 +43,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 35);
+            this.label1.Location = new System.Drawing.Point(44, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -52,7 +52,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 75);
+            this.label2.Location = new System.Drawing.Point(29, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 1;
@@ -61,7 +61,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(54, 131);
+            this.label3.Location = new System.Drawing.Point(44, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 2;
@@ -69,29 +69,31 @@
             // 
             // _txtName
             // 
-            this._txtName.Location = new System.Drawing.Point(107, 27);
+            this._txtName.Location = new System.Drawing.Point(85, 27);
             this._txtName.Name = "_txtName";
-            this._txtName.Size = new System.Drawing.Size(100, 20);
+            this._txtName.Size = new System.Drawing.Size(260, 20);
             this._txtName.TabIndex = 5;
             // 
             // _txtPublisher
             // 
-            this._txtPublisher.Location = new System.Drawing.Point(107, 75);
+            this._txtPublisher.Location = new System.Drawing.Point(85, 53);
             this._txtPublisher.Name = "_txtPublisher";
-            this._txtPublisher.Size = new System.Drawing.Size(100, 20);
+            this._txtPublisher.Size = new System.Drawing.Size(260, 20);
             this._txtPublisher.TabIndex = 6;
             // 
             // _txtPrice
             // 
-            this._txtPrice.Location = new System.Drawing.Point(107, 123);
+            this._txtPrice.Location = new System.Drawing.Point(85, 79);
             this._txtPrice.Name = "_txtPrice";
-            this._txtPrice.Size = new System.Drawing.Size(100, 20);
+            this._txtPrice.Size = new System.Drawing.Size(82, 20);
             this._txtPrice.TabIndex = 7;
             // 
             // _cbOwned
             // 
+            this._cbOwned.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this._cbOwned.AutoSize = true;
-            this._cbOwned.Location = new System.Drawing.Point(119, 174);
+            this._cbOwned.Location = new System.Drawing.Point(85, 105);
             this._cbOwned.Name = "_cbOwned";
             this._cbOwned.Size = new System.Drawing.Size(66, 17);
             this._cbOwned.TabIndex = 8;
@@ -100,8 +102,10 @@
             // 
             // _cbCompleted
             // 
+            this._cbCompleted.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this._cbCompleted.AutoSize = true;
-            this._cbCompleted.Location = new System.Drawing.Point(107, 246);
+            this._cbCompleted.Location = new System.Drawing.Point(85, 128);
             this._cbCompleted.Name = "_cbCompleted";
             this._cbCompleted.Size = new System.Drawing.Size(82, 17);
             this._cbCompleted.TabIndex = 9;
@@ -110,7 +114,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(258, 339);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(189, 173);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
@@ -120,7 +125,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(359, 339);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(270, 173);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
@@ -132,7 +138,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 387);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(358, 204);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this._cbCompleted);
@@ -143,6 +150,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GameForm";

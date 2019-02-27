@@ -31,8 +31,7 @@ namespace GameManager.Host.Winforms
                 /* is empty*/;
 
             //Checking for null - long way
-            if (game.Name != null && game.Name.Length == 0)
-                ;
+            if (game.Name != null && game.Name.Length == 0);
 
             //Conditional - E ? Et : Ef
             var length = game.Name != null ? game.Name.Length : 0;
@@ -203,6 +202,16 @@ namespace GameManager.Host.Winforms
         private void OnGameSelected ( object sender, EventArgs e )
         {
 
+        }
+
+        protected override void OnFormClosing( FormClosingEventArgs e ) // use this for editing apps
+        {
+            if (MessageBox.Show(this, "Are you sure you want to close?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            };
+            base.OnFormClosing(e);
         }
     }
 }
