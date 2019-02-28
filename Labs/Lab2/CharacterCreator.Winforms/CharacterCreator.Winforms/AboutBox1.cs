@@ -105,5 +105,14 @@ namespace CharacterCreator.Winforms
         {
             Close();
         }
+
+        private void textBoxDescription_TextChanged( object sender, EventArgs e )
+        {
+            
+        }
+
+        private void About_KeyPress( object sender, KeyPressEventArgs e )
+        {
+        }
     }
 }

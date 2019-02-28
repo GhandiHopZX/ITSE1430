@@ -54,7 +54,11 @@ namespace CharacterCreator.Winforms
             }
 
             if (Fkey == true)
-            { }
+            {
+                var abform = new About();
+                abform.Activate();
+                abform.Show();
+            }
             //var windowAbout = new AboutBox1();
             
         }
