@@ -6,7 +6,7 @@ namespace GameManager.Host.Winforms
     /// <summary>Allows adding or editing a game.</summary>
     public partial class GameForm : Form
     {
-        public Game() //: base()
+        public GameForm() //: base()
         {
             InitializeComponent();
         }
@@ -17,8 +17,19 @@ namespace GameManager.Host.Winforms
         //Called when the user saves the game
         private void OnSave( object sender, EventArgs e )
         {
-            Game = SaveData();
+            if (!ValidateChildren())
+                return;
 
+            var game = SaveData();
+
+            //Validate at business level
+            if (!game.Validate())
+            {
+                MessageBox.Show(this, "Game not valid.", "Error", MessageBoxButtons.OK);
+                return;
+            };
+
+            Game = game;
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -32,6 +43,9 @@ namespace GameManager.Host.Winforms
 
         private decimal ReadDecimal ( TextBox control )
         {
+            if (control.Text.Length == 0)
+                return 0; 
+
             if (Decimal.TryParse(control.Text, out var value))
                 return value;
 
@@ -78,5 +92,28 @@ namespace GameManager.Host.Winforms
             if (Game != null)
                 LoadData(Game);
         }
+
+        private void OnValidateName( object sender, System.ComponentModel.CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            if (tb.Text.Length == 0)
+            {
+                _txtName.SetError();
+                e.Cancel = true;
+
+            } else
+                _errors.SetError(tb, "");
+        }
+
+        private void OnValidatePrice( object sender, System.ComponentModel.CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            var price = ReadDecimal(tb);
+            if (price < 0)
+            { e.Cancel = true; } else
+                _errors.SetError(tb, "");
+        } 
     }
 }

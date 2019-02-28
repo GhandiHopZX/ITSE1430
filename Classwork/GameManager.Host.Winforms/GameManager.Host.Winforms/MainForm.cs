@@ -49,7 +49,17 @@ namespace GameManager.Host.Winforms
             //game.IsCoolGame = false;
 
             //Validate(game)
-            game.Validate();
+
+            if (!game.Validate)
+            {
+                MessageBox.Show("Name is required.", "Error", MessaageBoxButtons.OK);
+                return;
+            };
+
+            if (game.validatd )
+            { }
+
+            void Onvalid(){};
 
             //var x = 10;
             //x.ToString();

@@ -32,10 +32,10 @@ namespace GameManager
         /// <summary>Publisher of the game.</summary>
         public string Publisher
         {
-            get { return _publisher ?? ""; }
-            set { _publisher = value; }
+            get { return _description ?? ""; }
+            set { _description = value; }
         }
-        private string _publisher = "";
+        private string _description = "";
 
         // a reference integer
         static int a
