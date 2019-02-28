@@ -31,7 +31,8 @@ namespace GameManager.Host.Winforms
                 /* is empty*/;
 
             //Checking for null - long way
-            if (game.Name != null && game.Name.Length == 0);
+            if (game.Name != null && game.Name.Length == 0)
+                ;
 
             //Conditional - E ? Et : Ef
             var length = game.Name != null ? game.Name.Length : 0;
@@ -45,21 +46,11 @@ namespace GameManager.Host.Winforms
                 /* is empty */
                 ;
 
-            var isCool = game.IsCoolGame;
+            //var isCool = game.IsCoolGame;
             //game.IsCoolGame = false;
 
             //Validate(game)
-
-            if (!game.Validate)
-            {
-                MessageBox.Show("Name is required.", "Error", MessaageBoxButtons.OK);
-                return;
-            };
-
-            if (game.validatd )
-            { }
-
-            void Onvalid(){};
+            game.Validate();
 
             //var x = 10;
             //x.ToString();
@@ -93,7 +84,7 @@ namespace GameManager.Host.Winforms
 
             //nameof(Game.Name) == "Name"
             _listGames.DisplayMember = nameof(Game.Name);
-
+            
             //_listGames.Items.AddRange(_games);
             foreach (var game in _games)
             {
@@ -136,7 +127,6 @@ namespace GameManager.Host.Winforms
             var form = new GameForm();
 
             var game = GetSelectedGame();
-
             if (game == null)
                 return;
 
@@ -214,9 +204,9 @@ namespace GameManager.Host.Winforms
 
         }
 
-        protected override void OnFormClosing( FormClosingEventArgs e ) // use this for editing apps
+        protected override void OnFormClosing( FormClosingEventArgs e )
         {
-            if (MessageBox.Show(this, "Are you sure you want to close?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show(this, "Are you sure?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
                 return;
