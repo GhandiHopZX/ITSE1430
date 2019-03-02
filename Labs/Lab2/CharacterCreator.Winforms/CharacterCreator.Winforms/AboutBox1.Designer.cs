@@ -147,6 +147,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(367, 157);
             this.textBox1.TabIndex = 25;
+            this.textBox1.Text = "ITSE-1430 \r\n\r\nSolomon Pattee\r\n\r\nCharacter Creator\r\n\r\n";
             // 
             // About
             // 
