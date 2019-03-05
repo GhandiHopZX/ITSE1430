@@ -52,6 +52,7 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameDatabase.cs" />
     <Compile Include="GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
