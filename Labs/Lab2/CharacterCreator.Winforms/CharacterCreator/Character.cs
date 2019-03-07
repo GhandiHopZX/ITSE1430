@@ -20,6 +20,7 @@ namespace CharacterCreator
         private int _constitution { get; set; }
         private int _charisma { get; set; }
 
-        public int min {get; set;}
+        public int min { get; set; }
+        public int max { get; set; }
     }
 }
