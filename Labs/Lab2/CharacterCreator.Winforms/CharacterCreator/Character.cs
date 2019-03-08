@@ -11,8 +11,11 @@ namespace CharacterCreator
         //values for the character attributes
 
         private string _name;
-        private string[] _profession;
-        private string[] _race;
+
+        private string[] _profession = 
+            { "Swordsman", "Knight", "Paladin", "Rouge", "Wizard" };
+        private string[] _race = 
+            { "Demi Human", "Faerie", "Siren", "Jumi", "Beastman", "Dragoon", "Human" };
 
         //stats//
         private int _strength;
