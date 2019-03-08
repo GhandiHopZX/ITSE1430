@@ -30,8 +30,8 @@ namespace CharacterCreator.Winforms
         /// global variables
         #region
         static bool Quit_SC;
-        public bool Alt_F4 { get; set; }
-        public bool Fkey { get; set; }
+        static bool Alt_F4;
+        static bool Fkey;
         #endregion
 
 
@@ -53,13 +53,22 @@ namespace CharacterCreator.Winforms
                 Fkey = true;
             }
 
+            // Shortcut for NewCharacter menu
+            //var windowChar = new CharacterForm()
+            if (e.Control && e.KeyCode == Keys.N)
+            {
+                var charForm = new CharForm();
+                charForm.Activate();
+                charForm.Show();
+            }
+
+            //var windowAbout = new AboutBox1();
             if (Fkey == true)
             {
                 var abform = new About();
                 abform.Activate();
                 abform.Show();
             }
-            //var windowAbout = new AboutBox1();
             
         }
 
@@ -68,6 +77,13 @@ namespace CharacterCreator.Winforms
             var abform = new About();
             abform.Activate();
             abform.Show();
+        }
+
+        private void newToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            var charForm = new CharForm();
+            charForm.Activate();
+            charForm.Show();
         }
     }
 }
