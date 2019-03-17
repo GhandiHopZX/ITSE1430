@@ -17,9 +17,11 @@ namespace CharacterCreator.Winforms
             InitializeComponent();
         }
 
+        //pulling from the Character class
+        public Character character { get; set; }
+
         private void comboBox1_SelectedIndexChanged( object sender, EventArgs e )
         {
-
         }
 
         private void textBox1_Validating( object sender, CancelEventArgs e )
@@ -29,14 +31,9 @@ namespace CharacterCreator.Winforms
             if (txb.Text.Length == 0)
             {
                 errorProvider1.SetError(txb, "This field needs a name.");
-                e.Cancel = true;
+                //e.Cancel = true;
             } else
                 errorProvider1.SetError(txb, "");
-        }
-
-        private void textBox1_Validated( object sender, CancelEventArgs e )
-        {
-            
         }
 
         private void button1_Click( object sender, EventArgs e )
@@ -47,14 +44,26 @@ namespace CharacterCreator.Winforms
 
         private void comboBox1_Validating( object sender, CancelEventArgs e )
         {
-            var txb = sender as ComboBox;
+            var txb2 = sender as ComboBox;
 
-            if (txb.Text.Length == 0)
+            if (txb2.SelectionLength == 0)
             {
-                errorProvider2.SetError(txb, "Class needs to be selected.");
-                e.Cancel = true;
+                errorProvider2.SetError(txb2, "Class needs to be selected.");
+                //e.Cancel = false;
             } else
-                errorProvider2.SetError(txb, "");
+                errorProvider2.SetError(txb2, "");
+        }
+
+        private void comboBox2_Validating( object sender, CancelEventArgs e )
+        {
+            var txb3 = sender as ComboBox;
+
+            if (txb3.SelectionLength == 0)
+            {
+                errorProvider2.SetError(txb3, "Profession needs to be selected.");
+                //e.Cancel = false;
+            } else
+                errorProvider2.SetError(txb3, "");
         }
     }
 }
