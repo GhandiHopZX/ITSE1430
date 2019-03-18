@@ -29,17 +29,54 @@ namespace CharacterCreator
         const int _min = 0;
         const int _max = 100;
 
-        public int characterID;
+        public int characterID { get; set; }
         public string[] Profession { get => _profession; set => _profession = value; }
         public string[] Race { get => _race; set => _race = value; }
         public string Name { get => _name; set => _name = value; }
+        public int Strength { get => _strength; set => _strength = value; }
+        public int Intelligence { get => _intelligence; set => _intelligence = value; }
+        public int Agility { get => _agility; set => _agility = value; }
+        public int Constitution { get => _constitution; set => _constitution = value; }
+        public int Charisma { get => _charisma; set => _charisma = value; }
 
-        //Constructor
-        public Character(Character character)
+        public bool Validate()
         {
+            //Name is needed
+            if (String.IsNullOrEmpty(Name))
+                return false;
             
-        }
+            if (_strength < _min)
+                return false;
 
+            if (_intelligence < _max)
+                return false;
+
+            if (_agility < _min)
+                return false;
+
+            if (_constitution < _min)
+                return false;
+
+            if (_charisma < _min)
+                return false;
+
+            if (_strength > _max)
+                return false;
+
+            if (_intelligence > _max)
+                return false;
+
+            if (_agility > _max)
+                return false;
+
+            if (_constitution > _max)
+                return false;
+
+            if (_charisma > _max)
+                return false;
+
+            return true;
+        }
     }
 }
 

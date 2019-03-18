@@ -30,49 +30,50 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CharForm));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this._RaceBox = new System.Windows.Forms.ComboBox();
             this.characterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this._ProfessionBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.Strength = new System.Windows.Forms.NumericUpDown();
+            this.Intelligence = new System.Windows.Forms.NumericUpDown();
+            this.Agility = new System.Windows.Forms.NumericUpDown();
+            this.Constitution = new System.Windows.Forms.NumericUpDown();
+            this.Charisma = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.NewCharName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._NameBox = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Strength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Intelligence)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Agility)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Constitution)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Charisma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // _RaceBox
             // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.UseWaitCursor = true;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.OnCancel);
-            this.comboBox1.Validating += new System.ComponentModel.CancelEventHandler(this.RaceBox);
+            this._RaceBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this._RaceBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.characterBindingSource, "Name", true));
+            this._RaceBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._RaceBox.FormattingEnabled = true;
+            resources.ApplyResources(this._RaceBox, "_RaceBox");
+            this._RaceBox.Name = "_RaceBox";
+            this._RaceBox.UseWaitCursor = true;
+            this._RaceBox.SelectedIndexChanged += new System.EventHandler(this.OnCancel);
+            this._RaceBox.Validating += new System.ComponentModel.CancelEventHandler(this.RaceBox);
             // 
             // characterBindingSource
             // 
@@ -84,20 +85,20 @@
             this.label1.Name = "label1";
             this.label1.UseWaitCursor = true;
             // 
-            // comboBox2
+            // _ProfessionBox
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            resources.GetString("comboBox2.Items"),
-            resources.GetString("comboBox2.Items1"),
-            resources.GetString("comboBox2.Items2"),
-            resources.GetString("comboBox2.Items3"),
-            resources.GetString("comboBox2.Items4")});
-            resources.ApplyResources(this.comboBox2, "comboBox2");
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.UseWaitCursor = true;
-            this.comboBox2.Validating += new System.ComponentModel.CancelEventHandler(this.ProfessionBox);
+            this._ProfessionBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._ProfessionBox.FormattingEnabled = true;
+            this._ProfessionBox.Items.AddRange(new object[] {
+            resources.GetString("_ProfessionBox.Items"),
+            resources.GetString("_ProfessionBox.Items1"),
+            resources.GetString("_ProfessionBox.Items2"),
+            resources.GetString("_ProfessionBox.Items3"),
+            resources.GetString("_ProfessionBox.Items4")});
+            resources.ApplyResources(this._ProfessionBox, "_ProfessionBox");
+            this._ProfessionBox.Name = "_ProfessionBox";
+            this._ProfessionBox.UseWaitCursor = true;
+            this._ProfessionBox.Validating += new System.ComponentModel.CancelEventHandler(this.ProfessionBox);
             // 
             // label2
             // 
@@ -135,56 +136,56 @@
             this.label7.Name = "label7";
             this.label7.UseWaitCursor = true;
             // 
-            // numericUpDown1
+            // Strength
             // 
-            resources.ApplyResources(this.numericUpDown1, "numericUpDown1");
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.UseWaitCursor = true;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            resources.ApplyResources(this.Strength, "Strength");
+            this.Strength.Name = "Strength";
+            this.Strength.UseWaitCursor = true;
+            this.Strength.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
             // 
-            // numericUpDown2
+            // Intelligence
             // 
-            resources.ApplyResources(this.numericUpDown2, "numericUpDown2");
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.UseWaitCursor = true;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            resources.ApplyResources(this.Intelligence, "Intelligence");
+            this.Intelligence.Name = "Intelligence";
+            this.Intelligence.UseWaitCursor = true;
+            this.Intelligence.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
             // 
-            // numericUpDown3
+            // Agility
             // 
-            resources.ApplyResources(this.numericUpDown3, "numericUpDown3");
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.UseWaitCursor = true;
-            this.numericUpDown3.Value = new decimal(new int[] {
+            resources.ApplyResources(this.Agility, "Agility");
+            this.Agility.Name = "Agility";
+            this.Agility.UseWaitCursor = true;
+            this.Agility.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
             // 
-            // numericUpDown4
+            // Constitution
             // 
-            resources.ApplyResources(this.numericUpDown4, "numericUpDown4");
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.UseWaitCursor = true;
-            this.numericUpDown4.Value = new decimal(new int[] {
+            resources.ApplyResources(this.Constitution, "Constitution");
+            this.Constitution.Name = "Constitution";
+            this.Constitution.UseWaitCursor = true;
+            this.Constitution.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
             // 
-            // numericUpDown5
+            // Charisma
             // 
-            resources.ApplyResources(this.numericUpDown5, "numericUpDown5");
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.UseWaitCursor = true;
-            this.numericUpDown5.Value = new decimal(new int[] {
+            resources.ApplyResources(this.Charisma, "Charisma");
+            this.Charisma.Name = "Charisma";
+            this.Charisma.UseWaitCursor = true;
+            this.Charisma.Value = new decimal(new int[] {
             50,
             0,
             0,
@@ -212,12 +213,12 @@
             this.NewCharName.Name = "NewCharName";
             this.NewCharName.UseWaitCursor = true;
             // 
-            // textBox1
+            // _NameBox
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            this.textBox1.UseWaitCursor = true;
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.NameBox);
+            resources.ApplyResources(this._NameBox, "_NameBox");
+            this._NameBox.Name = "_NameBox";
+            this._NameBox.UseWaitCursor = true;
+            this._NameBox.Validating += new System.ComponentModel.CancelEventHandler(this.NameBox);
             // 
             // errorProvider1
             // 
@@ -238,24 +239,24 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._NameBox);
             this.Controls.Add(this.NewCharName);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.numericUpDown5);
-            this.Controls.Add(this.numericUpDown4);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.Charisma);
+            this.Controls.Add(this.Constitution);
+            this.Controls.Add(this.Agility);
+            this.Controls.Add(this.Intelligence);
+            this.Controls.Add(this.Strength);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this._ProfessionBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this._RaceBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -263,11 +264,11 @@
             this.ShowIcon = false;
             this.UseWaitCursor = true;
             ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Strength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Intelligence)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Agility)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Constitution)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Charisma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
@@ -278,24 +279,24 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox _RaceBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox _ProfessionBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown Strength;
+        private System.Windows.Forms.NumericUpDown Intelligence;
+        private System.Windows.Forms.NumericUpDown Agility;
+        private System.Windows.Forms.NumericUpDown Constitution;
+        private System.Windows.Forms.NumericUpDown Charisma;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label NewCharName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox _NameBox;
         private System.Windows.Forms.BindingSource characterBindingSource;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;

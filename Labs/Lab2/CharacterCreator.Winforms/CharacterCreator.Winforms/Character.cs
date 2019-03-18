@@ -18,20 +18,21 @@ namespace CharacterCreator.Winforms
         }
 
         //pulling from the Character class
-            public int NewId { get; set; }
-            public string NewName { get; set; }
-            public string[] NewRace { get; set; }
-            public string[] NewP { get; set; }
+        public Character Character { get; set; }
+        public int NewId { get; set; }
+        public string NewName { get; set; }
+        public string[] NewRace { get; set; }
+        public string[] NewP { get; set; }
 
-            public void NewChar(Character character)
-            {
-                character.Name = NewName;
-                character.characterID = NewId;
-                character.Profession = NewP;
-                character.Race = NewRace;
-            }
+        public void NewChar(Character character)
+        {
+            character.Name = NewName;
+            character.characterID = NewId;
+            character.Profession = NewP;
+            character.Race = NewRace;
+        }
             
-        private void comboBox1_SelectedIndexChanged( object sender, EventArgs e )
+        private void NameBoxChanged( object sender, EventArgs e )
         {
         }
 
@@ -49,10 +50,46 @@ namespace CharacterCreator.Winforms
 
         private void LoadName( Character character )
         {
-            RaceBox.DisplayMember = "Name";
+            //NewId = character.characterID;
+            _NameBox.Text = character.Name;
+            _ProfessionBox.DataSource = character.Profession; // double check these
+            _RaceBox.DataSource = character.Race;
+            Intelligence.Value = character.Intelligence;
+            Strength.Value = character.Strength;
+            Charisma.Value = character.Charisma;
+            Agility.Value = character.Agility;
+            Constitution.Value = character.Constitution;
+        }
 
-            object items = null;
-            ProfessionBox.Items.AddRange(items);
+        private Character SaveData()
+        {
+            var character = new Character();
+            character.Name = _NameBox.Text;
+            character.Profession = _ProfessionBox.DataSource; // like i said above
+            character.Race = _RaceBox.Items;
+            character.Intelligence = Intelligence.DataBindings;
+            character.Strength = Strength.Value;
+            character.Charisma = Charisma.Value;
+            character.Agility = Agility.Value;
+            character.Constitution = Constitution.Value;
+
+            //Demoting constructor
+            var character2 = new Character(/* add stuff here? */);
+
+            return character;
+        }
+
+        // Loading the character
+        protected override void OnLoad( EventArgs e )
+        {
+            //this.OnLoad(e);
+            base.OnLoad(e);
+
+            //Init UI if editing a game
+            if (Character != null)
+                LoadName(Character);
+
+            ValidateChildren();
         }
 
         private void OnCancel( object sender, EventArgs e )
@@ -87,9 +124,20 @@ namespace CharacterCreator.Winforms
 
         private void OnAddButton( object sender, EventArgs e )
         {
+            if (!ValidateChildren())
+                return;
+            var character = SaveData();
 
+            if (!character.Validate())
+            {
+                MessageBox.Show(this, "Character data is not valid.", "Error", MessageBoxButtons.OK);
+                return;
+            };
+
+            Character = character;
+            DialogResult = DialogResult.OK;
+            Close();
         }
-
        
     }
 }
