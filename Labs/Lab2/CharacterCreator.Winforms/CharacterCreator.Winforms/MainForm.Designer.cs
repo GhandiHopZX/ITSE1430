@@ -88,13 +88,13 @@
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
             resources.ApplyResources(this.aboutToolStripMenuItem1, "aboutToolStripMenuItem1");
-            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.OnAboutSelected);
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             resources.ApplyResources(this.newToolStripMenuItem, "newToolStripMenuItem");
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.OnCharFormSelected);
             // 
             // MainForm
             // 
@@ -104,7 +104,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyCombos);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

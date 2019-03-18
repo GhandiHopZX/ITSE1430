@@ -36,7 +36,7 @@ namespace CharacterCreator.Winforms
 
 
         // alt F4 check
-        private void MainForm_KeyDown( object sender, KeyEventArgs e )
+        private void KeyCombos( object sender, KeyEventArgs e )
         {
             // buttons n' stuff for quit shortcut
             if (e.Alt && e.KeyCode == Keys.F4)
@@ -72,14 +72,14 @@ namespace CharacterCreator.Winforms
             
         }
 
-        private void aboutToolStripMenuItem1_Click( object sender, EventArgs e )
+        private void OnAboutSelected( object sender, EventArgs e )
         {
             var abform = new About();
             abform.Activate();
             abform.Show();
         }
 
-        private void newToolStripMenuItem_Click( object sender, EventArgs e )
+        private void OnCharFormSelected( object sender, EventArgs e )
         {
             var charForm = new CharForm();
             charForm.Activate();

@@ -46,7 +46,8 @@ namespace GameManager
 
             //Playing around with different exceptions
             if (String.Compare(game.Name, "Anthem", true) == 0)
-                throw new InvalidOperationException("Only good games are allowed here.");
+                throw new InvalidOperationException
+                    ("Only good games are allowed here.");
             if (game.Price > 1000)
                 throw new NotImplementedException();
 

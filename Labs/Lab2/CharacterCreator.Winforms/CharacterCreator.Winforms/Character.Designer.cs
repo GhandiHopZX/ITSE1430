@@ -66,13 +66,13 @@
             // comboBox1
             // 
             this.comboBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.comboBox1.DataSource = this.characterBindingSource;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.UseWaitCursor = true;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.button1_Click);
-            this.comboBox1.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox1_Validating);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.OnCancel);
+            this.comboBox1.Validating += new System.ComponentModel.CancelEventHandler(this.RaceBox);
             // 
             // characterBindingSource
             // 
@@ -86,6 +86,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             resources.GetString("comboBox2.Items"),
@@ -96,7 +97,7 @@
             resources.ApplyResources(this.comboBox2, "comboBox2");
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.UseWaitCursor = true;
-            this.comboBox2.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox2_Validating);
+            this.comboBox2.Validating += new System.ComponentModel.CancelEventHandler(this.ProfessionBox);
             // 
             // label2
             // 
@@ -195,7 +196,7 @@
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.UseWaitCursor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.OnCancel);
             // 
             // button2
             // 
@@ -203,6 +204,7 @@
             this.button2.Name = "button2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.UseWaitCursor = true;
+            this.button2.Click += new System.EventHandler(this.OnAddButton);
             // 
             // NewCharName
             // 
@@ -215,7 +217,7 @@
             resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
             this.textBox1.UseWaitCursor = true;
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.NameBox);
             // 
             // errorProvider1
             // 
