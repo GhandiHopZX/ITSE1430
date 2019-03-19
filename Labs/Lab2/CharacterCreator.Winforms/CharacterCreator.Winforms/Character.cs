@@ -17,21 +17,7 @@ namespace CharacterCreator.Winforms
             InitializeComponent();
         }
 
-        //pulling from the Character class
-        public Character Character { get; set; }
-        public int NewId { get; set; }
-        public string NewName { get; set; }
-        public string[] NewRace { get; set; }
-        public string[] NewP { get; set; }
-
-        public void NewChar(Character character)
-        {
-            character.Name = NewName;
-            character.characterID = NewId;
-            character.Profession = NewP;
-            character.Race = NewRace;
-        }
-            
+        
         private void NameBoxChanged( object sender, EventArgs e )
         {
         }
@@ -64,8 +50,9 @@ namespace CharacterCreator.Winforms
         private Character SaveData()
         {
             var character = new Character();
+            var professing = new List<Character>();
             character.Name = _NameBox.Text;
-            character.Profession = _ProfessionBox.DataSource; // like i said above
+            character.Profession = _ProfessionBox.; // like i said above
             character.Race = _RaceBox.Items;
             character.Intelligence = Intelligence.DataBindings;
             character.Strength = Strength.Value;
@@ -138,6 +125,27 @@ namespace CharacterCreator.Winforms
             DialogResult = DialogResult.OK;
             Close();
         }
-       
+
+        private class BindingList
+        {
+            public Character Character { get; set; }
+
+            //pulling from the Character class
+
+            public int NewId { get; set; }
+            public string NewName { get; set; }
+            public string[] NewRace { get; set; }
+            public string[] NewP { get; set; }
+
+            public void NewChar( Character character )
+            {
+                character.Name = NewName;
+                character.characterID = NewId;
+                character.Profession = NewP;
+                character.Race = NewRace;
+            }
+
+
+        }
     }
 }
