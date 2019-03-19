@@ -50,7 +50,7 @@ namespace CharacterCreator.Winforms
         private Character SaveData()
         {
             var character = new Character();
-            var professing = new List<Character>();
+            var professions = new
             character.Name = _NameBox.Text;
             character.Profession = _ProfessionBox.; // like i said above
             character.Race = _RaceBox.Items;
