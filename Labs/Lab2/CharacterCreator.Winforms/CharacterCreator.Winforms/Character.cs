@@ -17,7 +17,8 @@ namespace CharacterCreator.Winforms
             InitializeComponent();
         }
 
-        
+        public Character Character { get; set; }
+
         private void NameBoxChanged( object sender, EventArgs e )
         {
         }
@@ -32,6 +33,22 @@ namespace CharacterCreator.Winforms
                 //e.Cancel = true;
             } else
                 errorProvider1.SetError(txb, "");
+        }
+
+        // turns the arrays needed to become the items for each box
+        
+        public void ProfToArray( Character character, string[] source, ComboBox boxy)
+        {
+            character.Profession = source;
+            boxy.DataSource = source.ToList();
+            return;
+        }
+       
+        public void RaceToArray( Character character, string[] source, ComboBox boxy )
+        {
+            character.Race = source;
+            boxy.DataSource = source.ToList();
+            return;
         }
 
         private void LoadName( Character character )
@@ -50,15 +67,15 @@ namespace CharacterCreator.Winforms
         private Character SaveData()
         {
             var character = new Character();
-            var professing = new List<Character>();
+
             character.Name = _NameBox.Text;
-            character.Profession = _ProfessionBox.; // like i said above
-            character.Race = _RaceBox.Items;
-            character.Intelligence = Intelligence.DataBindings;
-            character.Strength = Strength.Value;
-            character.Charisma = Charisma.Value;
-            character.Agility = Agility.Value;
-            character.Constitution = Constitution.Value;
+            //prof
+            //character.Race = _RaceBox.Items;
+            //character.Intelligence = Intelligence.DataBindings;
+            //character.Strength = Strength.Value;
+            //character.Charisma = Charisma.Value;
+            //character.Agility = Agility.Value;
+            //character.Constitution = Constitution.Value;
 
             //Demoting constructor
             var character2 = new Character(/* add stuff here? */);
@@ -66,7 +83,10 @@ namespace CharacterCreator.Winforms
             return character;
         }
 
-        // Loading the character
+        // Defined Override and change for any type that can change it
+        protected virtual void CanBeChanged() { }
+
+        // Override
         protected override void OnLoad( EventArgs e )
         {
             //this.OnLoad(e);
@@ -94,7 +114,14 @@ namespace CharacterCreator.Winforms
                 errorProvider2.SetError(txb2, "field needs to be selected.");
                 //e.Cancel = false;
             } else
-                errorProvider2.SetError(txb2, "");
+            { errorProvider2.SetError(txb2, ""); }
+            
+            var character = new Character();
+            string[] source = character.Race;
+            //ComboBox boxy = ProfessionBox;
+
+            sender = source.ToList();
+            txb2.DataSource = source;
         }
 
         private void ProfessionBox( object sender, CancelEventArgs e )
@@ -103,10 +130,21 @@ namespace CharacterCreator.Winforms
 
             if (txb3.SelectionLength == 0)
             {
-                errorProvider3.SetError(txb3, "Profession needs to be selected.");
+                errorProvider3.SetError(txb3, 
+                    "Profession needs to be selected.");
                 //e.Cancel = false;
-            } else
+            } 
+            else
+            {
                 errorProvider3.SetError(txb3, "");
+            }
+                
+            var character = new Character();
+            string[] source = character.Profession;
+            //ComboBox boxy = ProfessionBox;
+            
+            sender = source.ToList();
+            txb3.DataSource = source;
         }
 
         private void OnAddButton( object sender, EventArgs e )
@@ -117,7 +155,8 @@ namespace CharacterCreator.Winforms
 
             if (!character.Validate())
             {
-                MessageBox.Show(this, "Character data is not valid.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(this, "Character data is not valid.",
+                    "Error", MessageBoxButtons.OK);
                 return;
             };
 
@@ -125,27 +164,50 @@ namespace CharacterCreator.Winforms
             DialogResult = DialogResult.OK;
             Close();
         }
+        
+            ////pulling from the Character class
 
-        private class BindingList
-        {
-            public Character Character { get; set; }
+            //public int NewId { get; set; }
+            //public string NewName { get; set; }
+            //public string[] NewRace { get; set; }
+            //public string[] NewP { get; set; }
 
-            //pulling from the Character class
+            //public void NewChar( Character character )
+            //{
+            //    character.Name = NewName;
+            //    character.characterID = NewId;
+            //    character.Profession = NewP;
+            //    character.Race = NewRace;
+            //}
 
-            public int NewId { get; set; }
-            public string NewName { get; set; }
-            public string[] NewRace { get; set; }
-            public string[] NewP { get; set; }
-
-            public void NewChar( Character character )
+            //getting all the characters sent back to storage
+            private int GetIndex(string name)
             {
-                character.Name = NewName;
-                character.characterID = NewId;
-                character.Profession = NewP;
-                character.Race = NewRace;
+                for (var index = 0; index < _items.Count; ++index)
+                    if (String.Compare(_items[index]?.Name, name, true) == 0)
+                        return index;
+
+                return -1;
             }
 
+            // Ids
+            private int GetIndex( int CharacterID )
+            {
+                for (var index = 0; index < _items.Count; ++index)
+                    if (_items[index]?.characterID == CharacterID)
+                        return index;
 
-        }
+                return -1;
+            }
+
+            private void FormCopyList( Character target, CharForm source )
+            {
+                
+            }
+
+            // Private readonly list for the set of characters
+            private readonly List<Character> _items = new List<Character>();
+            
+        
     }
 }

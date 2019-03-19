@@ -32,8 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CharForm));
             this._RaceBox = new System.Windows.Forms.ComboBox();
             this.characterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.raceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this._ProfessionBox = new System.Windows.Forms.ComboBox();
+            this.professionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,7 +54,12 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.professionBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.raceBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.professionBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Strength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Intelligence)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Agility)).BeginInit();
@@ -61,12 +68,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // _RaceBox
             // 
             this._RaceBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this._RaceBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.characterBindingSource, "Name", true));
+            this._RaceBox.DataSource = this.raceBindingSource1;
             this._RaceBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._RaceBox.FormattingEnabled = true;
             resources.ApplyResources(this._RaceBox, "_RaceBox");
@@ -79,6 +90,11 @@
             // 
             this.characterBindingSource.DataSource = typeof(CharacterCreator.Character);
             // 
+            // raceBindingSource
+            // 
+            this.raceBindingSource.DataMember = "Race";
+            this.raceBindingSource.DataSource = this.characterBindingSource;
+            // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
@@ -87,18 +103,18 @@
             // 
             // _ProfessionBox
             // 
+            this._ProfessionBox.DataSource = this.professionBindingSource2;
             this._ProfessionBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._ProfessionBox.FormattingEnabled = true;
-            this._ProfessionBox.Items.AddRange(new object[] {
-            resources.GetString("_ProfessionBox.Items"),
-            resources.GetString("_ProfessionBox.Items1"),
-            resources.GetString("_ProfessionBox.Items2"),
-            resources.GetString("_ProfessionBox.Items3"),
-            resources.GetString("_ProfessionBox.Items4")});
             resources.ApplyResources(this._ProfessionBox, "_ProfessionBox");
             this._ProfessionBox.Name = "_ProfessionBox";
             this._ProfessionBox.UseWaitCursor = true;
             this._ProfessionBox.Validating += new System.ComponentModel.CancelEventHandler(this.ProfessionBox);
+            // 
+            // professionBindingSource
+            // 
+            this.professionBindingSource.DataMember = "Profession";
+            this.professionBindingSource.DataSource = this.characterBindingSource;
             // 
             // label2
             // 
@@ -235,6 +251,21 @@
             this.errorProvider3.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider3.ContainerControl = this;
             // 
+            // professionBindingSource1
+            // 
+            this.professionBindingSource1.DataMember = "Profession";
+            this.professionBindingSource1.DataSource = this.characterBindingSource;
+            // 
+            // raceBindingSource1
+            // 
+            this.raceBindingSource1.DataMember = "Race";
+            this.raceBindingSource1.DataSource = this.characterBindingSource;
+            // 
+            // professionBindingSource2
+            // 
+            this.professionBindingSource2.DataMember = "Profession";
+            this.professionBindingSource2.DataSource = this.characterBindingSource;
+            // 
             // CharForm
             // 
             resources.ApplyResources(this, "$this");
@@ -264,6 +295,8 @@
             this.ShowIcon = false;
             this.UseWaitCursor = true;
             ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Strength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Intelligence)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Agility)).EndInit();
@@ -272,6 +305,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,5 +337,10 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.BindingSource professionBindingSource;
+        private System.Windows.Forms.BindingSource raceBindingSource;
+        private System.Windows.Forms.BindingSource professionBindingSource1;
+        private System.Windows.Forms.BindingSource raceBindingSource1;
+        private System.Windows.Forms.BindingSource professionBindingSource2;
     }
 }

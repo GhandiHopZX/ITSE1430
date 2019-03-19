@@ -120,6 +120,9 @@
   <metadata name="characterBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="raceBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>436, 103</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="_RaceBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>297, 93</value>
@@ -143,6 +146,9 @@
   <data name="&gt;&gt;_RaceBox.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
+  <metadata name="raceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>252, 103</value>
+  </metadata>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -170,21 +176,9 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="_ProfessionBox.Items" xml:space="preserve">
-    <value>Swordsman</value>
-  </data>
-  <data name="_ProfessionBox.Items1" xml:space="preserve">
-    <value>Paladin</value>
-  </data>
-  <data name="_ProfessionBox.Items2" xml:space="preserve">
-    <value>Knight</value>
-  </data>
-  <data name="_ProfessionBox.Items3" xml:space="preserve">
-    <value>Rouge</value>
-  </data>
-  <data name="_ProfessionBox.Items4" xml:space="preserve">
-    <value>Wizard</value>
-  </data>
+  <metadata name="professionBindingSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>628, 103</value>
+  </metadata>
   <data name="_ProfessionBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>297, 134</value>
   </data>
@@ -206,6 +200,9 @@
   <data name="&gt;&gt;_ProfessionBox.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
+  <metadata name="professionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>482, 60</value>
+  </metadata>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -600,6 +597,18 @@
   <data name="&gt;&gt;characterBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;raceBindingSource.Name" xml:space="preserve">
+    <value>raceBindingSource</value>
+  </data>
+  <data name="&gt;&gt;raceBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;professionBindingSource.Name" xml:space="preserve">
+    <value>professionBindingSource</value>
+  </data>
+  <data name="&gt;&gt;professionBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;errorProvider1.Name" xml:space="preserve">
     <value>errorProvider1</value>
   </data>
@@ -618,6 +627,24 @@
   <data name="&gt;&gt;errorProvider3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;professionBindingSource1.Name" xml:space="preserve">
+    <value>professionBindingSource1</value>
+  </data>
+  <data name="&gt;&gt;professionBindingSource1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;raceBindingSource1.Name" xml:space="preserve">
+    <value>raceBindingSource1</value>
+  </data>
+  <data name="&gt;&gt;raceBindingSource1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;professionBindingSource2.Name" xml:space="preserve">
+    <value>professionBindingSource2</value>
+  </data>
+  <data name="&gt;&gt;professionBindingSource2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>CharForm</value>
   </data>
@@ -629,5 +656,8 @@
   </metadata>
   <metadata name="errorProvider3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>327, 60</value>
+  </metadata>
+  <metadata name="professionBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 103</value>
   </metadata>
 </root>

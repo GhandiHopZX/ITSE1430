@@ -76,7 +76,8 @@ namespace GameManager.Host.Winforms
                     break;
                 } catch (InvalidOperationException)
                 {
-                    MessageBox.Show(this, "Choose a better game.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Choose a better game.", "Error"
+                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } catch (Exception ex)
                 {
                     //Recover from errors
@@ -89,7 +90,8 @@ namespace GameManager.Host.Winforms
 
         private void DisplayError( Exception ex )
         {
-            MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(this, ex.Message, "Error", 
+            MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void OnSafeAdd( GameForm form )
@@ -98,11 +100,15 @@ namespace GameManager.Host.Winforms
             {
                 //_games[GetNextEmptyGame()] = form.Game;
                 _games.Add(form.Game);
-            } catch (NotImplementedException e)
+            } 
+
+            catch (NotImplementedException e)
             {
                 //Rewriting an exception
                 throw new Exception("Not implemented yet", e);
-            } catch (Exception e)
+            } 
+            
+            catch (Exception e)
             {
                 //Log a message 
 
