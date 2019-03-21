@@ -47,7 +47,17 @@ namespace GameManager.Host.Winforms
             _listGames.DisplayMember = nameof(Game.Name);
 
             //Can use AddRange now that we don't care about null items
-            _listGames.Items.AddRange(_games.GetAll());
+            //var enumor = _games.GetAll();
+            //var enumoror = enumor.GetEnumerator();
+            //while (enumoror.MoveNext())
+            //{
+            //    var item = enumoror.Current;
+            //};
+            ////foreach (var item in enumor)
+            //{
+            //};
+            
+            _listGames.Items.AddRange(_games.GetAll().ToArray());
             //foreach (var game in _games)
             //{
             //    if (game != null)
@@ -76,8 +86,7 @@ namespace GameManager.Host.Winforms
                     break;
                 } catch (InvalidOperationException)
                 {
-                    MessageBox.Show(this, "Choose a better game.", "Error"
-                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, "Choose a better game.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } catch (Exception ex)
                 {
                     //Recover from errors
@@ -90,8 +99,7 @@ namespace GameManager.Host.Winforms
 
         private void DisplayError( Exception ex )
         {
-            MessageBox.Show(this, ex.Message, "Error", 
-            MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void OnSafeAdd( GameForm form )
@@ -100,15 +108,11 @@ namespace GameManager.Host.Winforms
             {
                 //_games[GetNextEmptyGame()] = form.Game;
                 _games.Add(form.Game);
-            } 
-
-            catch (NotImplementedException e)
+            } catch (NotImplementedException e)
             {
                 //Rewriting an exception
                 throw new Exception("Not implemented yet", e);
-            } 
-            
-            catch (Exception e)
+            } catch (Exception e)
             {
                 //Log a message 
 
@@ -118,7 +122,7 @@ namespace GameManager.Host.Winforms
             };
         }
 
-        private GameDatabase _games = new GameDatabase();
+        private IGameDatabase _games = new GameDatabase();
 
         private void OnGameEdit( object sender, EventArgs e )
         {
@@ -169,7 +173,7 @@ namespace GameManager.Host.Winforms
                 _games.Delete(selected.Id);
             } catch (Exception ex)
             {
-                DisplayError(ex);
+                DisplayError(ex);  
             };
             BindList();
         }

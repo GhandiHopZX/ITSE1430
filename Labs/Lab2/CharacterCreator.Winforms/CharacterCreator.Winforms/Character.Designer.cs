@@ -77,7 +77,7 @@
             // 
             this._RaceBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this._RaceBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.characterBindingSource, "Name", true));
-            this._RaceBox.DataSource = this.raceBindingSource1;
+            this._RaceBox.DataSource = this.raceBindingSource;
             this._RaceBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._RaceBox.FormattingEnabled = true;
             resources.ApplyResources(this._RaceBox, "_RaceBox");
@@ -103,7 +103,7 @@
             // 
             // _ProfessionBox
             // 
-            this._ProfessionBox.DataSource = this.professionBindingSource2;
+            this._ProfessionBox.DataSource = this.professionBindingSource;
             this._ProfessionBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._ProfessionBox.FormattingEnabled = true;
             resources.ApplyResources(this._ProfessionBox, "_ProfessionBox");

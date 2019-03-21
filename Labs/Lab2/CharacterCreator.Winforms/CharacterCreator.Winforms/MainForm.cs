@@ -22,14 +22,10 @@ namespace CharacterCreator.Winforms
 
         }
 
-        private void QuitSelected( object sender, EventArgs e )
-        {
-            Close();
-        }
+        private void QuitSelected( object sender, EventArgs e ) => Close();
 
         /// global variables
         #region
-        static bool Quit_SC;
         static bool Alt_F4;
         static bool Fkey;
         #endregion

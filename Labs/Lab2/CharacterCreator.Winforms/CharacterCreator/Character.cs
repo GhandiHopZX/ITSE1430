@@ -29,7 +29,7 @@ namespace CharacterCreator
         const int _min = 0;
         const int _max = 100;
 
-        public int characterID { get; set; }
+        public int CharacterID { get; set; }
         public string[] Profession { get => _profession; set => _profession = value; }
         public string[] Race { get => _race; set => _race = value; }
         public string Name { get => _name; set => _name = value; }
