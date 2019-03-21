@@ -64,34 +64,13 @@ namespace CharacterCreator.Winforms
             Constitution.Value = character.Constitution;
         }
 
-        private void LoadUsersToComboBox()
-        {
-            using (ScansEntities3 db = new ScansEntities3())
-            {
-                var people = db.People.ToList();
-
-                foreach (var person in people)
-                    db.Detach(person);
-
-                comboBox1.DataSource = people;
-                comboBox1.DisplayMember = "Name";
-                comboBox1.ValueMember = "ID";
-            }
-        }
-
         private Character SaveData()
         {
             var character = new Character {
                 Name = _NameBox.Text
             };
             //prof
-            var sourceP = character.Profession; // one equiv
-            //sourceP.ToList();
-            sourceP.DataSource = _ProfessionBox.DataSource; 
             //character.Race = _RaceBox.Items;
-            var sourceR = character.Race;
-            sourceR.ToList();
-            //ComboBox boxy = ProfessionBox;
             //character.Intelligence = Intelligence.DataBindings;
             //character.Strength = Strength.Value;
             //character.Charisma = Charisma.Value;
@@ -135,9 +114,7 @@ namespace CharacterCreator.Winforms
                 errorProvider2.SetError(txb2, "field needs to be selected.");
                 //e.Cancel = false;
             } else
-            {
-                errorProvider2.SetError(txb2, "");
-            }
+            { errorProvider2.SetError(txb2, ""); }
 
             var character = new Character();
             var source = character.Race;
@@ -156,8 +133,7 @@ namespace CharacterCreator.Winforms
                 errorProvider3.SetError(txb3,
                     "Profession needs to be selected.");
                 //e.Cancel = false;
-            } 
-            else
+            } else
             {
                 errorProvider3.SetError(txb3, "");
             }

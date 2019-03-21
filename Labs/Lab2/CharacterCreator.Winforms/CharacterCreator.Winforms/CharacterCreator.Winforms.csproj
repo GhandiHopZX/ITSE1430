@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4DCC2269-EF0A-4CF8-B649-C850E3E419B2}</ProjectGuid>
+    <ProjectGuid>{377574A4-5566-4990-AB3C-1A02D962AA16}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CharacterCreator.Winforms</RootNamespace>
     <AssemblyName>CharacterCreator.Winforms</AssemblyName>
@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.cs">
+    <Compile Include="About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox1.Designer.cs">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Character.cs">
+    <Compile Include="CharForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Character.Designer.cs">
-      <DependentUpon>Character.cs</DependentUpon>
+    <Compile Include="CharForm.Designer.cs">
+      <DependentUpon>CharForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -66,11 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Character.resx">
-      <DependentUpon>Character.cs</DependentUpon>
+    <EmbeddedResource Include="CharForm.resx">
+      <DependentUpon>CharForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -84,7 +84,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\DataSources\CharacterCreator.Character.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -100,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CharacterCreator\CharacterCreator.csproj">
-      <Project>{fd946d1f-da4f-4b53-b104-a1c6356a3988}</Project>
+      <Project>{29f6a4e7-95ea-4af9-a35a-9b677fb80534}</Project>
       <Name>CharacterCreator</Name>
     </ProjectReference>
   </ItemGroup>

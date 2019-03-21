@@ -65,7 +65,7 @@ namespace CharacterCreator.Winforms
                 abform.Activate();
                 abform.Show();
             }
-
+            
         }
 
         private void OnAboutSelected( object sender, EventArgs e )
@@ -80,11 +80,6 @@ namespace CharacterCreator.Winforms
             var charForm = new CharForm();
             charForm.Activate();
             charForm.Show();
-        }
-
-        private void menuStrip1_ItemClicked_1( object sender, ToolStripItemClickedEventArgs e )
-        {
-
         }
     }
 }
