@@ -28,29 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Strength = new System.Windows.Forms.Label();
             this.Intelligence = new System.Windows.Forms.Label();
-            this.Dexterity = new System.Windows.Forms.Label();
+            this.Charisma = new System.Windows.Forms.Label();
             this.Constitution = new System.Windows.Forms.Label();
             this.Agility = new System.Windows.Forms.Label();
-            this.ProfessionBox = new System.Windows.Forms.ComboBox();
-            this.RaceBox = new System.Windows.Forms.ComboBox();
             this.StrNumeric = new System.Windows.Forms.NumericUpDown();
             this.IntNumeric = new System.Windows.Forms.NumericUpDown();
-            this.DexNumeric = new System.Windows.Forms.NumericUpDown();
+            this.ChaNumeric = new System.Windows.Forms.NumericUpDown();
             this.ConNumeric = new System.Windows.Forms.NumericUpDown();
             this.AgiNumeric = new System.Windows.Forms.NumericUpDown();
-            this.NameBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.NameBox2 = new System.Windows.Forms.TextBox();
+            this.ProfessionBox1 = new System.Windows.Forms.ComboBox();
+            this.raceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.characterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ProfessionBox2 = new System.Windows.Forms.ComboBox();
+            this.professionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.StrNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DexNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChaNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AgiNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -98,14 +111,14 @@
             this.Intelligence.TabIndex = 4;
             this.Intelligence.Text = "Intelligence";
             // 
-            // Dexterity
+            // Charisma
             // 
-            this.Dexterity.AutoSize = true;
-            this.Dexterity.Location = new System.Drawing.Point(27, 306);
-            this.Dexterity.Name = "Dexterity";
-            this.Dexterity.Size = new System.Drawing.Size(63, 17);
-            this.Dexterity.TabIndex = 5;
-            this.Dexterity.Text = "Dexterity";
+            this.Charisma.AutoSize = true;
+            this.Charisma.Location = new System.Drawing.Point(27, 306);
+            this.Charisma.Name = "Charisma";
+            this.Charisma.Size = new System.Drawing.Size(67, 17);
+            this.Charisma.TabIndex = 5;
+            this.Charisma.Text = "Charisma";
             // 
             // Constitution
             // 
@@ -124,22 +137,6 @@
             this.Agility.Size = new System.Drawing.Size(45, 17);
             this.Agility.TabIndex = 7;
             this.Agility.Text = "Agility";
-            // 
-            // ProfessionBox
-            // 
-            this.ProfessionBox.FormattingEnabled = true;
-            this.ProfessionBox.Location = new System.Drawing.Point(238, 84);
-            this.ProfessionBox.Name = "ProfessionBox";
-            this.ProfessionBox.Size = new System.Drawing.Size(121, 24);
-            this.ProfessionBox.TabIndex = 8;
-            // 
-            // RaceBox
-            // 
-            this.RaceBox.FormattingEnabled = true;
-            this.RaceBox.Location = new System.Drawing.Point(238, 144);
-            this.RaceBox.Name = "RaceBox";
-            this.RaceBox.Size = new System.Drawing.Size(121, 24);
-            this.RaceBox.TabIndex = 9;
             // 
             // StrNumeric
             // 
@@ -165,13 +162,13 @@
             0,
             0});
             // 
-            // DexNumeric
+            // ChaNumeric
             // 
-            this.DexNumeric.Location = new System.Drawing.Point(240, 306);
-            this.DexNumeric.Name = "DexNumeric";
-            this.DexNumeric.Size = new System.Drawing.Size(120, 22);
-            this.DexNumeric.TabIndex = 13;
-            this.DexNumeric.Value = new decimal(new int[] {
+            this.ChaNumeric.Location = new System.Drawing.Point(240, 306);
+            this.ChaNumeric.Name = "ChaNumeric";
+            this.ChaNumeric.Size = new System.Drawing.Size(120, 22);
+            this.ChaNumeric.TabIndex = 13;
+            this.ChaNumeric.Value = new decimal(new int[] {
             50,
             0,
             0,
@@ -201,13 +198,6 @@
             0,
             0});
             // 
-            // NameBox
-            // 
-            this.NameBox.Location = new System.Drawing.Point(238, 24);
-            this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(121, 22);
-            this.NameBox.TabIndex = 16;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(203, 436);
@@ -226,24 +216,77 @@
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // NameBox2
+            // 
+            this.NameBox2.Location = new System.Drawing.Point(239, 24);
+            this.NameBox2.Name = "NameBox2";
+            this.NameBox2.Size = new System.Drawing.Size(121, 22);
+            this.NameBox2.TabIndex = 19;
+            // 
+            // ProfessionBox1
+            // 
+            this.ProfessionBox1.DataSource = this.professionBindingSource;
+            this.ProfessionBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProfessionBox1.FormattingEnabled = true;
+            this.ProfessionBox1.Location = new System.Drawing.Point(239, 84);
+            this.ProfessionBox1.Name = "ProfessionBox1";
+            this.ProfessionBox1.Size = new System.Drawing.Size(121, 24);
+            this.ProfessionBox1.TabIndex = 20;
+            // 
+            // raceBindingSource
+            // 
+            this.raceBindingSource.DataMember = "Race";
+            this.raceBindingSource.DataSource = this.characterBindingSource;
+            // 
+            // characterBindingSource
+            // 
+            this.characterBindingSource.DataSource = typeof(CharacterCreator.Character);
+            // 
+            // ProfessionBox2
+            // 
+            this.ProfessionBox2.DataSource = this.raceBindingSource;
+            this.ProfessionBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProfessionBox2.FormattingEnabled = true;
+            this.ProfessionBox2.Location = new System.Drawing.Point(239, 144);
+            this.ProfessionBox2.Name = "ProfessionBox2";
+            this.ProfessionBox2.Size = new System.Drawing.Size(121, 24);
+            this.ProfessionBox2.TabIndex = 21;
+            // 
+            // professionBindingSource
+            // 
+            this.professionBindingSource.DataMember = "Profession";
+            this.professionBindingSource.DataSource = this.characterBindingSource;
+            // 
             // CharForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 473);
+            this.ClientSize = new System.Drawing.Size(411, 473);
+            this.Controls.Add(this.ProfessionBox2);
+            this.Controls.Add(this.ProfessionBox1);
+            this.Controls.Add(this.NameBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.NameBox);
             this.Controls.Add(this.AgiNumeric);
             this.Controls.Add(this.ConNumeric);
-            this.Controls.Add(this.DexNumeric);
+            this.Controls.Add(this.ChaNumeric);
             this.Controls.Add(this.IntNumeric);
             this.Controls.Add(this.StrNumeric);
-            this.Controls.Add(this.RaceBox);
-            this.Controls.Add(this.ProfessionBox);
             this.Controls.Add(this.Agility);
             this.Controls.Add(this.Constitution);
-            this.Controls.Add(this.Dexterity);
+            this.Controls.Add(this.Charisma);
             this.Controls.Add(this.Intelligence);
             this.Controls.Add(this.Strength);
             this.Controls.Add(this.label3);
@@ -255,9 +298,15 @@
             this.Text = "Create New Character";
             ((System.ComponentModel.ISupportInitialize)(this.StrNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DexNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChaNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AgiNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,18 +319,24 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Strength;
         private System.Windows.Forms.Label Intelligence;
-        private System.Windows.Forms.Label Dexterity;
+        private System.Windows.Forms.Label Charisma;
         private System.Windows.Forms.Label Constitution;
         private System.Windows.Forms.Label Agility;
-        private System.Windows.Forms.ComboBox ProfessionBox;
-        private System.Windows.Forms.ComboBox RaceBox;
         private System.Windows.Forms.NumericUpDown StrNumeric;
         private System.Windows.Forms.NumericUpDown IntNumeric;
-        private System.Windows.Forms.NumericUpDown DexNumeric;
+        private System.Windows.Forms.NumericUpDown ChaNumeric;
         private System.Windows.Forms.NumericUpDown ConNumeric;
         private System.Windows.Forms.NumericUpDown AgiNumeric;
-        private System.Windows.Forms.TextBox NameBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ComboBox ProfessionBox2;
+        private System.Windows.Forms.ComboBox ProfessionBox1;
+        private System.Windows.Forms.BindingSource raceBindingSource;
+        private System.Windows.Forms.BindingSource characterBindingSource;
+        private System.Windows.Forms.TextBox NameBox2;
+        private System.Windows.Forms.BindingSource professionBindingSource;
     }
 }
