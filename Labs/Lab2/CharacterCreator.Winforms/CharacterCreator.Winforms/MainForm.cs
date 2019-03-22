@@ -29,11 +29,29 @@ namespace CharacterCreator.Winforms
         static bool Alt_F4;
         static bool Fkey;
         #endregion
-
-
-        // alt F4 check
-        private void KeyCombos( object sender, KeyEventArgs e )
+                
+        private void menuStrip1_ItemClicked_1( object sender, ToolStripItemClickedEventArgs e )
         {
+
+        }
+
+        private void OnAddSelected( object sender, EventArgs e )
+        {
+            var charForm = new CharForm();
+            charForm.Activate();
+            charForm.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            var abform = new abform();
+            abform.Activate();
+            abform.Show();
+        }
+
+        private void MainForm_KeyDown( object sender, KeyEventArgs e )
+        {
+
             // buttons n' stuff for quit shortcut
             if (e.Alt && e.KeyCode == Keys.F4)
             {
@@ -61,30 +79,10 @@ namespace CharacterCreator.Winforms
             //var windowAbout = new AboutBox1();
             if (Fkey == true)
             {
-                var abform = new About();
+                var abform = new abform();
                 abform.Activate();
                 abform.Show();
             }
-
-        }
-
-        private void OnAboutSelected( object sender, EventArgs e )
-        {
-            var abform = new About();
-            abform.Activate();
-            abform.Show();
-        }
-
-        private void menuStrip1_ItemClicked_1( object sender, ToolStripItemClickedEventArgs e )
-        {
-
-        }
-
-        private void OnAddSelected( object sender, EventArgs e )
-        {
-            var charForm = new CharForm();
-            charForm.Activate();
-            charForm.Show();
         }
     }
 }

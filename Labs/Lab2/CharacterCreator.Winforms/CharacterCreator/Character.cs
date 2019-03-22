@@ -21,6 +21,8 @@ namespace CharacterCreator
         private string Rouge = "Rouge";
         private string Wizard = "Wizard";
 
+        private string[] _profession = { "Swordsman", "Knight", "Paladin", "Rouge", "Wizard" }; 
+
         private string[] _race =
         { "Demi Human", "Faerie", "Siren", "Jumi", "Beastman", "Dragoon", "Human" };
         
@@ -54,6 +56,7 @@ namespace CharacterCreator
         public static int Max => _max;
 
         public string[] Race { get => _race; set => _race = value; }
+        public string[] Profession { get => _profession; set => _profession = value; }
 
         public bool Validate()
         {

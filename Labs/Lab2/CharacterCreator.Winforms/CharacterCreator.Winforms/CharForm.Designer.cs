@@ -49,10 +49,10 @@
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.NameBox2 = new System.Windows.Forms.TextBox();
             this.ProfessionBox1 = new System.Windows.Forms.ComboBox();
-            this.raceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.characterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ProfessionBox2 = new System.Windows.Forms.ComboBox();
             this.professionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.characterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.raceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ProfessionBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.StrNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChaNumeric)).BeginInit();
@@ -61,9 +61,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -237,7 +237,6 @@
             // 
             // ProfessionBox1
             // 
-            this.ProfessionBox1.DataSource = this.professionBindingSource;
             this.ProfessionBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProfessionBox1.FormattingEnabled = true;
             this.ProfessionBox1.Location = new System.Drawing.Point(239, 84);
@@ -245,14 +244,19 @@
             this.ProfessionBox1.Size = new System.Drawing.Size(121, 24);
             this.ProfessionBox1.TabIndex = 20;
             // 
-            // raceBindingSource
+            // professionBindingSource
             // 
-            this.raceBindingSource.DataMember = "Race";
-            this.raceBindingSource.DataSource = this.characterBindingSource;
+            this.professionBindingSource.DataMember = "Profession";
+            this.professionBindingSource.DataSource = this.characterBindingSource;
             // 
             // characterBindingSource
             // 
             this.characterBindingSource.DataSource = typeof(CharacterCreator.Character);
+            // 
+            // raceBindingSource
+            // 
+            this.raceBindingSource.DataMember = "Race";
+            this.raceBindingSource.DataSource = this.characterBindingSource;
             // 
             // ProfessionBox2
             // 
@@ -263,11 +267,6 @@
             this.ProfessionBox2.Name = "ProfessionBox2";
             this.ProfessionBox2.Size = new System.Drawing.Size(121, 24);
             this.ProfessionBox2.TabIndex = 21;
-            // 
-            // professionBindingSource
-            // 
-            this.professionBindingSource.DataMember = "Profession";
-            this.professionBindingSource.DataSource = this.characterBindingSource;
             // 
             // CharForm
             // 
@@ -304,9 +303,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

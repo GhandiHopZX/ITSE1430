@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CharacterCreator.Winforms
 {
-    partial class About : Form
+    partial class abform : Form
     {
-        public About()
+        public abform()
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
@@ -19,7 +19,6 @@ namespace CharacterCreator.Winforms
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
         }
 
         #region Assembly Attribute Accessors
@@ -95,5 +94,18 @@ namespace CharacterCreator.Winforms
             }
         }
         #endregion
+
+
+
+        private void labelVersion_Click( object sender, EventArgs e )
+        {
+
+        }
+
+        private void okButton_Click( object sender, EventArgs e )
+        {
+            Close();
+        }
+        
     }
 }

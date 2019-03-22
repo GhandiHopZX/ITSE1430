@@ -210,21 +210,23 @@ namespace CharacterCreator.Winforms
         private void ProfessionBind( object sender, BindingCompleteEventArgs e )
         {
             //binding data
-            var charProf = new Character();
 
-            var profsource = new BindingSource();
+            var profin = new Character();
 
-            sender = profsource;
+            professionBindingSource.Add(new Character().Paladin1);
+            professionBindingSource.Add(new Character().Rouge1);
+            professionBindingSource.Add(new Character().Swordsman1);
+            professionBindingSource.Add(new Character().Knight1);
+            professionBindingSource.Add(new Character().Wizard1);
+            professionBindingSource.Add(new Character().Profession);
+            
+            
+        }
 
-            string[] ProfessionList = {};
-
-            Character profAdd = new Character("Knight");
-
-            var bs = new BindingSource();
-            Foo foo1 = new Foo("bar1");
-            fooList.Add(foo1);
-
-            bs.DataSource = fooList;
+        // Loading Items
+        private void LoadProfessions(Character[] items)
+        {
+            
         }
     }
 }
