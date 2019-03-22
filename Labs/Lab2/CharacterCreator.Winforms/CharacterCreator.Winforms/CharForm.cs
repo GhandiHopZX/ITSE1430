@@ -54,10 +54,10 @@ namespace CharacterCreator.Winforms
         private void LoadName( Character character )
         {
             //NewId = character.characterID; // Come back to this one?
-            //NameBox.Text = character.Name;
-            //ProfessionBox.DataSource = character.Profession; // double check these
-            //RaceBox.DataSource = character.Race;
-            //IntNumeric.Value = character._intelligence;
+            //NameBox = character.Name;
+            //professionBindingSource.DataSource = character.Profession; // double check these
+            //raceBindingSource.DataSource = character.Race;
+            IntNumeric.Value = character.Intelligence;
             StrNumeric.Value = character.Strength;
             ChaNumeric.Value = character.Charisma;
             AgiNumeric.Value = character.Agility;
@@ -70,7 +70,7 @@ namespace CharacterCreator.Winforms
                 //Name = NameBox.Text
             };
             //prof
-            //character.Race = _RaceBox.Items;
+            //character.Race = ;
             //character.Intelligence = Intelligence.DataBindings;
             //character.Strength = Strength.Value;
             //character.Charisma = Charisma.Value;
@@ -113,15 +113,17 @@ namespace CharacterCreator.Winforms
             {
                 errorProvider2.SetError(txb2, "field needs to be selected.");
                 //e.Cancel = false;
-            } else
+            } 
+            
+            else
+
             { errorProvider2.SetError(txb2, ""); }
 
             var character = new Character();
-            //var source = character.Race;
-            //ComboBox boxy = ProfessionBox;
+            var source = character.Race;
 
-            //sender = source.ToList();
-            //txb2.DataSource = source;
+            sender = source.ToList();
+            txb2.DataSource = source;
         }
 
         private void ProfessionBox( object sender, CancelEventArgs e )
@@ -139,11 +141,11 @@ namespace CharacterCreator.Winforms
             }
 
             var character = new Character();
-            //var source = character.Profession;
+            var source = character.Profession;
             //ComboBox boxy = ProfessionBox;
 
-            //sender = source.ToList();
-            //txb3.DataSource = source;
+            sender = source.ToList();
+            txb3.DataSource = source;
         }
 
         private void OnAddButton( object sender, EventArgs e )
@@ -193,7 +195,7 @@ namespace CharacterCreator.Winforms
         private int GetIndex( int CharacterID )
         {
             for (var index = 0; index < _items.Count; ++index)
-                //if (_items[index]?.CharacterID == CharacterID)
+                if (_items[index]?.CharacterID == CharacterID)
                     return index;
 
             return -1;
@@ -212,13 +214,8 @@ namespace CharacterCreator.Winforms
             //binding data
 
             var profin = new Character();
-
-            professionBindingSource.Add(new Character().Paladin1);
-            professionBindingSource.Add(new Character().Rouge1);
-            professionBindingSource.Add(new Character().Swordsman1);
-            professionBindingSource.Add(new Character().Knight1);
-            professionBindingSource.Add(new Character().Wizard1);
-            professionBindingSource.Add(new Character().Profession);
+            
+            ProfessionBox1.Items.Add(Character.Profession);
             
             
         }

@@ -218,18 +218,25 @@
             // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.RightToLeftChanged += new System.EventHandler(this.NameBoxChanged);
             // 
             // errorProvider2
             // 
+            this.errorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider2.ContainerControl = this;
+            this.errorProvider2.RightToLeftChanged += new System.EventHandler(this.NameBoxChanged);
             // 
             // errorProvider3
             // 
+            this.errorProvider3.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider3.ContainerControl = this;
+            this.errorProvider3.RightToLeftChanged += new System.EventHandler(this.NameBoxChanged);
             // 
             // NameBox2
             // 
+            this.errorProvider1.SetError(this.NameBox2, "Name required");
             this.NameBox2.Location = new System.Drawing.Point(239, 24);
             this.NameBox2.Name = "NameBox2";
             this.NameBox2.Size = new System.Drawing.Size(121, 22);
@@ -237,7 +244,9 @@
             // 
             // ProfessionBox1
             // 
+            this.ProfessionBox1.DataSource = this.professionBindingSource;
             this.ProfessionBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.errorProvider2.SetError(this.ProfessionBox1, "Please Select Job Class");
             this.ProfessionBox1.FormattingEnabled = true;
             this.ProfessionBox1.Location = new System.Drawing.Point(239, 84);
             this.ProfessionBox1.Name = "ProfessionBox1";
@@ -262,6 +271,7 @@
             // 
             this.ProfessionBox2.DataSource = this.raceBindingSource;
             this.ProfessionBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.errorProvider3.SetError(this.ProfessionBox2, "Please Select Race");
             this.ProfessionBox2.FormattingEnabled = true;
             this.ProfessionBox2.Location = new System.Drawing.Point(239, 144);
             this.ProfessionBox2.Name = "ProfessionBox2";

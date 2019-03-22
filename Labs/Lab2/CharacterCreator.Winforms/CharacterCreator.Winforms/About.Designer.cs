@@ -139,7 +139,6 @@
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&OK";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
-            this.okButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.okButton_KeyPress);
             // 
             // textBox1
             // 

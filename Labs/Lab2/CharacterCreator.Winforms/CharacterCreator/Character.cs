@@ -57,6 +57,7 @@ namespace CharacterCreator
 
         public string[] Race { get => _race; set => _race = value; }
         public string[] Profession { get => _profession; set => _profession = value; }
+        public int CharacterID { get; set; }
 
         public bool Validate()
         {
