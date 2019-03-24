@@ -45,25 +45,23 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.NameBox2 = new System.Windows.Forms.TextBox();
             this.ProfessionBox1 = new System.Windows.Forms.ComboBox();
-            this.professionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.characterBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.characterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.raceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ProfessionBox2 = new System.Windows.Forms.ComboBox();
+            this.RaceBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.StrNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IntNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChaNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AgiNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -200,39 +198,28 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(203, 436);
+            this.button1.Location = new System.Drawing.Point(203, 445);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 17;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.OnSave);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(284, 436);
+            this.button2.Location = new System.Drawing.Point(284, 445);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 18;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Cancel);
             // 
             // errorProvider1
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
-            this.errorProvider1.RightToLeftChanged += new System.EventHandler(this.NameBoxChanged);
-            // 
-            // errorProvider2
-            // 
-            this.errorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider2.ContainerControl = this;
-            this.errorProvider2.RightToLeftChanged += new System.EventHandler(this.NameBoxChanged);
-            // 
-            // errorProvider3
-            // 
-            this.errorProvider3.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider3.ContainerControl = this;
-            this.errorProvider3.RightToLeftChanged += new System.EventHandler(this.NameBoxChanged);
             // 
             // NameBox2
             // 
@@ -241,49 +228,57 @@
             this.NameBox2.Name = "NameBox2";
             this.NameBox2.Size = new System.Drawing.Size(121, 22);
             this.NameBox2.TabIndex = 19;
+            this.NameBox2.Validating += new System.ComponentModel.CancelEventHandler(this.NameBox2_Validating);
             // 
             // ProfessionBox1
             // 
-            this.ProfessionBox1.DataSource = this.professionBindingSource;
+            this.ProfessionBox1.DataSource = this.characterBindingSource1;
+            this.ProfessionBox1.DisplayMember = "Swordsman";
             this.ProfessionBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.errorProvider2.SetError(this.ProfessionBox1, "Please Select Job Class");
             this.ProfessionBox1.FormattingEnabled = true;
             this.ProfessionBox1.Location = new System.Drawing.Point(239, 84);
             this.ProfessionBox1.Name = "ProfessionBox1";
             this.ProfessionBox1.Size = new System.Drawing.Size(121, 24);
             this.ProfessionBox1.TabIndex = 20;
+            this.ProfessionBox1.Tag = "";
+            this.ProfessionBox1.Validating += new System.ComponentModel.CancelEventHandler(this.ProfessionBox1_Validating);
+            this.ProfessionBox1.Validated += new System.EventHandler(this.ProfessionBox1_Validated);
             // 
-            // professionBindingSource
+            // characterBindingSource1
             // 
-            this.professionBindingSource.DataMember = "Profession";
-            this.professionBindingSource.DataSource = this.characterBindingSource;
+            this.characterBindingSource1.DataSource = typeof(CharacterCreator.Character);
+            // 
+            // bindingSource2
+            // 
+            this.bindingSource2.CurrentChanged += new System.EventHandler(this.bindingSource2_CurrentChanged);
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
             // characterBindingSource
             // 
             this.characterBindingSource.DataSource = typeof(CharacterCreator.Character);
             // 
-            // raceBindingSource
+            // RaceBox2
             // 
-            this.raceBindingSource.DataMember = "Race";
-            this.raceBindingSource.DataSource = this.characterBindingSource;
-            // 
-            // ProfessionBox2
-            // 
-            this.ProfessionBox2.DataSource = this.raceBindingSource;
-            this.ProfessionBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.errorProvider3.SetError(this.ProfessionBox2, "Please Select Race");
-            this.ProfessionBox2.FormattingEnabled = true;
-            this.ProfessionBox2.Location = new System.Drawing.Point(239, 144);
-            this.ProfessionBox2.Name = "ProfessionBox2";
-            this.ProfessionBox2.Size = new System.Drawing.Size(121, 24);
-            this.ProfessionBox2.TabIndex = 21;
+            this.RaceBox2.DataSource = this.characterBindingSource1;
+            this.RaceBox2.DisplayMember = "Siren";
+            this.RaceBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RaceBox2.FormattingEnabled = true;
+            this.RaceBox2.Location = new System.Drawing.Point(239, 144);
+            this.RaceBox2.Name = "RaceBox2";
+            this.RaceBox2.Size = new System.Drawing.Size(121, 24);
+            this.RaceBox2.TabIndex = 21;
+            this.RaceBox2.Validating += new System.ComponentModel.CancelEventHandler(this.RaceBox2_Validating);
+            this.RaceBox2.Validated += new System.EventHandler(this.RaceBox2_Validated);
             // 
             // CharForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 473);
-            this.Controls.Add(this.ProfessionBox2);
+            this.ClientSize = new System.Drawing.Size(411, 499);
+            this.Controls.Add(this.RaceBox2);
             this.Controls.Add(this.ProfessionBox1);
             this.Controls.Add(this.NameBox2);
             this.Controls.Add(this.button2);
@@ -311,11 +306,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ConNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AgiNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.professionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.characterBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,13 +333,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
-        private System.Windows.Forms.ErrorProvider errorProvider3;
-        private System.Windows.Forms.ComboBox ProfessionBox2;
+        private System.Windows.Forms.ComboBox RaceBox2;
         private System.Windows.Forms.ComboBox ProfessionBox1;
-        private System.Windows.Forms.BindingSource raceBindingSource;
         private System.Windows.Forms.BindingSource characterBindingSource;
         private System.Windows.Forms.TextBox NameBox2;
-        private System.Windows.Forms.BindingSource professionBindingSource;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource bindingSource2;
+        private System.Windows.Forms.BindingSource characterBindingSource1;
     }
 }

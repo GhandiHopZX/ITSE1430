@@ -8,24 +8,17 @@ namespace CharacterCreator
 {
     public class Character
     {
-
         //values for the character attributes
 
         private string _name = "";
 
-        // Races and Professions based on Legend of Mana, Secret (of Mana) Series.
-
-        private string Swordsman = "Swordsman";
-        private string Knight = "Knight";
-        private string Paladin = "Paladin";
-        private string Rouge = "Rouge";
-        private string Wizard = "Wizard";
-
-        private string[] _profession = { "Swordsman", "Knight", "Paladin", "Rouge", "Wizard" }; 
+        //Races and Professions based on Legend of Mana, Secret (of Mana) Series.
+        private string[] _profession =
+            { "Swordsman", "Knight", "Paladin", "Rouge", "Wizard" };
 
         private string[] _race =
-        { "Demi Human", "Faerie", "Siren", "Jumi", "Beastman", "Dragoon", "Human" };
-        
+            { "Demi Human", "Faerie", "Siren", "Jumi", "Beastman", "Dragoon", "Human" };
+
         //stats//
         private int _strength;
         private int _intelligence;
@@ -36,33 +29,43 @@ namespace CharacterCreator
         const int _min = 0;
         const int _max = 100;
 
+        public int CharacterID { get; set; }
+
+        public string[] Profession { get => _profession; set => _profession = value; }
+        public string Swordsman { get => _profession.ElementAt(0); }
+        public string Knight { get => _profession.ElementAt(1); }
+        public string Paladin { get => _profession.ElementAt(2); }
+        public string Rouge { get => _profession.ElementAt(3); }
+        public string Wizard { get => _profession.ElementAt(4); }
+
+        public string[] Race { get => _race; set => _race = value; }
+        public string Demi_Human { get => _race.ElementAt(0); }
+        public string Faerie { get => _race.ElementAt(1); }
+        public string Siren { get => _race.ElementAt(2); }
+        public string Jumi { get => _race.ElementAt(3); }
+        public string Beastman { get => _race.ElementAt(4); }
+        public string Dragoon { get => _race.ElementAt(5); }
+        public string Human { get => _race.ElementAt(6); }
+
         public string Name { get => _name; set => _name = value; }
-
-        public string Swordsman1 { get => Swordsman; set => Swordsman = value; }
-        public string Knight1 { get => Knight; set => Knight = value; }
-        public string Paladin1 { get => Paladin; set => Paladin = value; }
-        public string Rouge1 { get => Rouge; set => Rouge = value; }
-        public string Wizard1 { get => Wizard; set => Wizard = value; }
-       
-
         public int Strength { get => _strength; set => _strength = value; }
         public int Intelligence { get => _intelligence; set => _intelligence = value; }
         public int Agility { get => _agility; set => _agility = value; }
         public int Constitution { get => _constitution; set => _constitution = value; }
         public int Charisma { get => _charisma; set => _charisma = value; }
-
-        public static int Min => _min;
-
-        public static int Max => _max;
-
-        public string[] Race { get => _race; set => _race = value; }
-        public string[] Profession { get => _profession; set => _profession = value; }
-        public int CharacterID { get; set; }
+        
 
         public bool Validate()
         {
+            var items = new List<ValidationResult>();
+
+            //Name is required
+            if (String.IsNullOrEmpty(Name))
+                items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
+
+
             //Name is needed
-            if (String.IsNullOrEmpty(_name))
+            if (String.IsNullOrEmpty(Name))
                 return false;
 
             if (_strength < _min)
@@ -97,7 +100,6 @@ namespace CharacterCreator
 
             return true;
         }
-        
     }
 }
 

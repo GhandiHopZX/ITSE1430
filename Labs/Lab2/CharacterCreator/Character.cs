@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CharacterCreator
 {
-    public class Character
+    public class Character 
     {
         //values for the character attributes
 
@@ -38,6 +38,20 @@ namespace CharacterCreator
         public int Agility { get => _agility; set => _agility = value; }
         public int Constitution { get => _constitution; set => _constitution = value; }
         public int Charisma { get => _charisma; set => _charisma = value; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            var items = new List<ValidationResult>();
+
+            //Name is required
+            if (String.IsNullOrEmpty(Name))
+                items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
+            
+
+            Validate();
+
+            return items;
+        }
 
         public bool Validate()
         {
