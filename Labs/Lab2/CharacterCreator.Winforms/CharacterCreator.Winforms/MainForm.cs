@@ -87,7 +87,7 @@ namespace CharacterCreator.Winforms
             //Window Edit
             if (e.Control && e.KeyCode == Keys.O)
             {
-                var 
+                
             }
         }
     }
