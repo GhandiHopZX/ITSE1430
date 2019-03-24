@@ -83,6 +83,12 @@ namespace CharacterCreator.Winforms
                 abform.Activate();
                 abform.Show();
             }
+
+            //Window Edit
+            if (e.Control && e.KeyCode == Keys.O)
+            {
+                var 
+            }
         }
     }
 }
