@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.UI", "ContactManager.UI\ContactManager.UI.csproj", "{FAFF5944-E696-4AC0-8BEF-F27C97C4C381}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact Type", "Contact Type\Contact Type.csproj", "{000AA31F-7F62-4E64-9608-9E3FAE661179}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FAFF5944-E696-4AC0-8BEF-F27C97C4C381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAFF5944-E696-4AC0-8BEF-F27C97C4C381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAFF5944-E696-4AC0-8BEF-F27C97C4C381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{000AA31F-7F62-4E64-9608-9E3FAE661179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{000AA31F-7F62-4E64-9608-9E3FAE661179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{000AA31F-7F62-4E64-9608-9E3FAE661179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{000AA31F-7F62-4E64-9608-9E3FAE661179}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
