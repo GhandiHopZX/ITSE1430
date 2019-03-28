@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GameManager
-{   
+{
     public abstract class GameDatabase : IGameDatabase
     {
         public Game Add( Game game )
@@ -20,7 +20,8 @@ namespace GameManager
                 throw new ArgumentNullException(nameof(game));
 
             //Game must be valid            
-            new ObjectValidator().Validate(game);
+            //new ObjectValidator().Validate(game);
+            ObjectValidator.Validate(game);
 
             //Game names must be unique
             var existing = FindByName(game.Name);
@@ -60,7 +61,7 @@ namespace GameManager
             if (game == null)
                 throw new ArgumentNullException(nameof(game));
 
-            new ObjectValidator().Validate(game);
+            ObjectValidator.Validate(game);
 
             var existing = GetCore(id);
             if (existing != null)
