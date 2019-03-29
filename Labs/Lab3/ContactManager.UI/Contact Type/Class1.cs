@@ -55,7 +55,7 @@ namespace Contact_Type
             throw new NotImplementedException();
         }
 
-        public Contact Update( int id, Contact game )
+        public Contact Update( int id, Contact contact )
         {
             throw new NotImplementedException();
         }
