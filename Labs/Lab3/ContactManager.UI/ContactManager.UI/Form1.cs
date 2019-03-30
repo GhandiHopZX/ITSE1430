@@ -49,14 +49,14 @@ namespace ContactManager.UI
             }
         }
 
-        private void aboutToolStripMenuItem_Click( object sender, EventArgs e )
+        private void AboutToolStripMenuItem_Click( object sender, EventArgs e )
         {
             var abform = new AboutBox1();
             abform.Activate();
             abform.Show();
         }
 
-        private void exitToolStripMenuItem_Click( object sender, EventArgs e )
+        private void ExitToolStripMenuItem_Click( object sender, EventArgs e )
         {
             Close();
         }

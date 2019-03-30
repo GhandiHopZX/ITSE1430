@@ -37,6 +37,18 @@ namespace Contact_Type
 
         public Contact Add( Contact contact )
         {
+            if (contact == null)
+            {
+                throw new ArgumentNullException(nameof(contact));
+            }
+
+            
+
+            return AddFull(contact);
+        }
+
+        protected  Contact AddFull( Contact contact )
+        {
             throw new NotImplementedException();
         }
 
@@ -68,6 +80,20 @@ namespace Contact_Type
 
     public class ValidationContext
     {
+        public override bool Equals( object obj )
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 
     public class ValidationResult
