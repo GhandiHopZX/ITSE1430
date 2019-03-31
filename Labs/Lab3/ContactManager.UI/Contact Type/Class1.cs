@@ -35,76 +35,34 @@ namespace Contact_Type
             return items;
         }
 
-        public Contact Add( Contact contact )
-        {
-            if (contact == null)
-            {
-                throw new ArgumentNullException(nameof(contact));
-            }
-
-            
-
-            return AddFull(contact);
-        }
-
-        protected  Contact AddFull( Contact contact )
+        Contact IContactDatabase.Add( Contact contact )
         {
             throw new NotImplementedException();
         }
 
-        public void Delete( int id )
+        void IContactDatabase.Delete( int id )
         {
             throw new NotImplementedException();
         }
 
-        public Contact Get( int id )
+        Contact IContactDatabase.Get( int id )
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Contact> GetAll()
+        IEnumerable<Contact> IContactDatabase.GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Contact Update( int id, Contact contact )
+        Contact IContactDatabase.Update( int id, Contact contact )
         {
             throw new NotImplementedException();
         }
 
-        private string name { get; set; }
-
-        private string email { get; set; }
-
-    }
-
-    public class ValidationContext
-    {
-        public override bool Equals( object obj )
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-    }
-
-    public class ValidationResult
-    {
-        private string v1;
-        private string[] v2;
-
-        public ValidationResult( string v1, string[] v2 )
-        {
-            this.v1 = v1;
-            this.v2 = v2;
-        }
+        #region
+        private string name;
+        private string email;
+        #endregion
     }
 }
