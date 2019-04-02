@@ -24,6 +24,6 @@ namespace GameManager
             //_duh = 10;
         }
 
-        private int _duh;
+        //private int _duh;
     }
 }
