@@ -1,7 +1,10 @@
 ﻿/*
  * ITSE 1430
  */
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Contact_Type
 
@@ -10,11 +13,11 @@ namespace Contact_Type
     public class ObjectValidator
     {
         ///// <summary>Validates an object.</summary>
-        /// <param name="contact">The object to validate.</param>
+        /// <param name="value">The object to validate.</param>
         /// <exception cref="ValidationException">The value is invalid.</exception>
-        public static void Validate( /*IValidatableObject value*/ Contact contact )
+        public static void Validate( IValidatableObject value )
         {
-            Validator.ValidateObject(contact, new ValidationContext(contact));
+            Validator.ValidateObject(value, new ValidationContext(value));
 
             //No access to instance members
             //_duh = 10;
