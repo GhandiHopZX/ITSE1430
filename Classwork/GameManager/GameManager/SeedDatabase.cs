@@ -8,7 +8,7 @@ namespace GameManager
 {
     public static class SeedDatabase
     {
-        public static void Seed( this IGameDatabase source )
+        public static void Seed ( this IGameDatabase source )
         {
             //Collection initializer
             var games = new[]
@@ -19,7 +19,7 @@ namespace GameManager
                 };
 
             foreach (var game in games)
-                source.Add(game);
+                source.Add(game);            
         }
 
         //public static int ToInt ( this object source )

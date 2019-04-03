@@ -78,7 +78,7 @@ namespace Contact_Type
             if (name == null)
                 throw new ArgumentNullException(nameof(name));
 
-            ObjectValidator.Validate(contact);
+            ObjectValidator.Validate();
 
             var existing = Get(id);
             if (existing != null)

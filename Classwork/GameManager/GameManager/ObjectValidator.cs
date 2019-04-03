@@ -11,12 +11,15 @@ using System.Threading.Tasks;
 namespace GameManager
 {
     /// <summary>Helper class to validate <see cref="IValidatableObject"/> types.</summary>
-    public class ObjectValidator
+    public static class ObjectValidator
     {
+        //private ObjectValidator()
+        //{ }
+
         /// <summary>Validates an object.</summary>
         /// <param name="value">The object to validate.</param>
         /// <exception cref="ValidationException">The value is invalid.</exception>
-        public static void Validate( IValidatableObject value )
+        public static void Validate ( IValidatableObject value )
         {
             Validator.ValidateObject(value, new ValidationContext(value));
 

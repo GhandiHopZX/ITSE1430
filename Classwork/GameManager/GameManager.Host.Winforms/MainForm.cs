@@ -64,7 +64,7 @@ namespace GameManager.Host.Winforms
             //};
 
             var items = _games.GetAll();
-            items = items.OrderBy(GetName);
+            items = items.OrderBy(GetName);            
             _listGames.Items.AddRange(items.ToArray());
             //foreach (var game in _games)
             //{
@@ -73,7 +73,7 @@ namespace GameManager.Host.Winforms
             //};
         }
 
-        private string GetName( Game game )
+        private string GetName ( Game game )
         {
             return game.Name;
         }
@@ -186,7 +186,7 @@ namespace GameManager.Host.Winforms
                 _games.Delete(selected.Id);
             } catch (Exception ex)
             {
-                DisplayError(ex);
+                DisplayError(ex);  
             };
             BindList();
         }
@@ -194,6 +194,10 @@ namespace GameManager.Host.Winforms
         private Game GetSelectedGame()
         {
             var value = _listGames.SelectedItem;
+
+            //Typesafe conversion to IEnumerable<T>
+            //_listGames.Items.OfType<Game>(); //as
+            //_listGames.Items.Cast<Game>(); //(T)
 
             //C-style cast - don't do this
             //var game = (Game)value;
