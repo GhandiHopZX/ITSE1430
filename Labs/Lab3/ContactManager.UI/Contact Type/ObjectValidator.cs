@@ -1,16 +1,15 @@
 ﻿/*
  * ITSE 1430
  */
+
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Contact_Type
 
 {
     /// <summary>Helper class to validate <see cref="IValidatableObject"/> types.</summary>
-    public class ObjectValidator
+    public static class ObjectValidator
     {
         ///// <summary>Validates an object.</summary>
         /// <param name="value">The object to validate.</param>
@@ -23,7 +22,13 @@ namespace Contact_Type
             //_duh = 10;
         }
 
+        internal static void Validate( Contact contact )
+        {
+            throw new NotImplementedException();
+        }
+
         //private int _derp;
     }
+    
 }
 

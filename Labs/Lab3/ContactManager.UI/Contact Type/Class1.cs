@@ -8,7 +8,9 @@ namespace Contact_Type
 {
     public class Contact : IContactDatabase
     {
-        public int Id { get; set; }
+        public int Id
+        { get; set; }
+
         public string Name
         {
             get { return name ?? ""; }
@@ -16,7 +18,7 @@ namespace Contact_Type
         }
         public string Email
         {
-            get { return email ?? ""; }
+            get => email ?? ""; 
             set { email = value ?? ""; }
         }
 
@@ -63,6 +65,7 @@ namespace Contact_Type
         #region
         private string name;
         private string email;
+        private int id;
         #endregion
     }
 }

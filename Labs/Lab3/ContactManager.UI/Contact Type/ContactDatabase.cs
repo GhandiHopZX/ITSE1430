@@ -8,21 +8,7 @@ namespace Contact_Type
 {
     class ContactDatabase : IContactDatabase
     {
-        public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
-        {
-            var items = new List<ValidationResult>();
-
-            //Name is required
-            if (String.IsNullOrEmpty(name))
-                items.Add(new ValidationResult("Name is required.", new[] { nameof(name) }));
-
-            //Email Address is required
-            if (String.IsNullOrEmpty(email))
-                items.Add(new ValidationResult("Email is required.", new[] { nameof(email) }));
-
-            return items;
-        }
-
+        
         public Contact Add( Contact contact )
         {
             if (contact == null)
@@ -78,7 +64,7 @@ namespace Contact_Type
             if (name == null)
                 throw new ArgumentNullException(nameof(name));
 
-            ObjectValidator.Validate();
+            ObjectValidator.Validate(contact);
 
             var existing = Get(id);
             if (existing != null)
@@ -123,15 +109,15 @@ namespace Contact_Type
         }
     }
 
-    public class ValidationResult
-    {
-        private string v1;
-        private string[] v2;
+    //public class ValidationResult
+    //{
+    //    private string v1;
+    //    private string[] v2;
 
-        public ValidationResult( string v1, string[] v2 )
-        {
-            this.v1 = v1;
-            this.v2 = v2;
-        }
-    }
+    //    public ValidationResult( string v1, string[] v2 )
+    //    {
+    //        this.v1 = v1;
+    //        this.v2 = v2;
+    //    }
+    //}
 }
