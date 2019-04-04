@@ -1,7 +1,7 @@
 ﻿/*
  * ITSE 1430
  */
-
+using System.ComponentModel.DataAnnotations;
 
 using System;
 
@@ -21,11 +21,7 @@ namespace Contact_Type
             //No access to instance members
             //_duh = 10;
         }
-
-        internal static void Validate( Contact contact )
-        {
-            throw new NotImplementedException();
-        }
+        
 
         //private int _derp;
     }

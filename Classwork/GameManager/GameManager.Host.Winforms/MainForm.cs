@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameManager.FileSystem;
 
 namespace GameManager.Host.Winforms
 {
@@ -64,7 +65,7 @@ namespace GameManager.Host.Winforms
             //};
 
             var items = _games.GetAll();
-            items = items.OrderBy(GetName);            
+            items = items.OrderBy(GetName);
             _listGames.Items.AddRange(items.ToArray());
             //foreach (var game in _games)
             //{
@@ -73,7 +74,7 @@ namespace GameManager.Host.Winforms
             //};
         }
 
-        private string GetName ( Game game )
+        private string GetName( Game game )
         {
             return game.Name;
         }
@@ -135,7 +136,7 @@ namespace GameManager.Host.Winforms
             };
         }
 
-        private IGameDatabase _games = new MemoryGameDatabase();
+        private IGameDatabase _games = new FileGameDatabase("games.dat");
 
         private void OnGameEdit( object sender, EventArgs e )
         {
@@ -186,7 +187,7 @@ namespace GameManager.Host.Winforms
                 _games.Delete(selected.Id);
             } catch (Exception ex)
             {
-                DisplayError(ex);  
+                DisplayError(ex);
             };
             BindList();
         }

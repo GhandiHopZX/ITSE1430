@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,10 +88,16 @@ namespace Contact_Type
     public class ValidationContext
     {
         private Contact contact;
+        private IValidatableObject value;
 
         public ValidationContext( Contact contact )
         {
             this.contact = contact;
+        }
+
+        public ValidationContext( IValidatableObject value )
+        {
+            this.value = value;
         }
 
         public override bool Equals( object obj )
