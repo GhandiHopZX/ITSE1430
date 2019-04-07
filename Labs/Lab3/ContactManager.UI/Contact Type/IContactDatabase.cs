@@ -10,9 +10,11 @@ namespace Contact_Type
         /// <exception cref="ValidationException"><paramref name="contact"/> is invalid.</exception>
         /// <exception cref="ArgumentException">A contact with the same name already exists.</exception>
         Contact Add( Contact contact );
-
         /// <param name="id">The ID of the game.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="contact"/> is null.</exception>
+        /// <exception cref="ValidationException"><paramref name="contact"/> is invalid.</exception>
         /// <exception cref="ArgumentOutOfRangeException"><paramref name="id"/> is less than or equal to 0.</exception>
+        /// <exception cref="ArgumentException">A contact with the same name already exists.</exception>
         void Delete( int id );
         /// <summary>Gets a contact.</summary>
         /// <param name="id">The ID of the contact.</param>
@@ -33,9 +35,15 @@ namespace Contact_Type
         /// <exception cref="ArgumentException">The game does not exist.
         /// <para>-or-</para>
         /// A contact with the same name already exists.
+        /// 
         /// </exception>
         /// <exception cref="ValidationException"><paramref name="contact"/> is invalid.</exception>
+       
         Contact Update( int id, Contact contact );
-
+        /// <exception cref="ArgumentNullException"><paramref name="contact"/> is null.</exception>
+        /// <exception cref="ValidationException"><paramref name="contact"/> is invalid.</exception>
+        /// <exception cref="ArgumentException">A contact with the same name already exists.</exception>
+       
+        Contact Remove(int id, Contact contact);
     }
 }

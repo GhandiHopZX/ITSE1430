@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Contact.cs" />
     <Compile Include="ContactDatabase.cs" />
     <Compile Include="IContactDatabase.cs" />
-    <Compile Include="IValidatableObject.cs" />
+    <Compile Include="Message_Type.cs" />
     <Compile Include="ObjectValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

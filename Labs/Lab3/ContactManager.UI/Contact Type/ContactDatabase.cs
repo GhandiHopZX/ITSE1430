@@ -17,7 +17,7 @@ namespace Contact_Type
                 throw new ArgumentNullException(nameof(contact));
             }
 
-            return AddFull(contact);
+            return Add(contact);
         }
 
         protected Contact AddFull( Contact contact )
@@ -62,8 +62,8 @@ namespace Contact_Type
             //Validate
             if (id <= 0)
                 throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
-            if (name == null)
-                throw new ArgumentNullException(nameof(name));
+            if (contact == null)
+                throw new ArgumentNullException(nameof(contact));
 
             ObjectValidator.Validate(contact);
 
@@ -79,6 +79,11 @@ namespace Contact_Type
             return Update(id, contact);
         }
 
+        public Contact Remove( int id, Contact contact )
+        {
+            throw new NotImplementedException();
+        }
+
         private string name { get; set; }
 
         private string email { get; set; }
@@ -88,6 +93,7 @@ namespace Contact_Type
     public class ValidationContext
     {
         private Contact contact;
+
         private IValidatableObject value;
 
         public ValidationContext( Contact contact )
