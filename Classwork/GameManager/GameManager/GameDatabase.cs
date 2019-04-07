@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GameManager
-{
+{   
     public abstract class GameDatabase : IGameDatabase
     {
         public Game Add( Game game )
@@ -62,7 +62,7 @@ namespace GameManager
                 throw new ArgumentNullException(nameof(game));
 
             //var val = new ObjectValidator();
-
+            
             //new ObjectValidator().Validate(game);
             ObjectValidator.Validate(game);
 

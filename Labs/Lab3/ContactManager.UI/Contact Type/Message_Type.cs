@@ -19,9 +19,6 @@ namespace Contact_Type
             // Look for string validation check
             return input;
         }
-
-
-        
         
     }
 }

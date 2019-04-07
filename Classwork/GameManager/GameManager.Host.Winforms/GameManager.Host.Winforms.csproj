@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameManager.FileSystem\GameManager.FileSystem.csproj">
-      <Project>{c88e8693-006c-45e3-a271-e1cc40983ae8}</Project>
+      <Project>{1cc9d177-9208-47fc-bc52-7d11f215ce6b}</Project>
       <Name>GameManager.FileSystem</Name>
     </ProjectReference>
     <ProjectReference Include="..\GameManager\GameManager.csproj">
