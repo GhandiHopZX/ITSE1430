@@ -71,12 +71,21 @@ namespace Contact_Type
         }
 
         //Constructors
+        public Contact()
+        {
+            
+        }
+
+        //public Contact( string name, string email ) : this(name) 
+        //{
+        //}
+
         public Contact( string name, string email )
         {
             Name = name;
             Email = email;
         }
-
+        
         #region
         private string name = "";
         private string email = "";

@@ -19,23 +19,22 @@ namespace Contact_Type
         /// <exception cref="ValidationException">The value is invalid.</exception>
         public static void Validate( IValidatableObject value )
         {
-            Validator.ValidateObject(value, ValidationContext(value));
-
-            throw new NotImplementedException();
+            Validator.ValidateObject(value, new ValidationContext());
+            
             //No access to instance members
             //_duh = 10;
         }
 
-        private static System.ComponentModel.DataAnnotations.ValidationContext ValidationContext( IValidatableObject value )
-        {
-            throw new NotImplementedException();
-        }
+        //internal static void Validate( Contact contact )
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        internal static void Validate( Contact contact )
-        {
-            throw new NotImplementedException();
+        //private static System.ComponentModel.DataAnnotations.ValidationContext ValidationContext( IValidatableObject value )
+        //{
+        //    throw new NotImplementedException();
         }
-
+        
 
         //private int _derp;
     }

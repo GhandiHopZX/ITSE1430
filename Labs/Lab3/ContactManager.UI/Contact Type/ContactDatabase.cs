@@ -96,6 +96,10 @@ namespace Contact_Type
 
         private IValidatableObject value;
 
+        public ValidationContext()
+        {
+        }
+
         public ValidationContext( Contact contact )
         {
             this.contact = contact;
@@ -120,5 +124,6 @@ namespace Contact_Type
         {
             return base.ToString();
         }
+    }
     }
     
