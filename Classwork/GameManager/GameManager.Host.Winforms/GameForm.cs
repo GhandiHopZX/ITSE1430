@@ -30,7 +30,10 @@ namespace GameManager.Host.Winforms
                 ObjectValidator.Validate(game);
             } catch (ValidationException)
             {
-                MessageBox.Show(this, "Game not valid.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(this,
+                    "Game not valid.",
+                    "Error",
+                    MessageBoxButtons.OK);
                 return;
             };
             //if (!game.Validate())

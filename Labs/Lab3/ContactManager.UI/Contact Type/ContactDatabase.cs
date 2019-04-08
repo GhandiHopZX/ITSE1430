@@ -71,7 +71,7 @@ namespace Contact_Type
             if (existing != null)
                 throw new Exception("Contact does not exist.");
 
-            //Game names must be unique            
+            //Name must be unique           
             var sameName = FindByName(contact.Name);
             if (sameName != null && sameName.Id != id)
                 throw new Exception("Contact must be unique.");
@@ -121,16 +121,4 @@ namespace Contact_Type
             return base.ToString();
         }
     }
-
-    //public class ValidationResult
-    //{
-    //    private string v1;
-    //    private string[] v2;
-
-    //    public ValidationResult( string v1, string[] v2 )
-    //    {
-    //        this.v1 = v1;
-    //        this.v2 = v2;
-    //    }
-    //}
-}
+    

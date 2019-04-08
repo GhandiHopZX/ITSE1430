@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace ContactManager.UI
         //closed when canceled
         private void ContactCancelButton_Click( object sender, EventArgs e )
         {
+            DialogResult = DialogResult.Cancel;
             Close();
         }
 
@@ -33,11 +35,33 @@ namespace ContactManager.UI
                 return;
 
             var contact = SaveData();
+
+            try
+            {
+              ObjectValidator.Validate(contact);
+            } 
+
+            catch (ValidationException)
+            {
+                MessageBox.Show(this, 
+                    "Game not valid.", 
+                    "Error",
+                    MessageBoxButtons.OK);
+                return;
+            };
+
+            Contact = contact;
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
+        //formatting
         private void AddContact_Load( object sender, EventArgs e )
         {
-
+            sender = AnchorStyles.Top;
+            sender = AnchorStyles.Bottom;
+            sender = AnchorStyles.Left;
+            sender = AnchorStyles.Right;
         }
 
         //Saves UI into new game
@@ -48,10 +72,33 @@ namespace ContactManager.UI
             contact.Email = contact_emailbox.Text;
 
             //Demoting Constructor
-            var contact2 = new Contact();
+            var contact2 = new Contact(contact_namebox.Text, contact_emailbox.Text);
 
             return contact;
         }
 
+        private void contact_namebox_Validating( object sender, CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            if (tb.Text.Length == 0)
+            {
+                errorProvider1.SetError(tb, "Contact name is required.");
+                e.Cancel = true;
+            } else
+                errorProvider1.SetError(tb, "");
+        }
+
+        private void contact_emailbox_Validating( object sender, CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            if (tb.Text.Length == 0)
+            {
+                errorProvider2.SetError(tb, "Email is required.");
+                e.Cancel = true;
+            } else
+                errorProvider2.SetError(tb, "");
+        }
     }
 }

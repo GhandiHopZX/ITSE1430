@@ -85,6 +85,7 @@
             this.contact_namebox.Name = "contact_namebox";
             this.contact_namebox.Size = new System.Drawing.Size(295, 22);
             this.contact_namebox.TabIndex = 4;
+            this.contact_namebox.Validating += new System.ComponentModel.CancelEventHandler(this.contact_namebox_Validating);
             // 
             // contact_emailbox
             // 
@@ -92,20 +93,23 @@
             this.contact_emailbox.Name = "contact_emailbox";
             this.contact_emailbox.Size = new System.Drawing.Size(295, 22);
             this.contact_emailbox.TabIndex = 5;
+            this.contact_emailbox.Validating += new System.ComponentModel.CancelEventHandler(this.contact_emailbox_Validating);
             // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
             // errorProvider2
             // 
+            this.errorProvider2.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider2.ContainerControl = this;
             // 
             // AddContact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 293);
+            this.ClientSize = new System.Drawing.Size(382, 333);
             this.ControlBox = false;
             this.Controls.Add(this.contact_emailbox);
             this.Controls.Add(this.contact_namebox);

@@ -23,6 +23,8 @@ namespace Contact_Type
             set { email = value ?? ""; }
         }
 
+        public override string ToString() => Name;
+
         public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
         {
             var items = new List<ValidationResult>();
@@ -68,9 +70,16 @@ namespace Contact_Type
             throw new NotImplementedException();
         }
 
+        //Constructors
+        public Contact( string name, string email )
+        {
+            Name = name;
+            Email = email;
+        }
+
         #region
-        private string name;
-        private string email;
+        private string name = "";
+        private string email = "";
         private int id;
         #endregion
     }
