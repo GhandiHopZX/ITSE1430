@@ -25,14 +25,6 @@ namespace ContactManager.UI
 
         private void Form1_KeyDown( object sender, KeyEventArgs e )
         {
-            //// buttons n' stuff for quit shortcut
-            //if (e.Alt && e.KeyCode == Keys.F4)
-            //{
-            //    Alt_F4 = true;
-            //}
-
-            //if (Alt_F4 == true)
-            //{ Close(); }
 
             // Shortcut for Help menu
             if (e.KeyCode == Keys.F1)
@@ -47,18 +39,33 @@ namespace ContactManager.UI
                 abform.Activate();
                 abform.Show();
             }
+
+            //New window Add Contact Form
+            if (e.KeyCode == Keys.Insert)
+            {
+                var AddCForm = new AddContact();
+                AddCForm.ShowDialog();
+            }
         }
 
+        // about form open
         private void AboutToolStripMenuItem_Click( object sender, EventArgs e )
         {
             var abform = new AboutBox1();
-            abform.Activate();
-            abform.Show();
+            abform.ShowDialog();
         }
 
+        //Close
         private void ExitToolStripMenuItem_Click( object sender, EventArgs e )
         {
             Close();
+        }
+
+        //New Contact Window
+        private void AddNewContact( object sender, EventArgs e )
+        {
+            var AddCForm = new AddContact();
+            AddCForm.ShowDialog();
         }
     }
 }

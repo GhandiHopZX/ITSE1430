@@ -46,6 +46,7 @@
     <Compile Include="Contact.cs" />
     <Compile Include="ContactDatabase.cs" />
     <Compile Include="IContactDatabase.cs" />
+    <Compile Include="IMessageService.cs" />
     <Compile Include="Message_Type.cs" />
     <Compile Include="ObjectValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

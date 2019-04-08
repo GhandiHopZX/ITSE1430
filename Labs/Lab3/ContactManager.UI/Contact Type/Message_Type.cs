@@ -1,23 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Contact_Type
 {
-    class Message_Type : Contact
+    class Message_Type : IMessageService
     {
         private Contact _contact;
         private string _body;
+        
+        //string for the contact
+        public Contact contact { get => _contact; set => _contact = value; }
 
-        public Contact Contact { get => _contact; set => _contact = value; }
+        //string for the body
         public string Body { get => _body; set => _body = value; }
 
-        private string Subject(string input)
+        public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
         {
-            // Look for string validation check
-            return input;
+            var items = new List<ValidationResult>();
+
+            // Body can't be empty
+            if (String.IsNullOrEmpty(Body))
+                items.Add(new ValidationResult("Body is required.", new[] { nameof(Body) }));
+
+            // Subject can't be empty 
+            if (String.IsNullOrEmpty(Subject))
+                items.Add(new ValidationResult("Subject is required.", new[] { nameof(Subject) }));
+
+            if (contact == null)
+                throw new ArgumentNullException(nameof(contact));
+
+            // Object validation
+            ObjectValidator.Validate(contact);
+
+            return items;
+        }
+
+        // sent items
+        public Contact Send( string m )
+        {
+            throw new NotImplementedException();
+        }
+
+        // Subject string
+        public string Subject
+        {
+            get => Subject ?? "";
+            //set { _name = value ?? ""; }
+            set => Subject = value ?? "";
         }
         
     }
