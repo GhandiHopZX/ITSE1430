@@ -67,9 +67,10 @@ namespace ContactManager.UI
         //Saves UI into new game
         private Contact SaveData()
         {
-            var contact = new Contact();
-            contact.Name = contact_namebox.Text;
-            contact.Email = contact_emailbox.Text;
+            var contact = new Contact {
+                Name = contact_namebox.Text,
+                Email = contact_emailbox.Text
+            };
 
             //Demoting Constructor
             var contact2 = new Contact(contact_namebox.Text, contact_emailbox.Text);
