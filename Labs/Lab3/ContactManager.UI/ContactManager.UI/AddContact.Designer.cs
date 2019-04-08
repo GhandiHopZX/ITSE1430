@@ -33,8 +33,8 @@
             this.ContactCancelButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.contact_namebox = new System.Windows.Forms.TextBox();
+            this.contact_emailbox = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -79,19 +79,19 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Email";
             // 
-            // textBox1
+            // contact_namebox
             // 
-            this.textBox1.Location = new System.Drawing.Point(35, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(295, 22);
-            this.textBox1.TabIndex = 4;
+            this.contact_namebox.Location = new System.Drawing.Point(35, 83);
+            this.contact_namebox.Name = "contact_namebox";
+            this.contact_namebox.Size = new System.Drawing.Size(295, 22);
+            this.contact_namebox.TabIndex = 4;
             // 
-            // textBox2
+            // contact_emailbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(35, 177);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(295, 22);
-            this.textBox2.TabIndex = 5;
+            this.contact_emailbox.Location = new System.Drawing.Point(35, 177);
+            this.contact_emailbox.Name = "contact_emailbox";
+            this.contact_emailbox.Size = new System.Drawing.Size(295, 22);
+            this.contact_emailbox.TabIndex = 5;
             // 
             // errorProvider1
             // 
@@ -107,8 +107,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 293);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.contact_emailbox);
+            this.Controls.Add(this.contact_namebox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ContactCancelButton);
@@ -130,8 +130,8 @@
         private System.Windows.Forms.Button ContactCancelButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox contact_namebox;
+        private System.Windows.Forms.TextBox contact_emailbox;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
     }

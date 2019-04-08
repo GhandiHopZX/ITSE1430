@@ -98,10 +98,16 @@ namespace GameManager.Host.Winforms
 
                     OnSafeAdd(form);
                     break;
-                } catch (InvalidOperationException)
+                } 
+                
+                catch (InvalidOperationException)
                 {
-                    MessageBox.Show(this, "Choose a better game.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } catch (Exception ex)
+                    MessageBox.Show(this, "Choose a better game.",
+                        "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                } 
+                
+                catch (Exception ex)
                 {
                     //Recover from errors
                     DisplayError(ex);
@@ -122,11 +128,15 @@ namespace GameManager.Host.Winforms
             {
                 //_games[GetNextEmptyGame()] = form.Game;
                 _games.Add(form.Game);
-            } catch (NotImplementedException e)
+            }
+            
+            catch (NotImplementedException e)
             {
                 //Rewriting an exception
                 throw new Exception("Not implemented yet", e);
-            } catch (Exception e)
+            }
+            
+            catch (Exception e)
             {
                 //Log a message 
 
@@ -159,7 +169,9 @@ namespace GameManager.Host.Winforms
                     //UpdateGame(game, form.Game);            
                     _games.Update(game.Id, form.Game);
                     break;
-                } catch (Exception ex)
+                } 
+                
+                catch (Exception ex)
                 {
                     DisplayError(ex);
                 };
@@ -176,11 +188,12 @@ namespace GameManager.Host.Winforms
                 return;
 
             //Display confirmation
-            if (MessageBox.Show(this, $"Are you sure you want to delete {selected.Name}?",
-                               "Confirm Delete", MessageBoxButtons.YesNo,
+            if (MessageBox.Show(this,
+                $"Are you sure you want to delete {selected.Name}?",
+                               "Confirm Delete",
+                               MessageBoxButtons.YesNo,
                                MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
-
             try
             {
                 //DeleteGame(selected);
