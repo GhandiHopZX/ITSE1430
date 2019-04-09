@@ -25,15 +25,17 @@ namespace Contact_Type
             //_duh = 10;
         }
 
+        public static void Validate( Contact contact )
+        {
+            throw new NotImplementedException();
+        }
+
         //internal static void Validate( Contact contact )
         //{
         //    throw new NotImplementedException();
         //}
 
-        //private static System.ComponentModel.DataAnnotations.ValidationContext ValidationContext( IValidatableObject value )
-        //{
-        //    throw new NotImplementedException();
-        }
+    }
         
 
         //private int _derp;

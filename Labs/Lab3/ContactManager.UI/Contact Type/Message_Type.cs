@@ -13,7 +13,7 @@ namespace Contact_Type
         private string _body;
         
         //string for the contact
-        public Contact contact { get => _contact; set => _contact = value; }
+        public Contact Contact { get => _contact; set => _contact = value; }
 
         //string for the body
         public string Body { get => _body; set => _body = value; }
@@ -29,13 +29,7 @@ namespace Contact_Type
             // Subject can't be empty 
             if (String.IsNullOrEmpty(Subject))
                 items.Add(new ValidationResult("Subject is required.", new[] { nameof(Subject) }));
-
-            if (contact == null)
-                throw new ArgumentNullException(nameof(contact));
-
-            // Object validation
-           ObjectValidator.Validate(contact);
-
+            
             return items;
         }
 

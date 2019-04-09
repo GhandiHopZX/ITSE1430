@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameManager.FileSystem;
+using GameManager.Sql;
 
 namespace GameManager.Host.Winforms
 {
@@ -37,6 +39,10 @@ namespace GameManager.Host.Winforms
         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
+
+            //Load connection string from config
+            var connString = ConfigurationManager.ConnectionStrings["database"];
+            _games = new SqlGameDatabase(connString.ConnectionString);
 
             //Seed if database is empty
             var games = _games.GetAll();
@@ -98,16 +104,10 @@ namespace GameManager.Host.Winforms
 
                     OnSafeAdd(form);
                     break;
-                } 
-                
-                catch (InvalidOperationException)
+                } catch (InvalidOperationException)
                 {
-                    MessageBox.Show(this, "Choose a better game.",
-                        "Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                } 
-                
-                catch (Exception ex)
+                    MessageBox.Show(this, "Choose a better game.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } catch (Exception ex)
                 {
                     //Recover from errors
                     DisplayError(ex);
@@ -128,15 +128,11 @@ namespace GameManager.Host.Winforms
             {
                 //_games[GetNextEmptyGame()] = form.Game;
                 _games.Add(form.Game);
-            }
-            
-            catch (NotImplementedException e)
+            } catch (NotImplementedException e)
             {
                 //Rewriting an exception
                 throw new Exception("Not implemented yet", e);
-            }
-            
-            catch (Exception e)
+            } catch (Exception e)
             {
                 //Log a message 
 
@@ -146,7 +142,7 @@ namespace GameManager.Host.Winforms
             };
         }
 
-        private IGameDatabase _games = new FileGameDatabase("games.dat");
+        private IGameDatabase _games;
 
         private void OnGameEdit( object sender, EventArgs e )
         {
@@ -169,9 +165,7 @@ namespace GameManager.Host.Winforms
                     //UpdateGame(game, form.Game);            
                     _games.Update(game.Id, form.Game);
                     break;
-                } 
-                
-                catch (Exception ex)
+                } catch (Exception ex)
                 {
                     DisplayError(ex);
                 };
@@ -188,12 +182,11 @@ namespace GameManager.Host.Winforms
                 return;
 
             //Display confirmation
-            if (MessageBox.Show(this,
-                $"Are you sure you want to delete {selected.Name}?",
-                               "Confirm Delete",
-                               MessageBoxButtons.YesNo,
+            if (MessageBox.Show(this, $"Are you sure you want to delete {selected.Name}?",
+                               "Confirm Delete", MessageBoxButtons.YesNo,
                                MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
+
             try
             {
                 //DeleteGame(selected);

@@ -43,19 +43,19 @@ namespace Contact_Type
 
         public IEnumerable<Contact> GetAll()
         {
-            return GetAll();
+            return GetAllCore();
         }
 
-        protected virtual Contact FindByName( string name )
-        {
-            foreach (var contact in GetAll())
-            {
-                if (String.Compare(contact.Name, name, true) == 0)
-                    return contact;
-            };
+        //protected virtual Contact FindByName( string name )
+        //{
+        //    foreach (var contact in GetAllCore())
+        //    {
+        //        if (String.Compare(contact.Name, name, true) == 0)
+        //            return contact;
+        //    };
 
-            return null;
-        }
+        //    return null;
+        //}
 
         public Contact Update( int id, Contact contact )
         {
@@ -67,7 +67,7 @@ namespace Contact_Type
 
             ObjectValidator.Validate(contact);
 
-            var existing = Get(id);
+            var existing = GetCore(id);
             if (existing != null)
                 throw new Exception("Contact does not exist.");
 
@@ -87,6 +87,24 @@ namespace Contact_Type
         private string name { get; set; }
 
         private string email { get; set; }
+
+        protected abstract Contact AddCore( Contact contact );
+
+        protected abstract void DeleteCore( int id );
+
+        protected virtual Contact FindByName( string name )
+        {
+            return (from contact in GetAllCore()
+                    where String.Compare(contact.Name, name,
+                    true) == 0
+                    select contact).FirstOrDefault();
+        }
+
+        protected abstract Contact GetCore( int id );
+
+        protected abstract IEnumerable<Contact> GetAllCore();
+
+        protected abstract Contact UpdateCore( int id, Contact newGame );
 
     }
     /*
