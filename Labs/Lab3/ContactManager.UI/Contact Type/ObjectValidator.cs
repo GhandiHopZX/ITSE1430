@@ -19,7 +19,7 @@ namespace Contact_Type
         /// <exception cref="ValidationException">The value is invalid.</exception>
         public static void Validate( IValidatableObject value )
         {
-            Validator.ValidateObject(value, new ValidationContext());
+            Validator.ValidateObject(value, new ValidationContext(value));
             
             //No access to instance members
             //_duh = 10;
@@ -38,6 +38,7 @@ namespace Contact_Type
 
         //private int _derp;
     }
+
     
-}
+
 

@@ -39,12 +39,12 @@ namespace ContactManager.UI
             try
             {
               ObjectValidator.Validate(contact);
-            } 
+            }
 
             catch (ValidationException)
             {
-                MessageBox.Show(this, 
-                    "Game not valid.", 
+                MessageBox.Show(this,
+                    "Game not valid.",
                     "Error",
                     MessageBoxButtons.OK);
                 return;

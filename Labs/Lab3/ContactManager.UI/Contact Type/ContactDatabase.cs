@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Contact_Type
 {
-    class ContactDatabase : IContactDatabase
+   public abstract class ContactDatabase : IContactDatabase
     {
         
         public Contact Add( Contact contact )
@@ -89,7 +89,7 @@ namespace Contact_Type
         private string email { get; set; }
 
     }
-
+    /*
     public class ValidationContext
     {
         private Contact contact;
@@ -125,5 +125,6 @@ namespace Contact_Type
             return base.ToString();
         }
     }
-    }
+    */
+ }   
     

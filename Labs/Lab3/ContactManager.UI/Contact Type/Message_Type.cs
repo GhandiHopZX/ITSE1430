@@ -34,7 +34,7 @@ namespace Contact_Type
                 throw new ArgumentNullException(nameof(contact));
 
             // Object validation
-            ObjectValidator.Validate(contact);
+           ObjectValidator.Validate(contact);
 
             return items;
         }
