@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Contact_Type
-
 {
     /// <summary>Helper class to validate <see cref="IValidatableObject"/> types.</summary>
     public static class ObjectValidator
@@ -25,20 +24,21 @@ namespace Contact_Type
             //_duh = 10;
         }
 
-        public static void Validate( Contact contact )
+        public static bool Validate( Contact contact )
         {
-            throw new NotImplementedException();
+            try
+            {
+                Validate(contact);
+                return true;
+
+            } catch (ValidationException) {
+                throw new ArgumentNullException(nameof(contact));
+                
+            }
         }
-
-        //internal static void Validate( Contact contact )
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-    }
         
+    }
 
-        //private int _derp;
     }
 
     

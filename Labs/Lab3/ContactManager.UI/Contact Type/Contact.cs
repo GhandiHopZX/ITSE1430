@@ -73,7 +73,7 @@ namespace Contact_Type
         //Constructors
         public Contact()
         {
-            
+
         }
 
         //public Contact( string name, string email ) : this(name) 

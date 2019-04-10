@@ -107,42 +107,6 @@ namespace Contact_Type
         protected abstract Contact UpdateCore( int id, Contact newGame );
 
     }
-    /*
-    public class ValidationContext
-    {
-        private Contact contact;
-
-        private IValidatableObject value;
-
-        public ValidationContext()
-        {
-        }
-
-        public ValidationContext( Contact contact )
-        {
-            this.contact = contact;
-        }
-
-        public ValidationContext( IValidatableObject value )
-        {
-            this.value = value;
-        }
-
-        public override bool Equals( object obj )
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-    }
-    */
+    
  }   
     

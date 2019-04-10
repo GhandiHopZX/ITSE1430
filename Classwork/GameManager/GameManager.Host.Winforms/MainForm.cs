@@ -80,10 +80,7 @@ namespace GameManager.Host.Winforms
             //};
         }
 
-        private string GetName ( Game game )
-        {
-            return game.Name;
-        }
+        private string GetName( Game game ) => game.Name;
 
         private void OnGameAdd( object sender, EventArgs e )
         {
@@ -117,10 +114,7 @@ namespace GameManager.Host.Winforms
             BindList();
         }
 
-        private void DisplayError( Exception ex )
-        {
-            MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+        private void DisplayError( Exception ex ) => MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         private void OnSafeAdd( GameForm form )
         {

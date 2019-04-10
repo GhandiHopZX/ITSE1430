@@ -19,13 +19,7 @@ namespace GameManager
         /// <summary>Validates an object.</summary>
         /// <param name="value">The object to validate.</param>
         /// <exception cref="ValidationException">The value is invalid.</exception>
-        public static void Validate ( IValidatableObject value )
-        {
-            Validator.ValidateObject(value, new ValidationContext(value));
-
-            //No access to instance members
-            //_duh = 10;
-        }
+        public static void Validate( IValidatableObject value ) => Validator.ValidateObject(value, new ValidationContext(value));//No access to instance members//_duh = 10;
 
         //private int _duh;
     }

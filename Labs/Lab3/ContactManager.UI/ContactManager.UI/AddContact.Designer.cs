@@ -109,8 +109,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(382, 333);
-            this.ControlBox = false;
             this.Controls.Add(this.contact_emailbox);
             this.Controls.Add(this.contact_namebox);
             this.Controls.Add(this.label2);

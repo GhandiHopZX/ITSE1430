@@ -28,8 +28,9 @@ namespace GameManager.Sql
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 //Add parameter 1
-                var parameter = new SqlParameter("@name", System.Data.SqlDbType.NVarChar);
-                parameter.Value = game.Name;
+                var parameter = new SqlParameter("@name", System.Data.SqlDbType.NVarChar) {
+                    Value = game.Name
+                };
                 cmd.Parameters.Add(parameter);
 
                 //Add parameter 2
@@ -38,40 +39,27 @@ namespace GameManager.Sql
                 cmd.Parameters.AddWithValue("@completed", game.Completed);
                 cmd.Parameters.AddWithValue("@owned", game.Owned);
 
-                var result = Convert.ToInt32(cmd.ExecuteScalar());
+                var result2 = Convert.ToInt32(cmd.ExecuteScalar());
 
-                game.Id = result;
+                game.Id = result2;
                 return game;
             };
 
             throw new NotImplementedException();
         }
 
-        private SqlConnection GetConnection()
-        {
-            return new SqlConnection(_connectionString);
-        }
+        private SqlConnection GetConnection() => new SqlConnection(_connectionString);
 
-        protected override void DeleteCore( int id )
-        {
-            throw new NotImplementedException();
-        }
+        protected override void DeleteCore( int id ) => throw new NotImplementedException();
 
-        protected override IEnumerable<Game> GetAllCore()
-        {
+        protected override IEnumerable<Game> GetAllCore() =>
             //throw new NotImplementedException();
-            return Enumerable.Empty<Game>();
-        }
+            Enumerable.Empty<Game>();
 
-        protected override Game GetCore( int id )
-        {
+        protected override Game GetCore( int id ) =>
             //throw new NotImplementedException();
-            return null;
-        }
+            null;
 
-        protected override Game UpdateCore( int id, Game newGame )
-        {
-            throw new NotImplementedException();
-        }
+        protected override Game UpdateCore( int id, Game newGame ) => throw new NotImplementedException();
     }
 }

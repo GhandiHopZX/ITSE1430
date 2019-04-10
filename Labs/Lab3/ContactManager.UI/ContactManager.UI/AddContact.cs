@@ -44,7 +44,7 @@ namespace ContactManager.UI
             catch (ValidationException)
             {
                 MessageBox.Show(this,
-                    "Game not valid.",
+                    "Contact invalid.",
                     "Error",
                     MessageBoxButtons.OK);
                 return;
@@ -86,6 +86,7 @@ namespace ContactManager.UI
             {
                 errorProvider1.SetError(tb, "Contact name is required.");
                 e.Cancel = true;
+
             } else
                 errorProvider1.SetError(tb, "");
         }

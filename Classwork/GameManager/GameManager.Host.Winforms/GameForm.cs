@@ -75,12 +75,13 @@ namespace GameManager.Host.Winforms
         //Saves UI into new game
         private Game SaveData()
         {
-            var game = new Game();
-            game.Name = _txtName.Text;
-            game.Description = _txtDescription.Text;
-            game.Price = ReadDecimal(_txtPrice);
-            game.Owned = _cbOwned.Checked;
-            game.Completed = _cbCompleted.Checked;
+            var game = new Game {
+                Name = _txtName.Text,
+                Description = _txtDescription.Text,
+                Price = ReadDecimal(_txtPrice),
+                Owned = _cbOwned.Checked,
+                Completed = _cbCompleted.Checked
+            };
 
             //Demoing ctor
             var game2 = new Game(_txtName.Text, ReadDecimal(_txtPrice));

@@ -48,10 +48,7 @@ namespace GameManager
         }
 
         //public Game[] GetAll()
-        public IEnumerable<Game> GetAll()
-        {
-            return GetAllCore();
-        }
+        public IEnumerable<Game> GetAll() => GetAllCore();
 
         public Game Update( int id, Game game )
         {
@@ -82,31 +79,24 @@ namespace GameManager
 
         protected abstract void DeleteCore( int id );
 
-        protected virtual Game FindByName( string name )
-        {
+        protected virtual Game FindByName( string name ) =>
             //LINQ
             //select
             //from
             //where
             // => IEnumerable<T>
-            return (from game in GetAllCore()
-                    where String.Compare(game.Name, name, true) == 0
-                    //orderby game.Name, game.Id descending
-                    select game).FirstOrDefault();
-
-            //Extension method equivalent
-            //return GetAllCore().Where(game => String.Compare(game.Name, name, true) == 0)
-            //            .Select(game => game)
-            //            .FirstOrDefault();
-
-            //foreach (var game in GetAllCore())
-            //{
-            //    if (String.Compare(game.Name, name, true) == 0)
-            //        return game;
-            //};
-
-            //return null;
-        }
+            (from game in GetAllCore()
+             where String.Compare(game.Name, name, true) == 0
+             //orderby game.Name, game.Id descending
+             select game).FirstOrDefault();
+        //Extension method equivalent
+        //return GetAllCore().Where(game => String.Compare(game.Name, name, true) == 0)
+        //            .Select(game => game)
+        //            .FirstOrDefault();
+        //foreach (var game in GetAllCore())
+        //{//    if (String.Compare(game.Name, name, true) == 0)
+        //        return game;//};
+        //return null;
 
         protected abstract Game GetCore( int id );
 
