@@ -24,15 +24,24 @@ namespace Contact_Type
             //_duh = 10;
         }
 
-        public static void Validate( Contact contact )
+        public static bool Validate( Contact contact )
         {
+            var cs = contact.Email;
+
+            bool IsvalidEmail;
+
+            try
+            {
+                new System.Net.Mail.MailAddress(cs);
+                return true;
+             } catch (ArgumentException)
+            {
+                throw new ArgumentNullException();
+            };
+            
             //Validate(contact); << fix this validation method
         }
         
     }
 
     }
-
-    
-
-
