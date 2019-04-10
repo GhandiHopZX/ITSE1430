@@ -24,17 +24,9 @@ namespace Contact_Type
             //_duh = 10;
         }
 
-        public static bool Validate( Contact contact )
+        public static void Validate( Contact contact )
         {
-            try
-            {
-                Validate(contact);
-                return true;
-
-            } catch (ValidationException) {
-                throw new ArgumentNullException(nameof(contact));
-                
-            }
+            //Validate(contact); << fix this validation method
         }
         
     }

@@ -23,8 +23,6 @@ namespace ContactManager.UI
         static bool Fkey;
         #endregion
 
-       
-
         private void Form1_KeyDown( object sender, KeyEventArgs e )
         {
 
@@ -69,7 +67,6 @@ namespace ContactManager.UI
             var AddCForm = new AddContact();
             AddCForm.ShowDialog();
         }
-
-
+        
     }
 }
