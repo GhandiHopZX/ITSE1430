@@ -28,18 +28,18 @@ namespace Contact_Type
         {
             var cs = contact.Email;
 
-            bool IsvalidEmail;
-
+            //bool IsvalidEmail;
+            
             try
             {
                 new System.Net.Mail.MailAddress(cs);
+               // Validate(contact);
+                
                 return true;
-             } catch (ArgumentException)
+             } catch 
             {
-                throw new ArgumentNullException();
+                return false;
             };
-            
-            //Validate(contact); << fix this validation method
         }
         
     }

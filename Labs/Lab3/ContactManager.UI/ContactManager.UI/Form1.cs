@@ -51,29 +51,29 @@ namespace ContactManager.UI
         //BindList
         private void BindList2()
         {
-            //Bind games to listbox
-            _listGames.Items.Clear();
-            _listGames.DisplayMember = nameof(Game.Name);
+            ////Bind games to listbox
+            //.Items.Clear();
+            //_listGames.DisplayMember = nameof(Game.Name);
 
-            //Can use AddRange now that we don't care about null items
-            //var enumor = _games.GetAll();
-            //var enumoror = enumor.GetEnumerator();
-            //while (enumoror.MoveNext())
-            //{
-            //    var item = enumoror.Current;
-            //};
-            ////foreach (var item in enumor)
-            //{
-            //};
+            ////Can use AddRange now that we don't care about null items
+            ////var enumor = _games.GetAll();
+            ////var enumoror = enumor.GetEnumerator();
+            ////while (enumoror.MoveNext())
+            ////{
+            ////    var item = enumoror.Current;
+            ////};
+            //////foreach (var item in enumor)
+            ////{
+            ////};
 
-            var items = _games.GetAll();
-            items = items.OrderBy(GetName);
-            _listGames.Items.AddRange(items.ToArray());
-            //foreach (var game in _games)
-            //{
-            //    if (game != null)
-            //        _listGames.Items.Add(game);
-            //};
+            //var items = _games.GetAll();
+            //items = items.OrderBy();
+            //_listGames.Items.AddRange(items.ToArray());
+            ////foreach (var game in _games)
+            ////{
+            ////    if (game != null)
+            ////        _listGames.Items.Add(game);
+            ////};
         }
 
 

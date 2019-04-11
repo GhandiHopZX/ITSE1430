@@ -19,7 +19,10 @@ namespace Contact_Type
         }
         public string Email
         {
-            get => email ?? ""; 
+            get {
+                return email ?? "";
+            }
+
             set { email = value ?? ""; }
         }
 
