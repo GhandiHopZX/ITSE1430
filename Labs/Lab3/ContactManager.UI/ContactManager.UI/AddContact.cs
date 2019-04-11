@@ -28,6 +28,34 @@ namespace ContactManager.UI
             Close();
         }
 
+        //BindList
+        private void BindList2()
+        {
+            //Bind games to listbox
+            _listGames.Items.Clear();
+            _listGames.DisplayMember = nameof(Game.Name);
+
+            //Can use AddRange now that we don't care about null items
+            //var enumor = _games.GetAll();
+            //var enumoror = enumor.GetEnumerator();
+            //while (enumoror.MoveNext())
+            //{
+            //    var item = enumoror.Current;
+            //};
+            ////foreach (var item in enumor)
+            //{
+            //};
+
+            var items = _games.GetAll();
+            items = items.OrderBy(GetName);
+            _listGames.Items.AddRange(items.ToArray());
+            //foreach (var game in _games)
+            //{
+            //    if (game != null)
+            //        _listGames.Items.Add(game);
+            //};
+        }
+
         //Saving when canceled
         private void OnSaveContact( object sender, EventArgs e )
         {
