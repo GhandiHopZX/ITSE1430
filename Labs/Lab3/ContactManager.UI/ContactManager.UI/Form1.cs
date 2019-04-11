@@ -52,9 +52,10 @@ namespace ContactManager.UI
         private void BindList2()
         {
             //Bind games to listbox
-            .Items.Clear();
-            _listGames.DisplayMember = nameof(contact.Name);
+            var emu = splitContainer1.Panel1;
+            var emos = splitContainer1.Panel2;
 
+            contact += emu.ControlAdded;
             //Can use AddRange now that we don't care about null items
             //var enumor = _games.GetAll();
             //var enumoror = enumor.GetEnumerator();
@@ -66,9 +67,9 @@ namespace ContactManager.UI
             //{
             //};
 
-            var items = _games.GetAll();
+            var items = .GetAll();
             items = items.OrderBy();
-            _listGames.Items.AddRange(items.ToArray());
+            splitContainer1.Panel1. Items.AddRange(items.ToArray());
             //foreach (var game in _games)
             //{
             //    if (game != null)
