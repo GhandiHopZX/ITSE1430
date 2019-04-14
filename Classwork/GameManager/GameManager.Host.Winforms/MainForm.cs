@@ -34,6 +34,8 @@ namespace GameManager.Host.Winforms
         {
             var form = new AboutBox();
             form.ShowDialog();
+
+            
         }
 
         protected override void OnLoad( EventArgs e )

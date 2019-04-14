@@ -58,7 +58,8 @@ namespace ContactManager.UI
             var emu = splitContainer1.Panel1;
             var emos = splitContainer1.Panel2;
 
-            
+            ListBox box;
+            //emu.ControlAdded += ;
             //Can use AddRange now that we don't care about null items
             //var enumor = _games.GetAll();
             //var enumoror = enumor.GetEnumerator();
@@ -72,7 +73,6 @@ namespace ContactManager.UI
 
             var items = _contacts.GetAll();
             items = items.OrderBy(GetCName);
-            //emu.;
             //foreach (var game in _games)
             //{
             //    if (game != null)
@@ -110,6 +110,11 @@ namespace ContactManager.UI
         {
             var AddCForm = new AddContact();
             AddCForm.ShowDialog();
+        }
+
+        private void Form1_Load( object sender, EventArgs e )
+        {
+
         }
     }
 }

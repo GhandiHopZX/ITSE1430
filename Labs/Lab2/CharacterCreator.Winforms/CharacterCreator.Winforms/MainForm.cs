@@ -64,7 +64,12 @@ namespace CharacterCreator.Winforms
             // Shortcut for Help menu
             if (e.KeyCode == Keys.F)
             {
-                Fkey = true;
+            //    Fkey = true;
+                // test
+                var abform = new abform();
+                abform.Activate();
+                abform.ShowDialog();
+                abform.Show();
             }
 
             // Shortcut for NewCharacter menu
@@ -77,17 +82,17 @@ namespace CharacterCreator.Winforms
             }
 
             //var windowAbout = new AboutBox1();
-            if (Fkey == true)
-            {
-                var abform = new abform();
-                abform.Activate();
-                abform.Show();
-            }
+            //if (Fkey == true)
+            //{
+            //    var abform = new abform();
+            //    abform.Activate();
+            //    abform.Show();
+            //}
 
             //Window Edit
             if (e.Control && e.KeyCode == Keys.O)
             {
-                
+                return;
             }
         }
     }
