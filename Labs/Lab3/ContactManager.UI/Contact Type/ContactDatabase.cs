@@ -28,7 +28,8 @@ namespace Contact_Type
         public void Delete( int id )
         {
             if (id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
+                throw new ArgumentOutOfRangeException(nameof(id), 
+                    "Id must be > 0.");
 
             Delete(id);
         }
@@ -36,7 +37,8 @@ namespace Contact_Type
         public Contact Get( int id )
         {
             if (id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
+                throw new ArgumentOutOfRangeException(nameof(id), 
+                    "Id must be > 0.");
 
             return Get(id);
         }
@@ -61,7 +63,8 @@ namespace Contact_Type
         {
             //Validate
             if (id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
+                throw new ArgumentOutOfRangeException(nameof(id),
+                    "Id must be > 0.");
             if (contact == null)
                 throw new ArgumentNullException(nameof(contact));
 

@@ -82,10 +82,7 @@ namespace ContactManager.UI
 
         private IContactDatabase _contacts;
 
-        private string GetCName( Contact contact )
-        {
-            return contact.Name;
-        }
+        private string GetCName( Contact contact ) => contact.Name;
 
         private string GetCEmail(Contact contact)
         {
