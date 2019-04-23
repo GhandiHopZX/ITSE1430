@@ -131,7 +131,7 @@ namespace Nile.Windows
             return null;
         }
 
-        private void UpdateList ()
+        private void UpdateList()
         {
             //TODO: Handle errors
 
