@@ -34,8 +34,6 @@ namespace GameManager.Host.Winforms
         {
             var form = new AboutBox();
             form.ShowDialog();
-
-            
         }
 
         protected override void OnLoad( EventArgs e )
@@ -46,7 +44,7 @@ namespace GameManager.Host.Winforms
             var connString = ConfigurationManager.ConnectionStrings["database"];
             _games = new SqlGameDatabase(connString.ConnectionString);
 
-            ////Seed if database is empty
+            //Seed if database is empty
             //var games = _games.GetAll();
             //if (games.Count() == 0)
             //    //SeedDatabase.Seed(_games);
@@ -226,10 +224,7 @@ namespace GameManager.Host.Winforms
 
         protected override void OnFormClosing( FormClosingEventArgs e )
         {
-            if (MessageBox.Show(this, 
-                "Are you sure?", 
-                "Close",
-                MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show(this, "Are you sure?", "Close", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
                 return;

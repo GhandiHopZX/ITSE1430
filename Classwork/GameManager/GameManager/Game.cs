@@ -40,8 +40,8 @@ namespace GameManager
         //private bool IsCoolGame2 = true;
 
         /// <summary>Gets or sets the price.</summary>
-        [Range(0, Double.MaxValue, ErrorMessage = "Price must be >= 0.")]
-        public decimal Price { get; set; }
+        [RangeAttribute(0, Double.MaxValue, ErrorMessage = "Price must be >= 0.")]
+        public decimal Price { get; set; }        
 
         /// <summary>Determines if the game is owned.</summary>
         public bool Owned { get; set; } = true;
@@ -56,7 +56,8 @@ namespace GameManager
         //    return Name;
         //}        
         public override string ToString() => Name;
-
+        
+        //Not needed anymore but leaving in becase ObjectValidator uses it
         public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
         {
             var items = new List<ValidationResult>();

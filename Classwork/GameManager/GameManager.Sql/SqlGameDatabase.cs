@@ -10,7 +10,7 @@ namespace GameManager.Sql
 {
     public class SqlGameDatabase : GameDatabase
     {
-        public SqlGameDatabase( string connectionString )
+        public SqlGameDatabase ( string connectionString )
         {
             _connectionString = connectionString;
         }
@@ -79,10 +79,10 @@ namespace GameManager.Sql
             {
                 var cmd = new SqlCommand("GetGames", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-
+                
                 var da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
-
+                
                 da.Fill(ds);
 
                 //If you wanted to update
@@ -118,17 +118,14 @@ namespace GameManager.Sql
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 conn.Open();
-
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     var gameId = reader.GetInt32(0);
                     if (gameId == id)
-                    {
-                        var ordinal = reader.GetOrdinal("Name");
-
-
-                        return new Game() {
+                    {                        
+                        return new Game() 
+                        {
                             Id = gameId,
                             Name = GetString(reader, "Name"),
                             Description = GetString(reader, "Description"),
@@ -143,7 +140,7 @@ namespace GameManager.Sql
             return null;
         }
 
-        private string GetString( IDataReader reader, string name)
+        private string GetString ( IDataReader reader, string name )
         {
             var ordinal = reader.GetOrdinal(name);
 
