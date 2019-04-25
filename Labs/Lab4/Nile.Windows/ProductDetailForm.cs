@@ -60,7 +60,7 @@ namespace Nile.Windows
                 return;
             };
 
-            var product = new Product()
+            var product = new Product(_txtName.Text)
             {
                 Id = Product?.Id ?? 0,
                 Name = _txtName.Text,

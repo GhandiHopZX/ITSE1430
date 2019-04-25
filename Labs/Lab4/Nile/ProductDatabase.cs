@@ -75,7 +75,13 @@ namespace Nile
 
         protected abstract Product GetCore( int id );
         
-        protected abstract void Remove( int id );
+        public void Remove( int id )
+        {
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
+
+            RemoveCore(id);
+        }
 
         public Product Update( Product product )
         {
@@ -92,13 +98,6 @@ namespace Nile
 
             return UpdateCore(product);
         }
-
-        void IProductDatabase.Remove( int id )
-        {
-            if (id <= 0)
-                throw new ArgumentOutOfRangeException(nameof(id), "Id must be > 0.");
-
-            RemoveCore(id);
-        }
+         
     }
 }

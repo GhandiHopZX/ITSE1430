@@ -169,5 +169,10 @@ namespace Nile.Windows
             if (e.KeyCode == Keys.F1)
                 about.ShowDialog();
         }
+
+        private void _gridProducts_Validating( object sender, System.ComponentModel.CancelEventArgs e )
+        {
+
+        }
     }
 }

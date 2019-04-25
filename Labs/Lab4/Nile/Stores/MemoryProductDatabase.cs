@@ -68,7 +68,7 @@ namespace Nile.Stores
         
         private Product CopyProduct ( Product product )
         {
-            var newProduct = new Product();
+            var newProduct = new Product(product.Name);
             newProduct.Id = product.Id;
             newProduct.Name = product.Name;
             newProduct.Description = product.Description;
