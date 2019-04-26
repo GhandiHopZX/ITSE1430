@@ -59,7 +59,6 @@ namespace Nile
 
         public Product(string name) : this(name, 0)
         {
-
         }
 
         public Product( string name, decimal price )

@@ -159,11 +159,10 @@ namespace GameManager.Host.Winforms
             {
                 if (form.ShowDialog(this) != DialogResult.OK)
                     return;
-
                 try
                 {
                     //UpdateGame(game, form.Game);            
-                    _games.Update(game.Id, form.Game);
+                    _games.Update( game.Id, form.Game );
                     break;
                 } catch (Exception ex)
                 {

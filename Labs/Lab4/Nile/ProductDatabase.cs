@@ -83,7 +83,7 @@ namespace Nile
             RemoveCore(id);
         }
 
-        public Product Update( Product product )
+        public Product Update( int id, Product product )
         {
             //Validate
             if (product == null)
@@ -98,6 +98,6 @@ namespace Nile
 
             return UpdateCore(product);
         }
-         
+        
     }
 }

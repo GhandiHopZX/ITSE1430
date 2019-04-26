@@ -2,6 +2,14 @@
  * ITSE 1430
  */
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Nile.Windows
@@ -110,17 +118,39 @@ namespace Nile.Windows
             UpdateList();
         }
 
-        private void EditProduct ( Product product )
+        private void EditProduct( Product product )
         {
-            var child = new ProductDetailForm("Product Details");
-            child.Product = product;
-            if (child.ShowDialog(this) != DialogResult.OK)
+            var form = new MainForm();
+
+            if (GetSelectedProduct() == null)
                 return;
 
-            //TODO: Handle errors
-            //Save product
-            _database.Update(child.Product);
+            var child = new ProductDetailForm("Product Details");
+            child.Product = GetSelectedProduct();
+
+            while (true)
+            {
+                if (child.ShowDialog(this) != DialogResult.OK)
+                    return;
+                try
+                {
+                    //TODO: Handle errors
+                    //Save product
+                    _database.Update(GetSelectedProduct().Id, child.Product);
+                    break;
+                }
+                catch (Exception M)
+                {
+                    DisplayError(M);
+                };
+            };
+
             UpdateList();
+        }
+
+        private void DisplayError( Exception m )
+        {
+            MessageBox.Show(this, m.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private Product GetSelectedProduct ()
@@ -172,7 +202,7 @@ namespace Nile.Windows
 
         private void _gridProducts_Validating( object sender, System.ComponentModel.CancelEventArgs e )
         {
-
+           // var control = sender as ;
         }
     }
 }

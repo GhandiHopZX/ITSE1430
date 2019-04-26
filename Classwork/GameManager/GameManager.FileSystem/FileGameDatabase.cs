@@ -14,7 +14,8 @@ namespace GameManager.FileSystem
             if (filename == null)
                 throw new ArgumentNullException(nameof(filename));
             if (filename == "")
-                throw new ArgumentException("Filename cannot be empty.", nameof(filename));
+                throw new ArgumentException("Filename cannot be empty.",
+                    nameof(filename));
 
             _filename = filename;
         }
@@ -67,6 +68,7 @@ namespace GameManager.FileSystem
             };
         }
 
+        //Reading the file
         protected override Game GetCore( int id )
         {
             if (!File.Exists(_filename))
@@ -154,6 +156,7 @@ namespace GameManager.FileSystem
             };
         }
 
+        //formatting and writing
         private string SaveGame( Game game )
         {
             return String.Join(",", game.Id, game.Name, game.Description, game.Price, game.Owned, game.Completed);

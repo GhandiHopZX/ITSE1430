@@ -40,7 +40,7 @@ namespace GameManager
         //private bool IsCoolGame2 = true;
 
         /// <summary>Gets or sets the price.</summary>
-        [RangeAttribute(0, Double.MaxValue, ErrorMessage = "Price must be >= 0.")]
+        [Range(0, Double.MaxValue, ErrorMessage = "Price must be >= 0.")]
         public decimal Price { get; set; }        
 
         /// <summary>Determines if the game is owned.</summary>
