@@ -66,5 +66,9 @@ namespace Nile
             Name = Name;
             Price = Price;
         }
+
+        public Product()
+        {
+        }
     }
 }

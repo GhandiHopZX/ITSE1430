@@ -24,6 +24,8 @@ namespace Nile.Windows
         }
         #endregion
 
+        public Product product { get; set; }
+
         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
@@ -42,6 +44,9 @@ namespace Nile.Windows
 
         private void OnProductAdd( object sender, EventArgs e )
         {
+            if (!ValidateChildren())
+                return;
+            
             var child = new ProductDetailForm("Product Details");
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
@@ -200,9 +205,10 @@ namespace Nile.Windows
                 about.ShowDialog();
         }
 
-        private void _gridProducts_Validating( object sender, System.ComponentModel.CancelEventArgs e )
+        private void _gridProducts_Validating( object sender,
+            System.ComponentModel.CancelEventArgs e )
         {
-           // var control = sender as ;
+           
         }
     }
 }

@@ -56,9 +56,10 @@ namespace Nile.Windows
         private void OnSave ( object sender, EventArgs e )
         {
             if (!ValidateChildren())
-            {
                 return;
-            };
+
+                if (Product == null)
+                    Product = new Product();
 
             var product = new Product(_txtName.Text)
             {
@@ -91,7 +92,7 @@ namespace Nile.Windows
 
             if (GetPrice(tb) < 0)
             {
-                e.Cancel = true;
+                 e.Cancel = true;
                 _errors.SetError(_txtPrice, "Price must be >= 0.");
             } else
                 _errors.SetError(_txtPrice, "");
