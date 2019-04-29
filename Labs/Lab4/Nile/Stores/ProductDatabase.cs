@@ -16,8 +16,7 @@ namespace Nile.Stores
         public Product Add ( Product product )
         {
             //Validate input 
-            if (product == null)
-                throw new ArgumentNullException(nameof(product));
+            Verify.IsNotNullAndValid(nameof(product), product);
 
             //TODO: Check arguments
             //Validate the object

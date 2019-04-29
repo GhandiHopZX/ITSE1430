@@ -82,6 +82,7 @@ namespace Nile.Windows
             var tb = sender as TextBox;
             if (String.IsNullOrEmpty(tb.Text))
                 _errors.SetError(tb, "Name is required");
+
             else
                 _errors.SetError(tb, "");
         }
