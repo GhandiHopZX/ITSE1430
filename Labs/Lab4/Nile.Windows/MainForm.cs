@@ -36,26 +36,37 @@ namespace Nile.Windows
         }
 
         #region Event Handlers
-        
-        private void OnFileExit( object sender, EventArgs e )
-        {
-            Close();
-        }
+
+        private void OnFileExit( object sender, EventArgs e ) => Close();
 
         private void OnProductAdd( object sender, EventArgs e )
         {
-            if (!ValidateChildren())
-                return;
-            
             var child = new ProductDetailForm("Product Details");
-            if (child.ShowDialog(this) != DialogResult.OK)
-                return;
-
-            //TODO: Handle errors
-            //Save product
-            _database.Add(child.Product);
+            do
+            {
+                if (child.ShowDialog(this) != DialogResult.OK)
+                   
+                    //if (!ValidateChildren())
+                    return;
+                try
+                {
+                    _database.Add(child.Product);
+                    
+                    break;
+                } catch (Exception ex)
+                {
+                    DisplayError("Add Failure", ex.Message);
+                };
+                //TODO: Handle errors DONE
+                //Save product
+              
+            }
+            while (true);
             UpdateList();
         }
+
+        private void DisplayError( string title, string message ) =>
+       MessageBox.Show(this, message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         private void OnProductEdit( object sender, EventArgs e )
         {
@@ -146,7 +157,7 @@ namespace Nile.Windows
                 }
                 catch (Exception M)
                 {
-                    DisplayError(M);
+                    DisplayError("Updated Failed", M.Message);
                 };
             };
 
@@ -175,6 +186,31 @@ namespace Nile.Windows
 
         private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
         #endregion
+
+        private void EditProduct()
+        {
+            var product = GetSelectedProduct();
+            if (product == null)
+                return;
+
+            var form = new ProductDetailForm() { Product = product };
+            while (true)
+            {
+                if (form.ShowDialog(this) != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    _database.Update(product.Id, form.Product);
+                    break;
+                } catch (Exception e)
+                {
+                    DisplayError("Updated Failed", e.Message);
+                };
+            };
+
+            UpdateList();
+        }
 
         private void MainForm_KeyDown( object sender, KeyEventArgs e )
         {
