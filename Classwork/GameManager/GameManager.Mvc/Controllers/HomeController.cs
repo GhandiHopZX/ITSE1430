@@ -8,10 +8,13 @@ namespace GameManager.Mvc.Controllers
 {
     public class HomeController : Controller
     {
+        //GET: Home
         public ActionResult Index()
         {
             return View();
         }
+
+        // public ActionResult about() { return View(); }
 
         public ActionResult About()
         {
