@@ -138,6 +138,7 @@ namespace Nile.Windows
         {
             var form = new MainForm();
 
+            
             if (GetSelectedProduct() == null)
                 return;
 
@@ -153,7 +154,9 @@ namespace Nile.Windows
                     //TODO: Handle errors
                     //Save product
                     _database.Update(GetSelectedProduct().Id, child.Product);
-                    break;
+                    if (child.Name == null)
+                        
+                        break;
                 }
                 catch (Exception M)
                 {
@@ -179,9 +182,31 @@ namespace Nile.Windows
 
         private void UpdateList()
         {
-            //TODO: Handle errors
+            //TODO: Handle errors done i think
+            _bsProducts.List.Clear();
 
-            _bsProducts.DataSource = _database.GetAll();
+            //Linq i Think
+            var kisto = _database.GetAll();
+
+            if (kisto == null)
+                return;
+
+            while (true)
+
+            try
+            {
+                //var products = _database.GetAll().OrderBy(p => p.Name);
+
+                //_bsProducts.List.Add(products.ToArray());
+
+                _bsProducts.DataSource = _database.GetAll().OrderBy(p => p.Name);
+            
+
+            } catch (ArgumentNullException e)
+            {
+                DisplayError("Update Failure", e.Message);
+            };
+            
         }
 
         private readonly IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
