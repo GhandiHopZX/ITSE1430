@@ -66,9 +66,15 @@ namespace GameManager
             //if (String.IsNullOrEmpty(Name))
             //    items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
 
-            //Price >= 0
-            //if (Price < 0)
+
+            //if (Price < 1000)
             //    items.Add(new ValidationResult("Price must be >= 0.", new[] { nameof(Price) }));
+
+            if (Price < 0)
+                items.Add(new ValidationResult("Price must be >= 0.", new[] { nameof(Price) }));
+
+            if (Price > 1000)
+                items.Add(new ValidationResult("Price is too great", new[] { nameof(Price) }));
 
             return items;
         }

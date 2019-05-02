@@ -48,9 +48,24 @@ namespace GameManager.Mvc.Controllers
         {
             var db = GetDatabase();
             var game = db.Update(model.Id, model);
+            if (ModelState.IsValid)
+            {
+                
 
-            return RedirectToAction("Index");
+               
+                try
+                {
+                    db.Delete(model.Id);
 
+                    return RedirectToAction("Index");
+                } catch (Exception e)
+                {
+                    ModelState.AddModelError("", e.Message);
+                }
+            
+            }
+
+            return View(model);
         }
         
         [HttpPost]
@@ -77,11 +92,23 @@ namespace GameManager.Mvc.Controllers
         [HttpPost]
         public ActionResult Create( Game model )
         {
+            if (ModelState.IsValid)
+            {
+                var db = GetDatabase();
 
-            var db = GetDatabase();
-            db.Add(model);
+                try
+                {
+                    var game = db.Add(model);
 
-            return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                } catch (Exception e)
+
+                {
+                    ModelState.AddModelError("", e.Message);
+                };
+            };
+
+            return View(model);
         }
 
         
