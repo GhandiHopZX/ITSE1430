@@ -119,7 +119,8 @@ namespace GameManager.Host.Winforms
 
         private void DisplayError( Exception ex )
         {
-            MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(this, ex.Message, "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void OnSafeAdd( GameForm form )
@@ -163,6 +164,7 @@ namespace GameManager.Host.Winforms
                 {
                     //UpdateGame(game, form.Game);            
                     _games.Update( game.Id, form.Game );
+
                     break;
                 } catch (Exception ex)
                 {

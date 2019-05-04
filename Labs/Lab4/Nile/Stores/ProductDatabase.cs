@@ -20,6 +20,7 @@ namespace Nile.Stores
 
             //TODO: Check arguments
             //Validate the object
+            
             ObjectValidator.Validate(product);
 
             //product

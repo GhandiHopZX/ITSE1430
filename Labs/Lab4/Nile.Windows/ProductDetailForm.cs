@@ -11,8 +11,9 @@ namespace Nile.Windows
     {
         #region Construction
 
-        public ProductDetailForm () //: base()
+        public ProductDetailForm () : base()// here
         {
+            
             InitializeComponent();            
         }
         
@@ -55,12 +56,14 @@ namespace Nile.Windows
 
         private void OnSave ( object sender, EventArgs e )
         {
+            ValidateChildren();
+
             if (!ValidateChildren())
                 return;
 
                 if (Product == null)
                     Product = new Product();
-
+               
             var product = new Product(_txtName.Text)
             {
                 Id = Product?.Id ?? 0,
@@ -71,20 +74,11 @@ namespace Nile.Windows
             };
 
             //TODO: Validate product
+            ValidateChildren();
 
             Product = product;
             DialogResult = DialogResult.OK;
             Close();
-        }
-
-        private void OnValidatingName ( object sender, CancelEventArgs e )
-        {
-            var tb = sender as TextBox;
-            if (String.IsNullOrEmpty(tb.Text))
-                _errors.SetError(tb, "Name is required");
-
-            else
-                _errors.SetError(tb, "");
         }
 
         private void OnValidatingPrice ( object sender, CancelEventArgs e )

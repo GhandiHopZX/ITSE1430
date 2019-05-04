@@ -15,13 +15,15 @@ namespace Nile
 
         /// <summary>Gets or sets the name.</summary>
         /// <value>Never returns null.</value>
+        [Required(AllowEmptyStrings = false)]
         public string Name
         {
             get { return _name ?? ""; }
             set { _name = value?.Trim(); }
         }
-        
+
         /// <summary>Gets or sets the description.</summary>
+        [Required(ErrorMessage = "Description cannot be empty")]
         public string Description
         {
             get { return _description ?? ""; }
@@ -29,6 +31,7 @@ namespace Nile
         }
 
         /// <summary>Gets or sets the price.</summary>
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; } = 0;      
 
         /// <summary>Determines if discontinued.</summary>
@@ -45,7 +48,7 @@ namespace Nile
                 items.Add(new ValidationResult("Name is required.", new[] { nameof(Name) }));
 
             //Price >= 0
-            if (Price < 0)
+            if (Price <= 0)
                 items.Add(new ValidationResult("Price must be >= 0.", new[] { nameof(Price) }));
 
             return items;

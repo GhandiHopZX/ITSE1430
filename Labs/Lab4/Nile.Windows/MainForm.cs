@@ -45,9 +45,8 @@ namespace Nile.Windows
             do
             {
                 if (child.ShowDialog(this) != DialogResult.OK)
-                   
-                    //if (!ValidateChildren())
                     return;
+                
                 try
                 {
                     _database.Add(child.Product);
@@ -57,7 +56,8 @@ namespace Nile.Windows
                 {
                     DisplayError("Add Failure", ex.Message);
                 };
-                //TODO: Handle errors DONE
+                //TODO: Handle errors 
+
                 //Save product
               
             }
@@ -134,35 +134,41 @@ namespace Nile.Windows
             UpdateList();
         }
 
-        private void EditProduct( Product product )
+        private void EditProduct( Product product ) //<<
         {
             var form = new MainForm();
 
-            
-            if (GetSelectedProduct() == null)
-                return;
+            //if (GetSelectedProduct() == null)
+            //if (product.Name == null || product.Description == null || product.Price <= 0)
+            //return;
+
+            //form.ValidateChildren();
+
+            ValidateChildren();
 
             var child = new ProductDetailForm("Product Details");
             child.Product = GetSelectedProduct();
-
-            while (true)
+            do
             {
                 if (child.ShowDialog(this) != DialogResult.OK)
                     return;
+                if (!ValidateChildren())
+                    throw new ArgumentNullException();
+                
                 try
                 {
                     //TODO: Handle errors
                     //Save product
+
                     _database.Update(GetSelectedProduct().Id, child.Product);
-                    if (child.Name == null)
-                        
-                        break;
-                }
-                catch (Exception M)
+                    
+                    break;
+                } catch (Exception M)
                 {
                     DisplayError("Updated Failed", M.Message);
                 };
-            };
+            }
+            while (true);
 
             UpdateList();
         }
@@ -182,26 +188,17 @@ namespace Nile.Windows
 
         private void UpdateList()
         {
-            //TODO: Handle errors done i think
+            //TODO: Handle errors
             _bsProducts.List.Clear();
+            _bsProducts.DataSource = nameof(Product.Name);
 
-            //Linq i Think
+            //Lists
             var kisto = _database.GetAll();
-
-            if (kisto == null)
-                return;
-
-            while (true)
-
+            
             try
             {
-                //var products = _database.GetAll().OrderBy(p => p.Name);
-
-                //_bsProducts.List.Add(products.ToArray());
-
+                var items = _database.GetAll();
                 _bsProducts.DataSource = _database.GetAll().OrderBy(p => p.Name);
-            
-
             } catch (ArgumentNullException e)
             {
                 DisplayError("Update Failure", e.Message);
@@ -223,9 +220,12 @@ namespace Nile.Windows
             {
                 if (form.ShowDialog(this) != DialogResult.OK)
                     return;
-
+                ValidateChildren();
                 try
                 {
+                    if (!ValidateChildren())
+                        throw new ArgumentNullException();
+
                     _database.Update(product.Id, form.Product);
                     break;
                 } catch (Exception e)
@@ -269,7 +269,7 @@ namespace Nile.Windows
         private void _gridProducts_Validating( object sender,
             System.ComponentModel.CancelEventArgs e )
         {
-           
+            
         }
     }
 }

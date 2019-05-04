@@ -45,18 +45,20 @@ namespace Nile.Windows
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 28);
+            this.label1.Location = new System.Drawing.Point(55, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 58);
+            this.label2.Location = new System.Drawing.Point(21, 71);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(83, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Description:";
             // 
@@ -64,9 +66,10 @@ namespace Nile.Windows
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 119);
+            this.label3.Location = new System.Drawing.Point(60, 146);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Price:";
             // 
@@ -74,29 +77,31 @@ namespace Nile.Windows
             // 
             this._txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtName.Location = new System.Drawing.Point(85, 25);
+            this._txtName.Location = new System.Drawing.Point(113, 31);
+            this._txtName.Margin = new System.Windows.Forms.Padding(4);
             this._txtName.Name = "_txtName";
-            this._txtName.Size = new System.Drawing.Size(210, 20);
+            this._txtName.Size = new System.Drawing.Size(279, 22);
             this._txtName.TabIndex = 0;
-            this._txtName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingName);
             // 
             // _txtDescription
             // 
             this._txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._txtDescription.Location = new System.Drawing.Point(85, 55);
+            this._txtDescription.Location = new System.Drawing.Point(113, 68);
+            this._txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Size = new System.Drawing.Size(210, 55);
+            this._txtDescription.Size = new System.Drawing.Size(279, 67);
             this._txtDescription.TabIndex = 1;
             // 
             // _txtPrice
             // 
             this._txtPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._txtPrice.Location = new System.Drawing.Point(85, 116);
+            this._txtPrice.Location = new System.Drawing.Point(113, 143);
+            this._txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this._txtPrice.Name = "_txtPrice";
-            this._txtPrice.Size = new System.Drawing.Size(100, 20);
+            this._txtPrice.Size = new System.Drawing.Size(132, 22);
             this._txtPrice.TabIndex = 2;
             this._txtPrice.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingPrice);
             // 
@@ -104,9 +109,10 @@ namespace Nile.Windows
             // 
             this._chkDiscontinued.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this._chkDiscontinued.AutoSize = true;
-            this._chkDiscontinued.Location = new System.Drawing.Point(85, 156);
+            this._chkDiscontinued.Location = new System.Drawing.Point(113, 192);
+            this._chkDiscontinued.Margin = new System.Windows.Forms.Padding(4);
             this._chkDiscontinued.Name = "_chkDiscontinued";
-            this._chkDiscontinued.Size = new System.Drawing.Size(105, 17);
+            this._chkDiscontinued.Size = new System.Drawing.Size(134, 21);
             this._chkDiscontinued.TabIndex = 3;
             this._chkDiscontinued.Text = "Is Discontinued?";
             this._chkDiscontinued.UseVisualStyleBackColor = true;
@@ -114,9 +120,10 @@ namespace Nile.Windows
             // _btnSave
             // 
             this._btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._btnSave.Location = new System.Drawing.Point(170, 192);
+            this._btnSave.Location = new System.Drawing.Point(227, 236);
+            this._btnSave.Margin = new System.Windows.Forms.Padding(4);
             this._btnSave.Name = "_btnSave";
-            this._btnSave.Size = new System.Drawing.Size(75, 23);
+            this._btnSave.Size = new System.Drawing.Size(100, 28);
             this._btnSave.TabIndex = 4;
             this._btnSave.Text = "Save";
             this._btnSave.UseVisualStyleBackColor = true;
@@ -126,9 +133,10 @@ namespace Nile.Windows
             // 
             this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._btnCancel.CausesValidation = false;
-            this._btnCancel.Location = new System.Drawing.Point(251, 192);
+            this._btnCancel.Location = new System.Drawing.Point(335, 236);
+            this._btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this._btnCancel.Name = "_btnCancel";
-            this._btnCancel.Size = new System.Drawing.Size(75, 23);
+            this._btnCancel.Size = new System.Drawing.Size(100, 28);
             this._btnCancel.TabIndex = 5;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = true;
@@ -141,10 +149,10 @@ namespace Nile.Windows
             // 
             // ProductDetailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(335, 235);
+            this.ClientSize = new System.Drawing.Size(447, 289);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnSave);
             this.Controls.Add(this._chkDiscontinued);
@@ -154,9 +162,10 @@ namespace Nile.Windows
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(351, 234);
+            this.MinimumSize = new System.Drawing.Size(462, 277);
             this.Name = "ProductDetailForm";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

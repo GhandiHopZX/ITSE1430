@@ -80,7 +80,7 @@ namespace Nile.Windows
             // 
             this._miFileExit.Name = "_miFileExit";
             this._miFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this._miFileExit.Size = new System.Drawing.Size(161, 26);
+            this._miFileExit.Size = new System.Drawing.Size(216, 26);
             this._miFileExit.Text = "E&xit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -99,27 +99,27 @@ namespace Nile.Windows
             // 
             this._miProductAdd.Name = "_miProductAdd";
             this._miProductAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this._miProductAdd.Size = new System.Drawing.Size(160, 26);
+            this._miProductAdd.Size = new System.Drawing.Size(216, 26);
             this._miProductAdd.Text = "&Add";
             this._miProductAdd.Click += new System.EventHandler(this.OnProductAdd);
             // 
             // _miProductEdit
             // 
             this._miProductEdit.Name = "_miProductEdit";
-            this._miProductEdit.Size = new System.Drawing.Size(160, 26);
+            this._miProductEdit.Size = new System.Drawing.Size(216, 26);
             this._miProductEdit.Text = "&Edit";
             this._miProductEdit.Click += new System.EventHandler(this.OnProductEdit);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
             // 
             // _miProductDelete
             // 
             this._miProductDelete.Name = "_miProductDelete";
             this._miProductDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this._miProductDelete.Size = new System.Drawing.Size(160, 26);
+            this._miProductDelete.Size = new System.Drawing.Size(216, 26);
             this._miProductDelete.Text = "&Delete";
             this._miProductDelete.Click += new System.EventHandler(this.OnProductDelete);
             // 
@@ -134,7 +134,7 @@ namespace Nile.Windows
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
